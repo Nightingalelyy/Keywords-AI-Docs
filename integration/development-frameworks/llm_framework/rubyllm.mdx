@@ -1,0 +1,112 @@
+---
+title: RubyLLM
+description: "Use RubyLLM with Keywords AI gateway for logging, analytics, and access to 250+ models."
+---
+
+<Note> This integration is for the **Keywords AI gateway**. </Note>
+
+## Overview
+
+[RubyLLM](https://rubyllm.com/) is a delightful Ruby gem that provides a unified interface for interacting with AI models from OpenAI, Anthropic, Google, and more.
+
+By pointing RubyLLM's OpenAI-compatible endpoint to Keywords AI, you get automatic logging, analytics, fallbacks, and access to 250+ models through a single API key.
+
+## Quickstart
+
+### Step 1: Get a Keywords AI API key
+
+Create an API key in the [Keywords AI dashboard](https://platform.keywordsai.co/platform/api/api-keys).
+
+<Frame className="rounded-md">
+<img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/documentation/admin/kai_create_api_key_v0.png" alt="Create a Keywords AI API key" />
+</Frame>
+
+### Step 2: Install RubyLLM
+
+Add to your Gemfile:
+
+```bash
+gem 'ruby_llm'
+```
+
+Then run:
+
+```bash
+bundle install
+```
+
+### Step 3: Configure RubyLLM
+
+Point RubyLLM to the Keywords AI gateway by setting the `openai_api_base` and `openai_api_key`:
+
+```ruby {3-4}
+RubyLLM.configure do |config|
+  config.openai_api_base = "https://api.keywordsai.co/api/"
+  config.openai_api_key = ENV['KEYWORDS_AI_API_KEY']
+end
+```
+
+### Step 4: Make Your First Request
+
+```ruby
+chat = RubyLLM.chat(model: 'gpt-4o-mini')
+response = chat.ask("Hello, world!")
+puts response.content
+```
+
+### Step 5: See your log on [platform](https://platform.keywordsai.co/platform/requests?sort_by=-timestamp)
+
+## Switch models
+
+Since all requests go through the Keywords AI gateway, you can use any of the 250+ supported models by changing the model name:
+
+```ruby {2-4}
+# OpenAI
+chat = RubyLLM.chat(model: 'gpt-4o')
+# Anthropic
+# chat = RubyLLM.chat(model: 'claude-3-5-sonnet-20241022')
+# Google
+# chat = RubyLLM.chat(model: 'gemini-1.5-pro')
+
+response = chat.ask("Your message")
+```
+
+<Note>
+See the [full model list](https://platform.keywordsai.co/platform/models) for all available models.
+</Note>
+
+## Streaming
+
+```ruby
+chat = RubyLLM.chat(model: 'gpt-4o-mini')
+chat.ask("Tell me a story") do |chunk|
+  print chunk.content
+end
+```
+
+## Rails integration
+
+For Rails applications, configure RubyLLM in an initializer:
+
+```ruby
+# config/initializers/ruby_llm.rb
+RubyLLM.configure do |config|
+  config.openai_api_base = "https://api.keywordsai.co/api/"
+  config.openai_api_key = ENV['KEYWORDS_AI_API_KEY']
+end
+```
+
+<Card title="View your analytics" href="https://platform.keywordsai.co/platform/dashboard">
+  Access your Keywords AI dashboard to see detailed analytics
+</Card>
+
+## Next Steps
+
+<CardGroup cols={2}>
+<Card title="Advanced settings" href="/documentation/products/users/customer-identifier">
+  Track user behavior and patterns
+</Card>
+<Card title="Prompt Management" href="/documentation/products/prompt_management/quickstart">
+  Manage and version your prompts
+</Card>
+</CardGroup>
