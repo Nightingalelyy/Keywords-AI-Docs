@@ -1,6 +1,6 @@
 ---
 title: List log scores
-api: GET https://api.keywordsai.co/api/logs/{log_id}/scores/
+api: GET https://api.respan.ai/api/logs/{log_id}/scores/
 ---
 
 Retrieves all scores associated with a specific log.
@@ -9,8 +9,8 @@ Retrieves all scores associated with a specific log.
 ```Python Python
 import requests
 
-url = "https://api.keywordsai.co/api/logs/{log_id}/scores/"
-api_key = "YOUR_KEY" # Replace with your actual Keywords AI API key
+url = "https://api.respan.ai/api/logs/{log_id}/scores/"
+api_key = "YOUR_KEY" # Replace with your actual Respan API key
 headers = {
     "Authorization": f"Bearer {api_key}",
     "Content-Type": "application/json"

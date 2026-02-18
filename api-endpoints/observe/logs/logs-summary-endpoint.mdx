@@ -1,6 +1,6 @@
 ---
 title: Get logs summary
-api: POST https://api.keywordsai.co/api/request-logs/summary/
+api: POST https://api.respan.ai/api/request-logs/summary/
 ---
 
 The Logs Summary endpoint returns aggregated statistics for logs matching the given filters. This is useful for getting quick insights into your LLM usage without fetching all individual logs.
@@ -150,7 +150,7 @@ All fields are returned at the top level (consistent with experiments API format
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/request-logs/summary/"
+url = "https://api.respan.ai/api/request-logs/summary/"
 headers = {
     "Authorization": f"Bearer {YOUR_KEYWORDS_AI_API_KEY}",
     "Content-Type": "application/json"
@@ -173,7 +173,7 @@ print(response.json())
 ```
 
 ```typescript TypeScript
-const url = 'https://api.keywordsai.co/api/request-logs/summary/';
+const url = 'https://api.respan.ai/api/request-logs/summary/';
 
 const params = new URLSearchParams({
     start_time: '2025-12-01T00:00:00Z',
@@ -204,7 +204,7 @@ fetch(`${url}?${params}`, {
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/request-logs/summary/?start_time=2025-12-01T00:00:00Z&end_time=2025-12-31T23:59:59Z" \
+curl -X POST "https://api.respan.ai/api/request-logs/summary/?start_time=2025-12-01T00:00:00Z&end_time=2025-12-31T23:59:59Z" \
 -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -219,7 +219,7 @@ curl -X POST "https://api.keywordsai.co/api/request-logs/summary/?start_time=202
 
 ```bash cURL (GET with URL filters)
 # Quick summary with URL filters
-curl -X GET "https://api.keywordsai.co/api/request-logs/summary/?customer_identifier=user_123&start_time=2025-12-01T00:00:00Z" \
+curl -X GET "https://api.respan.ai/api/request-logs/summary/?customer_identifier=user_123&start_time=2025-12-01T00:00:00Z" \
 -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY"
 ```
 
@@ -267,7 +267,7 @@ curl -X GET "https://api.keywordsai.co/api/request-logs/summary/?customer_identi
     start_of_month = datetime.now().replace(day=1, hour=0, minute=0, second=0).isoformat() + "Z"
     
     response = requests.get(
-        "https://api.keywordsai.co/api/request-logs/summary/",
+        "https://api.respan.ai/api/request-logs/summary/",
         headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
         params={
             "start_time": start_of_month,
@@ -293,7 +293,7 @@ curl -X GET "https://api.keywordsai.co/api/request-logs/summary/?customer_identi
     
     for model in models:
         response = requests.post(
-            "https://api.keywordsai.co/api/request-logs/summary/",
+            "https://api.respan.ai/api/request-logs/summary/",
             headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
             json={
                 "filters": {
@@ -313,7 +313,7 @@ curl -X GET "https://api.keywordsai.co/api/request-logs/summary/?customer_identi
     ```python
     # Get summary for a specific customer
     response = requests.get(
-        "https://api.keywordsai.co/api/request-logs/summary/",
+        "https://api.respan.ai/api/request-logs/summary/",
         headers={"Authorization": f"Bearer {YOUR_API_KEY}"},
         params={
             "customer_identifier": "customer_123",

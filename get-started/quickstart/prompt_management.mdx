@@ -48,9 +48,9 @@ response = client.chat.completions.create(
 
 ## Use prompt management
 
-### 1. Get your Keywords AI API key
+### 1. Get your Respan API key
 
-After you create an account on [Keywords AI](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
+After you create an account on [Respan](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
 
 <Frame className="rounded-md">
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/get-started/api-keys.png" alt="Create API key placeholder" />
@@ -116,7 +116,7 @@ You can click on the `Commit` button and write a commit message, which is helpfu
 
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/get-started/prompt-commit.png" alt="Create prompt placeholder" />
 
-Congrats! You just created your first prompt on Keywords AI platform.
+Congrats! You just created your first prompt on Respan platform.
 
 </Step>
 <Step title="Deploy to production">
@@ -148,7 +148,7 @@ After creating your prompt, you'll need its ID to use it in code. Find the Promp
 
 ### 5. Use your prompt in code
 
-Now you can call your prompt from your application using the Keywords AI API.
+Now you can call your prompt from your application using the Respan API.
 
 <Tabs>
 <Tab title="OpenAI Python SDK">
@@ -156,8 +156,8 @@ Now you can call your prompt from your application using the Keywords AI API.
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.chat.completions.create(
@@ -184,8 +184,8 @@ print(response.choices[0].message.content)
 import { OpenAI } from "openai";
 
 const client = new OpenAI({
-    baseURL: "https://api.keywordsai.co/api",
-    apiKey: "YOUR_KEYWORDSAI_API_KEY",
+    baseURL: "https://api.respan.ai/api",
+    apiKey: "YOUR_RESPAN_API_KEY",
 });
 
 const response = await client.chat.completions.create({
@@ -210,7 +210,7 @@ console.log(response.choices[0].message.content);
 ```python
 import requests
 
-def call_prompt(api_key="YOUR_KEYWORDSAI_API_KEY"):
+def call_prompt(api_key="YOUR_RESPAN_API_KEY"):
     headers = {
         'Content-Type': 'application/json',
         'Authorization': f'Bearer {api_key}',
@@ -227,7 +227,7 @@ def call_prompt(api_key="YOUR_KEYWORDSAI_API_KEY"):
     }
 
     response = requests.post(
-        'https://api.keywordsai.co/api/chat/completions',
+        'https://api.respan.ai/api/chat/completions',
         headers=headers,
         json=data
     )

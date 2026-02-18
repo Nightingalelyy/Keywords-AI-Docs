@@ -1,12 +1,12 @@
 ---
 title: LlamaIndex SDK
-description: "Use LlamaIndex through Keywords AI"
+description: "Use LlamaIndex through Respan"
 ---
-<Note> This integration is for the **Keywords AI gateway**. </Note>
+<Note> This integration is for the **Respan gateway**. </Note>
 
 ## Overview
 
-LlamaIndex provides a powerful framework for building LLM applications with data. You can seamlessly integrate Keywords AI with LlamaIndex's `OpenAI` LLM with minimal code changes.
+LlamaIndex provides a powerful framework for building LLM applications with data. You can seamlessly integrate Respan with LlamaIndex's `OpenAI` LLM with minimal code changes.
 
 ## Quickstart
 
@@ -18,15 +18,15 @@ pip install llama-index-llms-openai
 ```
 </CodeGroup>
 
-### Step 2: Initialize LlamaIndex with Keywords AI
+### Step 2: Initialize LlamaIndex with Respan
 
 <CodeGroup>
 ```python Python
 from llama_index.llms.openai import OpenAI
 
 llm = OpenAI(
-    api_base="https://api.keywordsai.co/api/",
-    api_key="<Your Keywords AI API Key>",
+    api_base="https://api.respan.ai/api/",
+    api_key="<Your Respan API Key>",
     model="gpt-3.5-turbo"
 )
 ```
@@ -51,8 +51,8 @@ model = "gpt-4o"
 # model = "gemini-1.5-pro"
 
 llm = OpenAI(
-    api_base="https://api.keywordsai.co/api/",
-    api_key="<Your Keywords AI API Key>",
+    api_base="https://api.respan.ai/api/",
+    api_key="<Your Respan API Key>",
     model=model
 )
 ```
@@ -71,8 +71,8 @@ We support all the [OpenAI parameters](/api-endpoints/develop/gateway/chat-compl
 <CodeGroup>
 ```python Python
 llm = OpenAI(
-    api_base="https://api.keywordsai.co/api/",
-    api_key="<Your Keywords AI API Key>",
+    api_base="https://api.respan.ai/api/",
+    api_key="<Your Respan API Key>",
     model="gpt-4o-mini",
     temperature=0.7,          # Control randomness
     max_tokens=1000,          # Limit response length
@@ -80,9 +80,9 @@ llm = OpenAI(
 ```
 </CodeGroup>
 
-### Keywords AI Parameters
+### Respan Parameters
 
-[Keywords AI parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters) can be passed using `extra_body` for better handling and customization.
+[Respan parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters) can be passed using `extra_body` for better handling and customization.
 
 <CodeGroup>
 ```python Python
@@ -100,7 +100,7 @@ response = llm.complete(
 </CodeGroup>
 
 <Card title="View your analytics" href="https://platform.keywordsai.co/platform/dashboard">
-  Access your Keywords AI dashboard to see detailed analytics
+  Access your Respan dashboard to see detailed analytics
 </Card>
 
 ## Next Steps

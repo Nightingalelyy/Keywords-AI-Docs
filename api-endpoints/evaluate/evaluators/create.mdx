@@ -1,6 +1,6 @@
 ---
 title: "Create evaluator"
-api: "POST https://api.keywordsai.co/api/evaluators/"
+api: "POST https://api.respan.ai/api/evaluators/"
 ---
 
 Creates a new evaluator for your organization. You must specify `type` and `score_value_type`. The `eval_class` field is optional and only used for pre-built templates.
@@ -203,7 +203,7 @@ The legacy `configurations` format remains fully functional for backward compati
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/evaluators/"
+url = "https://api.respan.ai/api/evaluators/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -243,7 +243,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -296,7 +296,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -333,7 +333,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -373,7 +373,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -403,7 +403,7 @@ curl -X POST "https://api.keywordsai.co/api/evaluators/" \
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/evaluators/"
+url = "https://api.respan.ai/api/evaluators/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -434,7 +434,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -481,7 +481,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -523,7 +523,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -563,7 +563,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -608,7 +608,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/" \
+curl -X POST "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -656,12 +656,12 @@ curl -X POST "https://api.keywordsai.co/api/evaluators/" \
     "passing_score": 3.0
   },
   "created_by": {
-    "first_name": "Keywords AI",
+    "first_name": "Respan",
     "last_name": "Team",
     "email": "admin@keywordsai.co"
   },
   "updated_by": {
-    "first_name": "Keywords AI",
+    "first_name": "Respan",
     "last_name": "Team",
     "email": "admin@keywordsai.co"
   },
@@ -681,7 +681,7 @@ curl -X POST "https://api.keywordsai.co/api/evaluators/" \
 ```json
 {
   "configurations": [
-    "Configuration validation failed: 1 validation error for KeywordsAICustomLLMEvaluatorType\nscoring_rubric\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]"
+    "Configuration validation failed: 1 validation error for RespanCustomLLMEvaluatorType\nscoring_rubric\n  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]"
   ]
 }
 ```

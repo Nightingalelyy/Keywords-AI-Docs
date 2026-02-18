@@ -1,25 +1,25 @@
 ---
 title: "Claude Code"
-description: "Trace your Claude Code (Anthropic CLI) conversations with Keywords AI for full observability into thinking, tool calls, and agent workflows."
+description: "Trace your Claude Code (Anthropic CLI) conversations with Respan for full observability into thinking, tool calls, and agent workflows."
 ---
 
 <Frame className="rounded-md">
 <img width="100%" src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/Integrations/claude_code/claude_code.png" alt="Claude Code agent tracing visualization" />
 </Frame>
 
-[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's agentic coding tool that lives in your terminal. With Keywords AI integration, you get hierarchical traces of every conversation including thinking blocks, tool calls, and token usage.
+[Claude Code](https://docs.anthropic.com/en/docs/claude-code) is Anthropic's agentic coding tool that lives in your terminal. With Respan integration, you get hierarchical traces of every conversation including thinking blocks, tool calls, and token usage.
 
 ## How It Works
 
-Claude Code stores conversation transcripts as JSONL files. Our integration uses the `Stop` hook to parse these transcripts and send structured traces to Keywords AI.
+Claude Code stores conversation transcripts as JSONL files. Our integration uses the `Stop` hook to parse these transcripts and send structured traces to Respan.
 
 ```mermaid
 sequenceDiagram
     participant User
     participant Claude as Claude Code
     participant Transcript as JSONL Transcript
-    participant Hook as Keywords AI Hook
-    participant API as Keywords AI API
+    participant Hook as Respan Hook
+    participant API as Respan API
 
     User->>Claude: Submit prompt
     Claude->>Transcript: Log messages (thinking, tools, response)
@@ -36,7 +36,7 @@ For details on trace structure and span types, see the [Observability Data Model
 ## Prerequisites
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed (`npm install -g @anthropic-ai/claude-code`)
-- [Keywords AI API key](https://platform.keywordsai.co)
+- [Respan API key](https://platform.keywordsai.co)
 - Python 3.8+ with `requests` library
 
 ## Installation
@@ -47,25 +47,25 @@ Add these to your shell profile (`.bashrc`, `.zshrc`, or PowerShell `$PROFILE`):
 
 <CodeGroup>
 ```bash Bash/Zsh
-export KEYWORDSAI_API_KEY="your-api-key"
-export TRACE_TO_KEYWORDSAI="true"
+export RESPAN_API_KEY="your-api-key"
+export TRACE_TO_RESPAN="true"
 
-# Optional: Enterprise endpoint (default: api.keywordsai.co)
-# export KEYWORDSAI_BASE_URL="https://endpoint.keywordsai.co/api"
+# Optional: Enterprise endpoint (default: api.respan.ai)
+# export RESPAN_BASE_URL="https://endpoint.respan.ai/api"
 
 # Optional: Enable debug logging
-# export CC_KEYWORDSAI_DEBUG="true"
+# export CC_RESPAN_DEBUG="true"
 ```
 
 ```powershell PowerShell
-$env:KEYWORDSAI_API_KEY = "your-api-key"
-$env:TRACE_TO_KEYWORDSAI = "true"
+$env:RESPAN_API_KEY = "your-api-key"
+$env:TRACE_TO_RESPAN = "true"
 
-# Optional: Enterprise endpoint (default: api.keywordsai.co)
-# $env:KEYWORDSAI_BASE_URL = "https://endpoint.keywordsai.co/api"
+# Optional: Enterprise endpoint (default: api.respan.ai)
+# $env:RESPAN_BASE_URL = "https://endpoint.respan.ai/api"
 
 # Optional: Enable debug logging
-# $env:CC_KEYWORDSAI_DEBUG = "true"
+# $env:CC_RESPAN_DEBUG = "true"
 ```
 </CodeGroup>
 
@@ -218,14 +218,14 @@ Delete this file to reprocess all turns.
 
 | Issue | Solution |
 |-------|----------|
-| No traces appearing | Check `TRACE_TO_KEYWORDSAI=true` is set |
-| API errors | Verify `KEYWORDSAI_API_KEY` is correct |
+| No traces appearing | Check `TRACE_TO_RESPAN=true` is set |
+| API errors | Verify `RESPAN_API_KEY` is correct |
 | Missing thinking | Ensure extended thinking is enabled in Claude Code |
 | Duplicate traces | Clear state file to reset |
 
 ## Example Output
 
-After setup, you'll see traces in Keywords AI with full hierarchy:
+After setup, you'll see traces in Respan with full hierarchy:
 
 ```
 claudecode_abc123_turn_1 (2.5s)
@@ -253,4 +253,4 @@ The full source code is available on GitHub: [Keywords-AI/keywordsai-example-pro
 ## References
 
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
-- [Keywords AI Traces Ingest API](/api-endpoints/observe/traces/traces-ingest-from-logs)
+- [Respan Traces Ingest API](/api-endpoints/observe/traces/traces-ingest-from-logs)

@@ -1,6 +1,6 @@
 ---
 title: "Examples"
-description: "Comprehensive examples for using the Keywords AI Python SDK"
+description: "Comprehensive examples for using the Respan Python SDK"
 ---
 
 ## Complete Workflow Example
@@ -8,11 +8,11 @@ description: "Comprehensive examples for using the Keywords AI Python SDK"
 This example demonstrates a complete workflow using logs, datasets, prompts, and evaluations:
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 import asyncio
 
 # Initialize the client
-client = KeywordsAI(api_key="your-api-key-here")
+client = Respan(api_key="your-api-key-here")
 
 async def complete_workflow():
     # 1. Create some logs
@@ -89,9 +89,9 @@ asyncio.run(complete_workflow())
 ### Synchronous Example
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key-here")
+client = Respan(api_key="your-api-key-here")
 
 # Synchronous operations
 log = client.logs.create(
@@ -106,10 +106,10 @@ specific_log = client.logs.get(log_id=log.id)
 ### Asynchronous Example
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 import asyncio
 
-client = KeywordsAI(api_key="your-api-key-here")
+client = Respan(api_key="your-api-key-here")
 
 async def async_operations():
     # Asynchronous operations
@@ -130,9 +130,9 @@ results = asyncio.run(async_operations())
 ## Dataset Management Example
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key-here")
+client = Respan(api_key="your-api-key-here")
 
 # Create a dataset
 dataset = client.datasets.create(
@@ -177,9 +177,9 @@ updated_dataset = client.datasets.update(
 ## Prompt Version Management
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key-here")
+client = Respan(api_key="your-api-key-here")
 
 # Create a base prompt
 prompt = client.prompts.create(
@@ -223,9 +223,9 @@ specific_version = client.prompts.get_version(
 ## Experiment Management
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key-here")
+client = Respan(api_key="your-api-key-here")
 
 # Create an experiment
 experiment = client.experiments.create(
@@ -266,10 +266,10 @@ print(f"Experiment completed with result ID: {result.id}")
 ## Error Handling
 
 ```python
-from keywordsai import KeywordsAI
-from keywordsai.exceptions import KeywordsAIError, AuthenticationError, RateLimitError
+from keywordsai import Respan
+from keywordsai.exceptions import RespanError, AuthenticationError, RateLimitError
 
-client = KeywordsAI(api_key="your-api-key-here")
+client = Respan(api_key="your-api-key-here")
 
 try:
     log = client.logs.create(
@@ -280,7 +280,7 @@ except AuthenticationError:
     print("Invalid API key")
 except RateLimitError:
     print("Rate limit exceeded")
-except KeywordsAIError as e:
+except RespanError as e:
     print(f"API error: {e}")
 except Exception as e:
     print(f"Unexpected error: {e}")

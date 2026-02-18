@@ -1,6 +1,6 @@
 ---
 title: "Create testset rows"
-api: "POST https://api.keywordsai.co/api/testsets/{testset_id}/rows"
+api: "POST https://api.respan.ai/api/testsets/{testset_id}/rows"
 ---
 
 Add rows to a testset.
@@ -42,7 +42,7 @@ Add rows to a testset.
 import requests
 
 testset_id = "testset_id_123"
-url = f"https://api.keywordsai.co/api/testsets/{testset_id}/rows"
+url = f"https://api.respan.ai/api/testsets/{testset_id}/rows"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -66,7 +66,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/testsets/{testset_id}/rows" \
+curl -X POST "https://api.respan.ai/api/testsets/{testset_id}/rows" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '[

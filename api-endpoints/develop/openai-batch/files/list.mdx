@@ -1,12 +1,12 @@
 ---
 title: List files
-api: GET https://api.keywordsai.co/api/files/
+api: GET https://api.respan.ai/api/files/
 ---
 
-Retrieve a list of all files uploaded to your OpenAI account through Keywords AI. This is useful for checking existing files before uploading new ones or for cleanup purposes.
+Retrieve a list of all files uploaded to your OpenAI account through Respan. This is useful for checking existing files before uploading new ones or for cleanup purposes.
 
 <Note>
-**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Keywords AI dashboard (Settings → Providers).
+**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Respan dashboard (Settings → Providers).
 </Note>
 
 ## Response
@@ -49,7 +49,7 @@ Returns a list object containing file metadata for all uploaded files.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/files/"
+url = "https://api.respan.ai/api/files/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -59,7 +59,7 @@ print(response.json())
 ```
 
 ```typescript TypeScript
-const url = 'https://api.keywordsai.co/api/files/';
+const url = 'https://api.respan.ai/api/files/';
 const headers = {
     'Authorization': 'Bearer YOUR_API_KEY'
 };
@@ -74,7 +74,7 @@ console.log(data);
 ```
 
 ```bash cURL
-curl https://api.keywordsai.co/api/files/ \
+curl https://api.respan.ai/api/files/ \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 </RequestExample>

@@ -1,11 +1,11 @@
 ---
 title: "Google Vertex AI"
-description: "Use your own Vertex AI credits through Keywords AI"
+description: "Use your own Vertex AI credits through Respan"
 ---
 
 <CardGroup cols={1}>
   <Card title="Get Google Vertex AI credentials" icon="key" href="https://console.cloud.google.com/apis/credentials">
-    Get your Google Vertex AI credentials from the Google Cloud Console to start using Vertex AI models through Keywords AI.
+    Get your Google Vertex AI credentials from the Google Cloud Console to start using Vertex AI models through Respan.
   </Card>
 </CardGroup>
 
@@ -132,8 +132,8 @@ with open("./credentials/google/application_default_credentials.json", "r") as f
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.chat.completions.create(
@@ -172,7 +172,7 @@ def demo_call(input,
         }
     }
 
-    response = requests.post('https://api.keywordsai.co/api/chat/completions', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/chat/completions', headers=headers, json=data)
     return response
 
 messages = "Say 'Hello World'"

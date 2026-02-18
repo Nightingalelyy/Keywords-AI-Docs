@@ -1,6 +1,6 @@
 ---
 title: "List customers with filters"
-api: "POST https://api.keywordsai.co/api/users/list/"
+api: "POST https://api.respan.ai/api/users/list/"
 ---
 
 List customers with advanced filtering. Use POST when you need complex filters.
@@ -19,7 +19,7 @@ The Users List endpoint allows you to list customers with advanced filtering usi
 You can add these params to the **URL params**.
 For example:
 ```
-https://api.keywordsai.co/api/users/list/?page=1&page_size=50&sort_by=-first_seen&environment=prod
+https://api.respan.ai/api/users/list/?page=1&page_size=50&sort_by=-first_seen&environment=prod
 ```
 
 <ParamField query="page" type="number" default={1}>
@@ -42,7 +42,7 @@ https://api.keywordsai.co/api/users/list/?page=1&page_size=50&sort_by=-first_see
 You can add these params to the **body**:
 
 ```python
-url = "https://api.keywordsai.co/api/users/list/"
+url = "https://api.respan.ai/api/users/list/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
 }
@@ -68,7 +68,7 @@ response = requests.post(url, headers=headers, json=data)
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/users/list/"
+url = "https://api.respan.ai/api/users/list/"
 headers = {"Authorization": "Bearer YOUR_API_KEY", "Content-Type": "application/json"}
 payload = {
     "filters": {
@@ -81,7 +81,7 @@ print(resp.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/users/list/" \
+curl -X POST "https://api.respan.ai/api/users/list/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -101,7 +101,7 @@ curl -X POST "https://api.keywordsai.co/api/users/list/" \
 ```json
 {
   "count": 51,
-  "next": "https://api.keywordsai.co/api/users/list/?page=2",
+  "next": "https://api.respan.ai/api/users/list/?page=2",
   "previous": null,
   "results": [
     {

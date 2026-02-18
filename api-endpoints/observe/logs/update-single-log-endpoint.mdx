@@ -1,6 +1,6 @@
 ---
 title: Update single log
-api: PATCH https://api.keywordsai.co/api/request-logs/{unique_id}/
+api: PATCH https://api.respan.ai/api/request-logs/{unique_id}/
 ---
 
 The Update Log endpoint allows you to modify specific fields of a single log. This is useful for adding annotations, updating metadata, or correcting information.
@@ -80,7 +80,7 @@ Returns the complete updated log object (same structure as the [Get Log endpoint
 import requests
 
 unique_id = "log_abc123..."  # Replace with actual log ID
-url = f"https://api.keywordsai.co/api/request-logs/{unique_id}/"
+url = f"https://api.respan.ai/api/request-logs/{unique_id}/"
 
 headers = {
     "Authorization": f"Bearer {YOUR_KEYWORDS_AI_API_KEY}",
@@ -101,7 +101,7 @@ print(response.json())
 
 ```typescript TypeScript
 const uniqueId = 'log_abc123...';  // Replace with actual log ID
-const url = `https://api.keywordsai.co/api/request-logs/${uniqueId}/`;
+const url = `https://api.respan.ai/api/request-logs/${uniqueId}/`;
 
 const headers = {
     'Authorization': `Bearer ${YOUR_KEYWORDS_AI_API_KEY}`,
@@ -126,7 +126,7 @@ fetch(url, {
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/request-logs/log_abc123.../" \
+curl -X PATCH "https://api.respan.ai/api/request-logs/log_abc123.../" \
 -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -176,7 +176,7 @@ curl -X PATCH "https://api.keywordsai.co/api/request-logs/log_abc123.../" \
     import requests
     
     def add_feedback(log_id, is_positive, api_key):
-        url = f"https://api.keywordsai.co/api/request-logs/{log_id}/"
+        url = f"https://api.respan.ai/api/request-logs/{log_id}/"
         
         response = requests.patch(
             url,
@@ -201,7 +201,7 @@ curl -X PATCH "https://api.keywordsai.co/api/request-logs/log_abc123.../" \
     import requests
     
     def link_to_ticket(log_id, ticket_id, ticket_status, api_key):
-        url = f"https://api.keywordsai.co/api/request-logs/{log_id}/"
+        url = f"https://api.respan.ai/api/request-logs/{log_id}/"
         
         response = requests.patch(
             url,
@@ -227,7 +227,7 @@ curl -X PATCH "https://api.keywordsai.co/api/request-logs/log_abc123.../" \
     import requests
     
     def mark_for_review(log_id, reason, priority, api_key):
-        url = f"https://api.keywordsai.co/api/request-logs/{log_id}/"
+        url = f"https://api.respan.ai/api/request-logs/{log_id}/"
         
         response = requests.patch(
             url,
@@ -259,7 +259,7 @@ curl -X PATCH "https://api.keywordsai.co/api/request-logs/log_abc123.../" \
     import requests
     
     def blur_log(log_id, reason, api_key):
-        url = f"https://api.keywordsai.co/api/request-logs/{log_id}/"
+        url = f"https://api.respan.ai/api/request-logs/{log_id}/"
         
         response = requests.patch(
             url,
@@ -285,7 +285,7 @@ curl -X PATCH "https://api.keywordsai.co/api/request-logs/log_abc123.../" \
     import requests
     
     def tag_experiment(log_id, experiment_name, variant, api_key):
-        url = f"https://api.keywordsai.co/api/request-logs/{log_id}/"
+        url = f"https://api.respan.ai/api/request-logs/{log_id}/"
         
         response = requests.patch(
             url,

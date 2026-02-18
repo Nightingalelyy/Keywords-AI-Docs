@@ -36,9 +36,9 @@ async def aupdate_version(
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Update a version
 version = client.prompts.update_version(
@@ -70,10 +70,10 @@ print(f"Messages updated for version: {version.version}")
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def update_version():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     version = await client.prompts.aupdate_version(
         prompt_id="prompt_123",

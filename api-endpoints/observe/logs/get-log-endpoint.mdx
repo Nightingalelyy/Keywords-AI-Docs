@@ -1,6 +1,6 @@
 ---
 title: Retrieve log
-api: GET https://api.keywordsai.co/api/request-logs/{unique_id}
+api: GET https://api.respan.ai/api/request-logs/{unique_id}
 ---
 
 The Get Log endpoint allows you to retrieve complete information about a specific log by its unique ID, including:
@@ -35,11 +35,11 @@ You should first get the log list, and based on the unique_id in the list, retri
 
 ## Credit and Budget Information
 
-Every log includes credit and budget check information in the `keywordsai_params.limit_info` field (available in the detail endpoint only).
+Every log includes credit and budget check information in the `respan_params.limit_info` field (available in the detail endpoint only).
 
 ### What is `limit_info`?
 
-When you make an LLM request, Keywords AI checks:
+When you make an LLM request, Respan checks:
 1. **Organization Credits**: Your organization's remaining credit balance
 2. **Customer Budgets**: Per-customer spending limits (if configured)
 
@@ -135,7 +135,7 @@ The `limit_info` object shows the results of these checks.
 ```python
 import requests
 
-url = "https://api.keywordsai.co/api/request-logs/{{unique_id}}/"
+url = "https://api.respan.ai/api/request-logs/{{unique_id}}/"
 
 payload = ""
 headers = {

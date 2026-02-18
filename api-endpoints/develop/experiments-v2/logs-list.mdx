@@ -1,6 +1,6 @@
 ---
 title: "List experiment logs"
-api: "GET https://api.keywordsai.co/api/v2/experiments/{experiment_id}/logs/list/"
+api: "GET https://api.respan.ai/api/v2/experiments/{experiment_id}/logs/list/"
 ---
 
 List all logs for an experiment using the V2 API.
@@ -23,7 +23,7 @@ List all logs for an experiment using the V2 API.
 import requests
 
 experiment_id = "experiment_id_123"
-url = f"https://api.keywordsai.co/api/v2/experiments/{experiment_id}/logs/list/"
+url = f"https://api.respan.ai/api/v2/experiments/{experiment_id}/logs/list/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -33,7 +33,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X GET "https://api.keywordsai.co/api/v2/experiments/{experiment_id}/logs/list/" \
+curl -X GET "https://api.respan.ai/api/v2/experiments/{experiment_id}/logs/list/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

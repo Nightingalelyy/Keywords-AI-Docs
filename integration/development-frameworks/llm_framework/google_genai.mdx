@@ -1,14 +1,14 @@
 ---
 title: Google Gen AI SDK
-description: "Use Google Gen AI SDK with Keywords AI"
+description: "Use Google Gen AI SDK with Respan"
 ---
 
 ## What is Google Gen AI SDK?
 
-Keywords AI is compatible with the official Google Gen AI SDK, enabling you to use Google's Gemini models through our gateway with full observability, monitoring, and advanced features.
+Respan is compatible with the official Google Gen AI SDK, enabling you to use Google's Gemini models through our gateway with full observability, monitoring, and advanced features.
 
 <Note>
-This integration is for the **Keywords AI gateway**.
+This integration is for the **Respan gateway**.
 </Note>
 
 ## Resources
@@ -30,22 +30,22 @@ pip install google-GenAI
 </Step>
 
 <Step title="Step 2: Initialize the client">
-Initialize the client with your Keywords AI API key and set the base URL to Keywords AI's endpoint.
+Initialize the client with your Respan API key and set the base URL to Respan's endpoint.
 
 ```python
 from google import GenAI
 import os
 
 client = GenAI.Client(
-    api_key=os.environ.get("KEYWORDSAI_API_KEY"),
+    api_key=os.environ.get("RESPAN_API_KEY"),
     http_options={
-        "base_url": "https://api.keywordsai.co/api/google/gemini",
+        "base_url": "https://api.respan.ai/api/google/gemini",
     }
 )
 ```
 
 <Note>
-The `base_url` can be either `https://api.keywordsai.co/api/google/gemini` or `https://endpoint.keywordsai.co/api/google/gemini`.
+The `base_url` can be either `https://api.respan.ai/api/google/gemini` or `https://endpoint.respan.ai/api/google/gemini`.
 </Note>
 </Step>
 
@@ -103,9 +103,9 @@ from google.GenAI import types
 import os
 
 client = GenAI.Client(
-    api_key=os.environ.get("KEYWORDSAI_API_KEY"),
+    api_key=os.environ.get("RESPAN_API_KEY"),
     http_options={
-        "base_url": "https://api.keywordsai.co/api/google/gemini",
+        "base_url": "https://api.respan.ai/api/google/gemini",
     }
 )
 
@@ -191,21 +191,21 @@ npm install @google/GenAI
 </Step>
 
 <Step title="Step 2: Initialize the client">
-Initialize the client with your Keywords AI API key and set the base URL to Keywords AI's endpoint.
+Initialize the client with your Respan API key and set the base URL to Respan's endpoint.
 
 ```typescript
 import { GoogleGenAI } from "@google/GenAI";
 
 const GenAI = new GoogleGenAI({
-  apiKey: process.env.KEYWORDSAI_API_KEY,
+  apiKey: process.env.RESPAN_API_KEY,
   httpOptions: {
-    baseUrl: "https://api.keywordsai.co/api/google/gemini",
+    baseUrl: "https://api.respan.ai/api/google/gemini",
   },
 });
 ```
 
 <Note>
-The `baseUrl` can be either `https://api.keywordsai.co/api/google/gemini` or `https://endpoint.keywordsai.co/api/google/gemini`.
+The `baseUrl` can be either `https://api.respan.ai/api/google/gemini` or `https://endpoint.respan.ai/api/google/gemini`.
 </Note>
 </Step>
 
@@ -261,9 +261,9 @@ Here's a comprehensive example showcasing various parameters, including system i
 import { GoogleGenAI } from "@google/GenAI";
 
 const GenAI = new GoogleGenAI({
-  apiKey: process.env.KEYWORDSAI_API_KEY,
+  apiKey: process.env.RESPAN_API_KEY,
   httpOptions: {
-    baseUrl: "https://api.keywordsai.co/api/google/gemini",
+    baseUrl: "https://api.respan.ai/api/google/gemini",
   },
 });
 

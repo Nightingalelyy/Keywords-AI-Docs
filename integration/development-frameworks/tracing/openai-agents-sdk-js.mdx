@@ -1,6 +1,6 @@
 ---
 title: "TS/JS"
-description: "Build multi-agent workflows with the OpenAI Agents SDK and Keywords AI."
+description: "Build multi-agent workflows with the OpenAI Agents SDK and Respan."
 ---
 
 <Note>This integration is only for **Agent tracing**. If you are looking for the OpenAI integration with the AI gateway, please see the [OpenAI integration](/integration/development-frameworks/llm_framework/openai/openai-sdk).</Note>
@@ -9,7 +9,7 @@ description: "Build multi-agent workflows with the OpenAI Agents SDK and Keyword
 
 The [OpenAI Agents SDK](https://github.com/openai/openai-agents-js) is a lightweight yet powerful framework for building multi-agent workflows in JavaScript/TypeScript.
 
-<Frame caption="Keywords AI agent tracing with OpenAI Agents SDK.">
+<Frame caption="Respan agent tracing with OpenAI Agents SDK.">
 <img width="100%" className="block dark:hidden" src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/Integrations/agents-sdk-tracing-light.jpg" />
 <img width="100%" className="hidden dark:block" src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/Integrations/agents-sdk-tracing-dark.jpg" />
 </Frame>
@@ -42,8 +42,8 @@ Set up your environment variables in a `.env` file:
 
 ```bash .env
 OPENAI_API_KEY=YOUR_OPENAI_API_KEY
-KEYWORDSAI_API_KEY=YOUR_KEYWORDSAI_API_KEY
-KEYWORDSAI_BASE_URL=https://api.keywordsai.co/api
+RESPAN_API_KEY=YOUR_RESPAN_API_KEY
+RESPAN_BASE_URL=https://api.respan.ai/api
 ```
 
 <Note>If you are on the enterprise platform, please use the enterprise endpoint plus the suffix.</Note>
@@ -52,11 +52,11 @@ KEYWORDSAI_BASE_URL=https://api.keywordsai.co/api
 
 ```typescript helloworld.ts
 import { Agent, BatchTraceProcessor, run, setTraceProcessors, withTrace } from '@openai/agents';
-import { KeywordsAIOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
+import { RespanOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
 
 setTraceProcessors([
   new BatchTraceProcessor(
-    new KeywordsAIOpenAIAgentsTracingExporter(),
+    new RespanOpenAIAgentsTracingExporter(),
   ),
 ]);
 
@@ -87,11 +87,11 @@ Here's a more comprehensive example with multiple agents:
 
 ```typescript full-example.ts
 import { Agent, BatchTraceProcessor, run, setTraceProcessors, withTrace } from '@openai/agents';
-import { KeywordsAIOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
+import { RespanOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
 
 setTraceProcessors([
   new BatchTraceProcessor(
-    new KeywordsAIOpenAIAgentsTracingExporter(),
+    new RespanOpenAIAgentsTracingExporter(),
   ),
 ]);
 
@@ -135,11 +135,11 @@ You can add custom metadata (properties) to your traces for better tracking and 
 
 ```typescript metadata-example.ts
 import { Agent, BatchTraceProcessor, run, setTraceProcessors, withTrace } from '@openai/agents';
-import { KeywordsAIOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
+import { RespanOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
 
 setTraceProcessors([
   new BatchTraceProcessor(
-    new KeywordsAIOpenAIAgentsTracingExporter(),
+    new RespanOpenAIAgentsTracingExporter(),
   ),
 ]);
 
@@ -183,12 +183,12 @@ Agents can use tools to perform specific tasks. Here's an example with a weather
 
 ```typescript function_call.ts
 import { Agent, BatchTraceProcessor, run, setTraceProcessors, tool, withTrace } from '@openai/agents';
-import { KeywordsAIOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
+import { RespanOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
 import { z } from 'zod';
 
 setTraceProcessors([
   new BatchTraceProcessor(
-    new KeywordsAIOpenAIAgentsTracingExporter(),
+    new RespanOpenAIAgentsTracingExporter(),
   ),
 ]);
 
@@ -233,11 +233,11 @@ Agents can hand off conversations to other specialized agents based on context:
 
 ```typescript handoff.ts
 import { Agent, BatchTraceProcessor, run, setTraceProcessors, withTrace } from '@openai/agents';
-import { KeywordsAIOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
+import { RespanOpenAIAgentsTracingExporter } from '@keywordsai/exporter-openai-agents';
 
 setTraceProcessors([
   new BatchTraceProcessor(
-    new KeywordsAIOpenAIAgentsTracingExporter(),
+    new RespanOpenAIAgentsTracingExporter(),
   ),
 ]);
 
@@ -272,7 +272,7 @@ Run the example:
 ```bash
 npx tsx handoff.ts
 ```
-The resulting trace root span will have the custom properties visible in the Keywords AI platform:
+The resulting trace root span will have the custom properties visible in the Respan platform:
 
 <Frame>
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/Integrations/openai-agents-metadata.png" alt="OpenAI Agents SDK metadata support" />

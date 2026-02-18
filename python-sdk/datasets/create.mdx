@@ -69,9 +69,9 @@ Returns a `Dataset` object with the following structure:
 ### Basic Dataset Creation
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Create a simple dataset
 dataset = client.datasets.create(
@@ -142,7 +142,7 @@ print(f"Total datasets created: {len(created_datasets)}")
 import asyncio
 
 async def create_dataset_async():
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     
     dataset = await client.datasets.acreate(
         name="Async Created Dataset",
@@ -163,7 +163,7 @@ dataset = asyncio.run(create_dataset_async())
 import asyncio
 
 async def create_multiple_datasets_async(dataset_configs):
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     
     # Create tasks for all datasets
     tasks = []
@@ -305,7 +305,7 @@ else:
 
 ```python
 from keywordsai.exceptions import (
-    KeywordsAIError,
+    RespanError,
     ValidationError,
     RateLimitError,
     AuthenticationError
@@ -335,7 +335,7 @@ def create_dataset_with_retry(name, description=None, metadata=None, max_retries
             else:
                 print("Rate limit exceeded. Max retries reached.")
                 return None
-        except KeywordsAIError as e:
+        except RespanError as e:
             print(f"API error (attempt {attempt + 1}): {e}")
             if attempt < max_retries - 1:
                 time.sleep(1)

@@ -1,14 +1,14 @@
 ---
 title: "Fireworks AI"
-description: "Route Fireworks AI model calls through Keywords AI Gateway using your own Fireworks credits."
+description: "Route Fireworks AI model calls through Respan Gateway using your own Fireworks credits."
 ---
 
-<Note> This section is for **Keywords AI LLM gateway** users.</Note>
+<Note> This section is for **Respan LLM gateway** users.</Note>
 
-Use Keywords AI Gateway to call **Fireworks AI** models while keeping unified observability (logs, cost, latency, and reliability metrics) in Keywords AI — and optionally charge usage to **your own Fireworks credits**.
+Use Respan Gateway to call **Fireworks AI** models while keeping unified observability (logs, cost, latency, and reliability metrics) in Respan — and optionally charge usage to **your own Fireworks credits**.
 
 ## Prerequisites
-- A **Keywords AI API key**
+- A **Respan API key**
 - A **Fireworks API key** (BYOK credits)
 
 <CardGroup cols={1}>
@@ -45,7 +45,7 @@ There are 2 ways to add your Fireworks credentials to your requests:
   <Step title="Navigate to Providers">
     Go to the [Providers page](https://platform.keywordsai.co/platform/api/providers). This page allows you to manage credentials for over 20+ supported providers.
     <Frame>
-      <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/settings/providers.jpg" alt="Keywords AI Providers Page"/>
+      <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/settings/providers.jpg" alt="Respan Providers Page"/>
     </Frame>
   </Step>
 
@@ -79,12 +79,12 @@ Add the `customer_credentials` parameter to your [Gateway request](/api-endpoint
 
 ## Log Fireworks AI requests
 
-If you are not using the Gateway to proxy requests, you can still log your Fireworks requests to Keywords AI asynchronously. This allows you to track cost, latency, and performance metrics for external calls.
+If you are not using the Gateway to proxy requests, you can still log your Fireworks requests to Respan asynchronously. This allows you to track cost, latency, and performance metrics for external calls.
 
 ```python Fireworks AI Python SDK
 import requests
 
-url = "https://api.keywordsai.co/api/request-logs/create/"
+url = "https://api.respan.ai/api/request-logs/create/"
 payload = {
     "model": "accounts/fireworks/models/llama-v3p1-8b-instruct",
     "prompt_messages": [
@@ -120,8 +120,8 @@ response = requests.post(url, headers=headers, json=payload)
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.chat.completions.create(
@@ -156,7 +156,7 @@ def demo_call(input,
         }
     }
 
-    response = requests.post('https://api.keywordsai.co/api/chat/completions', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/chat/completions', headers=headers, json=data)
     return response
 
 messages = "Say 'Hello World'"

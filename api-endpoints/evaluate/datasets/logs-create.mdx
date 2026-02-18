@@ -1,6 +1,6 @@
 ---
 title: "Create dataset log"
-api: "POST https://api.keywordsai.co/api/datasets/{dataset_id}/logs/"
+api: "POST https://api.respan.ai/api/datasets/{dataset_id}/logs/"
 ---
 
 Create an individual dataset log from unified format data. Datasets record end-to-end input/output of workflows, so both input and output can be arbitrary JSON structures.
@@ -76,7 +76,7 @@ Note: Fields can be provided either at top-level or within metadata/metrics obje
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/datasets/{dataset_id}/logs/"
+url = "https://api.respan.ai/api/datasets/{dataset_id}/logs/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -121,7 +121,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/datasets/{dataset_id}/logs/" \
+curl -X POST "https://api.respan.ai/api/datasets/{dataset_id}/logs/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

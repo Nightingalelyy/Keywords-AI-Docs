@@ -1,6 +1,6 @@
 ---
 title: "Retrieve versions"
-api: "GET https://api.keywordsai.co/api/prompts/<prompt_id>/versions/"
+api: "GET https://api.respan.ai/api/prompts/<prompt_id>/versions/"
 ---
 
 This endpoint allows you to get a list of versions of a prompt.
@@ -11,8 +11,8 @@ This endpoint allows you to get a list of versions of a prompt.
 ```python example.py
 import requests
 
-url = "https://api.keywordsai.co/api/prompts/<prompt_id>/versions/"
-api_key = "YOUR_KEYWORDS_AI_API_KEY" # Replace with your actual Keywords AI API key
+url = "https://api.respan.ai/api/prompts/<prompt_id>/versions/"
+api_key = "YOUR_KEYWORDS_AI_API_KEY" # Replace with your actual Respan API key
 headers = {
     "Authorization": f"Bearer {api_key}",
     "Content-Type": "application/json"
@@ -23,7 +23,7 @@ print(response.json())
 ```
 
 ```typescript example.ts
-fetch('https://api.keywordsai.co/api/prompts/<prompt_id>/versions/', 
+fetch('https://api.respan.ai/api/prompts/<prompt_id>/versions/', 
 {
   method: 'GET',
   headers: {
@@ -44,8 +44,8 @@ You can get a single prompt version by sending a GET request to the `api/prompts
 ```python example.py
 import requests
 
-url = "https://api.keywordsai.co/api/prompts/<prompt_id>/versions/<version>/"
-api_key = "YOUR_KEYWORDS_AI_API_KEY" # Replace with your actual Keywords AI API key
+url = "https://api.respan.ai/api/prompts/<prompt_id>/versions/<version>/"
+api_key = "YOUR_KEYWORDS_AI_API_KEY" # Replace with your actual Respan API key
 headers = {
     "Authorization": f"Bearer {api_key}",
     "Content-Type": "application/json"
@@ -56,7 +56,7 @@ print(response.json())
 ```
 
 ```typescript example.ts
-fetch('https://api.keywordsai.co/api/prompts/<prompt_id>/versions/<prompt_version_id>/', 
+fetch('https://api.respan.ai/api/prompts/<prompt_id>/versions/<prompt_version_id>/', 
 {
   method: 'GET',
   headers: {

@@ -1,6 +1,6 @@
 ---
 title: "Retrieve user"
-api: "GET https://api.keywordsai.co/api/users/<customer_identifier>/"
+api: "GET https://api.respan.ai/api/users/<customer_identifier>/"
 ---
 
 Retrieves detailed information about a specific customer, including current budget usage.
@@ -32,7 +32,7 @@ You can add these params to the **URL params**.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/users/user_123/"
+url = "https://api.respan.ai/api/users/user_123/"
 headers = {"Authorization": "Bearer YOUR_API_KEY"}
 
 resp = requests.get(url, headers=headers)
@@ -40,7 +40,7 @@ print(resp.json())
 ```
 
 ```bash cURL
-curl "https://api.keywordsai.co/api/users/user_123/" \
+curl "https://api.respan.ai/api/users/user_123/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 </RequestExample>

@@ -1,17 +1,17 @@
 ---
 title: List batches
-api: GET https://api.keywordsai.co/api/v1/batches/
+api: GET https://api.respan.ai/api/v1/batches/
 ---
 
 Retrieve a list of all batch jobs for your organization. Use this to monitor the status of multiple batches or find specific batch IDs.
 
 <Note>
-**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Keywords AI dashboard (Settings → Providers).
+**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Respan dashboard (Settings → Providers).
 </Note>
 
-## Keywords AI parameters
+## Respan parameters
 
-You can pass Keywords AI tracking parameters via the `X-Data-Keywordsai-Params` header:
+You can pass Respan tracking parameters via the `X-Data-Keywordsai-Params` header:
 
 ```bash
 -H "X-Data-Keywordsai-Params: {\"customer_identifier\": \"user123\"}"
@@ -92,7 +92,7 @@ Returns a list object containing batch metadata.
 import requests
 import json
 
-url = "https://api.keywordsai.co/api/v1/batches/"
+url = "https://api.respan.ai/api/v1/batches/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "X-Data-Keywordsai-Params": json.dumps({
@@ -106,7 +106,7 @@ print(response.json())
 ```
 
 ```typescript TypeScript
-const url = 'https://api.keywordsai.co/api/v1/batches/?limit=10';
+const url = 'https://api.respan.ai/api/v1/batches/?limit=10';
 const headers = {
     'Authorization': 'Bearer YOUR_API_KEY',
     'X-Data-Keywordsai-Params': JSON.stringify({
@@ -124,7 +124,7 @@ console.log(data);
 ```
 
 ```bash cURL
-curl "https://api.keywordsai.co/api/v1/batches/?limit=10" \
+curl "https://api.respan.ai/api/v1/batches/?limit=10" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "X-Data-Keywordsai-Params: {\"customer_identifier\": \"user123\"}"
 ```

@@ -1,11 +1,11 @@
 ---
 title: "xAI"
-description: "Use your own xAI credits through Keywords AI"
+description: "Use your own xAI credits through Respan"
 ---
 
 <CardGroup cols={1}>
   <Card title="Get xAI API key" icon="key" href="https://console.x.ai/home">
-    Get your xAI API key from the xAI Console to start using xAI models through Keywords AI.
+    Get your xAI API key from the xAI Console to start using xAI models through Respan.
   </Card>
 </CardGroup>
 
@@ -65,8 +65,8 @@ Follow the on-screen instructions to add your xAI API key.
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.chat.completions.create(
@@ -101,7 +101,7 @@ def demo_call(input,
         }
     }
 
-    response = requests.post('https://api.keywordsai.co/api/chat/completions', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/chat/completions', headers=headers, json=data)
     return response
 
 messages = "Say 'Hello World'"

@@ -1,6 +1,6 @@
 ---
 title: "Retrieve prompts"
-api: "GET https://api.keywordsai.co/api/prompts/"
+api: "GET https://api.respan.ai/api/prompts/"
 ---
 
 This endpoint allows you to get a list of prompts that you have created.
@@ -13,8 +13,8 @@ Send a GET request to the `/prompts/` endpoint to get a list of prompts that you
 ```python example.py
 import requests
 
-url = "https://api.keywordsai.co/api/prompts/"
-api_key = "YOUR_KEYWORDS_AI_API_KEY" # Replace with your actual Keywords AI API key
+url = "https://api.respan.ai/api/prompts/"
+api_key = "YOUR_KEYWORDS_AI_API_KEY" # Replace with your actual Respan API key
 headers = {
     "Authorization": f"Bearer {api_key}",
     "Content-Type": "application/json"
@@ -25,7 +25,7 @@ print(response.json())
 ```
 
 ```typescript example.ts
-fetch('https://api.keywordsai.co/api/prompts/', 
+fetch('https://api.respan.ai/api/prompts/', 
 {
   method: 'GET',
   headers: {
@@ -46,8 +46,8 @@ You can get a single prompt by sending a GET request to the `/prompts/<prompt_id
 ```python example.py
 import requests
 
-url = "https://api.keywordsai.co/api/prompts/<prompt_id>/"
-api_key = "YOUR_KEYWORDS_AI_API_KEY" # Replace with your actual Keywords AI API key
+url = "https://api.respan.ai/api/prompts/<prompt_id>/"
+api_key = "YOUR_KEYWORDS_AI_API_KEY" # Replace with your actual Respan API key
 headers = {
     "Authorization": f"Bearer {api_key}",
     "Content-Type": "application/json"
@@ -58,7 +58,7 @@ print(response.json())
 ```
 
 ```typescript example.ts
-fetch('https://api.keywordsai.co/api/prompts/<prompt_id>/', 
+fetch('https://api.respan.ai/api/prompts/<prompt_id>/', 
 {
   method: 'GET',
   headers: {

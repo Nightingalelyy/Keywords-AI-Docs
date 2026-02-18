@@ -1,12 +1,12 @@
 ---
 title: Embeddings
-api: POST https://api.keywordsai.co/api/embeddings
+api: POST https://api.respan.ai/api/embeddings
 mode: wide
 ---
 
-You could use Keywords AI's unified LLM API to call Embeddings model to turn text into numbers, unlocking use cases like search.
+You could use Respan's unified LLM API to call Embeddings model to turn text into numbers, unlocking use cases like search.
 
-Keywords AI now supports `text-embedding-3-large`, `text-embedding-3-small`, and `text-embedding-ada-002` models from OpenAI.
+Respan now supports `text-embedding-3-large`, `text-embedding-3-small`, and `text-embedding-ada-002` models from OpenAI.
 
 | Model    | Description                           |  Output Dimension                     |
 | -------- | ------------------------------------- | ------------------------------------- |
@@ -22,7 +22,7 @@ Keywords AI now supports `text-embedding-3-large`, `text-embedding-3-small`, and
 Go to [OpenAI API plaform](https://platform.openai.com/api-keys) to get your OpenAI API key.
 </Step>
 <Step title="Add OpenAI's API key in Providers" >
-You should add your OpenAI's API key on [Keywords AI credentials page](https://platform.keywordsai.co/platform/api/providers).
+You should add your OpenAI's API key on [Respan credentials page](https://platform.keywordsai.co/platform/api/providers).
 <img height="200" width="500"  src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/settings/providers.jpg"/>
 </Step>
 
@@ -32,14 +32,14 @@ You should add your OpenAI's API key on [Keywords AI credentials page](https://p
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.embeddings.create(
     model="text-embedding-3-small", # or "text-embedding-3-large" or "text-embedding-ada-002"
     input="Your text string goes here",
-    extra_body={"customer_identifier": "customer_11"}  # All Keywords AI parameters are supported
+    extra_body={"customer_identifier": "customer_11"}  # All Respan parameters are supported
 )
 ```
 
@@ -47,15 +47,15 @@ response = client.embeddings.create(
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  baseURL: "https://api.keywordsai.co/api/",
-  apiKey: "YOUR_KEYWORDSAI_API_KEY",
+  baseURL: "https://api.respan.ai/api/",
+  apiKey: "YOUR_RESPAN_API_KEY",
 });
 
 const embedding = await openai.embeddings.create({
   model: "text-embedding-3-small",
   input: "Your text string goes here",
   encoding_format: "float",
-  extra_body: { customer_identifier: "customer_11" } // All Keywords AI parameters are supported
+  extra_body: { customer_identifier: "customer_11" } // All Respan parameters are supported
 });
 
 ```
@@ -78,8 +78,8 @@ The format to return the embeddings in. Can be either `float` or `base64`.
 The number of dimensions the resulting output embeddings should have. Only supported in `text-embedding-3` and later models.
 </ParamField>
 
-## Keywords AI parameters
-See how to make a standard Keywords AI API call in the [Quick Start](/get-started/quickstart/gateway) guide.
+## Respan parameters
+See how to make a standard Respan API call in the [Quick Start](/get-started/quickstart/gateway) guide.
 ### Generation parameters
 
 <ParamField path="customer_credentials" type="object">

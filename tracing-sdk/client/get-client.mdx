@@ -1,18 +1,18 @@
 ---
 title: "get_client()"
-description: "Access the KeywordsAI client for span and trace operations"
+description: "Access the Respan client for span and trace operations"
 ---
 
 ## Overview
 
-`get_client()` returns a `KeywordsAIClient` bound to the singleton tracer instance. Use it to read IDs, update the current span, add events, and control export.
+`get_client()` returns a `RespanClient` bound to the singleton tracer instance. Use it to read IDs, update the current span, add events, and control export.
 
 ## Usage
 
 ```python
-from keywordsai_tracing import KeywordsAITelemetry, get_client
+from respan_tracing import RespanTelemetry, get_client
 
-telemetry = KeywordsAITelemetry()
+telemetry = RespanTelemetry()
 client = get_client()
 
 trace_id = client.get_current_trace_id()
@@ -22,4 +22,4 @@ client.add_event("started")
 
 ## Returned type
 
-- `KeywordsAIClient`
+- `RespanClient`

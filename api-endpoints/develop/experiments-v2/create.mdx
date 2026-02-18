@@ -1,6 +1,6 @@
 ---
 title: "Create experiment"
-api: "POST https://api.keywordsai.co/api/v2/experiments/"
+api: "POST https://api.respan.ai/api/v2/experiments/"
 ---
 
 Creates a new experiment with workflows. Supports three workflow types:
@@ -103,7 +103,7 @@ Authorization: Bearer YOUR_API_KEY
 ### Custom Workflow
 
 ```bash
-curl -X POST "https://api.keywordsai.co/api/v2/experiments/" \
+curl -X POST "https://api.respan.ai/api/v2/experiments/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -117,7 +117,7 @@ curl -X POST "https://api.keywordsai.co/api/v2/experiments/" \
 ### Completion Workflow
 
 ```bash
-curl -X POST "https://api.keywordsai.co/api/v2/experiments/" \
+curl -X POST "https://api.respan.ai/api/v2/experiments/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -138,7 +138,7 @@ curl -X POST "https://api.keywordsai.co/api/v2/experiments/" \
 ### Prompt Workflow
 
 ```bash
-curl -X POST "https://api.keywordsai.co/api/v2/experiments/" \
+curl -X POST "https://api.respan.ai/api/v2/experiments/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

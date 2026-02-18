@@ -1,6 +1,6 @@
 ---
 title: List logs
-api: POST https://api.keywordsai.co/api/request-logs/list/
+api: POST https://api.respan.ai/api/request-logs/list/
 ---
 
 The Logs List endpoint allows you to retrieve past logs with specified filters.
@@ -39,7 +39,7 @@ For other span types (embedding, workflow, etc.), type-specific fields are extra
 You can add these parameters to the **URL query string**.
 For example:
 ```
-"https://api.keywordsai.co/api/request-logs/list/?page=1&sort_by=-id&is_test=false&all_envs=false&fetch_filters=false&page_size=1"
+"https://api.respan.ai/api/request-logs/list/?page=1&sort_by=-id&is_test=false&all_envs=false&fetch_filters=false&page_size=1"
 ```
 <ParamField query="start_time" type="string" required>
   The start time for filtering logs in ISO 8601 format. If not provided, defaults to 1 hour ago.
@@ -237,7 +237,7 @@ URL filters and POST body filters can be combined. When there's an overlap, URL 
 
 <Accordion title="Example: Combined filters">
   ```bash
-  curl -X POST "https://api.keywordsai.co/api/request-logs/list/?customer_identifier=user_123" \
+  curl -X POST "https://api.respan.ai/api/request-logs/list/?customer_identifier=user_123" \
     -H "Authorization: Bearer YOUR_API_KEY" \
     -H "Content-Type: application/json" \
     -d '{
@@ -285,7 +285,7 @@ Use POST body filters to filter logs by score values:
 <AccordionGroup>
   <Accordion title="Filter logs with score greater than 4.0">
     ```bash
-    curl -X POST "https://api.keywordsai.co/api/request-logs/list/" \
+    curl -X POST "https://api.respan.ai/api/request-logs/list/" \
       -H "Authorization: Bearer YOUR_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{
@@ -301,7 +301,7 @@ Use POST body filters to filter logs by score values:
 
   <Accordion title="Filter logs with score less than or equal to 2.0">
     ```bash
-    curl -X POST "https://api.keywordsai.co/api/request-logs/list/" \
+    curl -X POST "https://api.respan.ai/api/request-logs/list/" \
       -H "Authorization: Bearer YOUR_API_KEY" \
       -H "Content-Type: application/json" \
       -d '{
@@ -329,7 +329,7 @@ Use POST body filters to filter logs by score values:
 ## Body parameters
 You can add these parameters to the **request body**:
 ```python
-url = "https://api.keywordsai.co/api/request-logs/list/"
+url = "https://api.respan.ai/api/request-logs/list/"
 headers = {
     "Authorization": f"Bearer {YOUR_KEYWORDS_AI_API_KEY}",
 }
@@ -425,7 +425,7 @@ response = requests.post(url, headers=headers, json=data)
 <RequestExample>
 
 ```python Python
-url = "https://api.keywordsai.co/api/request-logs/list/?page=1&sort_by=-id&is_test=false&all_envs=false&fetch_filters=false&page_size=1"
+url = "https://api.respan.ai/api/request-logs/list/?page=1&sort_by=-id&is_test=false&all_envs=false&fetch_filters=false&page_size=1"
 
 
 from urllib.parse import urlencode
@@ -437,7 +437,7 @@ params = {
     "fetch_filters": "false",
     "page_size": 1
 }
-url = f"https://api.keywordsai.co/api/request-logs/list/?{urlencode(params)}"
+url = f"https://api.respan.ai/api/request-logs/list/?{urlencode(params)}"
 headers = {
     "Authorization": f"Bearer {YOUR_KEYWORDS_AI_API_KEY}",
 }
@@ -448,7 +448,7 @@ response = requests.post(url, headers=headers, json=data)
 ```
 
 ```typescript TypeScript
-const url = 'https://api.keywordsai.co/api/request-logs/list/';
+const url = 'https://api.respan.ai/api/request-logs/list/';
 
 const params = new URLSearchParams({
     page: '1',
@@ -481,7 +481,7 @@ fetch(fullUrl, {
 })
 ```
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/request-logs/list/?page=1&sort_by=-id&is_test=false&all_envs=false&fetch_filters=false&page_size=1" \
+curl -X POST "https://api.respan.ai/api/request-logs/list/?page=1&sort_by=-id&is_test=false&all_envs=false&fetch_filters=false&page_size=1" \
 -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY" \
 -H "Content-Type: application/json" \
 -d '{"filters": {}}'
@@ -490,13 +490,13 @@ curl -X POST "https://api.keywordsai.co/api/request-logs/list/?page=1&sort_by=-i
 
 ```bash cURL (with URL filters)
 # Filter by customer identifier using URL parameter
-curl -X GET "https://api.keywordsai.co/api/request-logs/list/?customer_identifier=user_123&page_size=10" \
+curl -X GET "https://api.respan.ai/api/request-logs/list/?customer_identifier=user_123&page_size=10" \
 -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY"
 ```
 
 ```bash cURL (URL filters + POST body)
 # Combine URL and POST body filters
-curl -X POST "https://api.keywordsai.co/api/request-logs/list/?customer_identifier=user_123&event_id=xxx" \
+curl -X POST "https://api.respan.ai/api/request-logs/list/?customer_identifier=user_123&event_id=xxx" \
 -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY" \
 -H "Content-Type: application/json" \
 -d '{
@@ -511,7 +511,7 @@ curl -X POST "https://api.keywordsai.co/api/request-logs/list/?customer_identifi
 
 ```bash cURL (custom metadata via URL)
 # Filter by custom metadata fields
-curl -X GET "https://api.keywordsai.co/api/request-logs/list/?user_tier=premium&department=sales" \
+curl -X GET "https://api.respan.ai/api/request-logs/list/?user_tier=premium&department=sales" \
 -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY"
 ```
 </RequestExample>
@@ -519,21 +519,21 @@ curl -X GET "https://api.keywordsai.co/api/request-logs/list/?user_tier=premium&
 ```json
 {
     "count": 1250,
-    "next": "https://api.keywordsai.co/api/request-logs/list/?page=2",
+    "next": "https://api.respan.ai/api/request-logs/list/?page=2",
     "previous": null,
     "results": [
        {
         "unique_id": "xxxxx",
-        "organization_key__name": "Keywords AI Default",
-        "organization": "Keywords AI",
+        "organization_key__name": "Respan Default",
+        "organization": "Respan",
         "user": "hendrix@keywordsai.co",
         "is_example": false,
         "status": "success",
         "log_type": "chat",
         
         // Universal fields (all span types)
-        "input": "[{\"role\":\"system\",\"content\":\"You are a helpful assistant\"},{\"role\":\"user\",\"content\":\"What is Keywords AI?\"}]",
-        "output": "{\"role\":\"assistant\",\"content\":\"Keywords AI is a unified DevOps platform for AI products.\"}",
+        "input": "[{\"role\":\"system\",\"content\":\"You are a helpful assistant\"},{\"role\":\"user\",\"content\":\"What is Respan?\"}]",
+        "output": "{\"role\":\"assistant\",\"content\":\"Respan is a unified DevOps platform for AI products.\"}",
         
         // Type-specific fields (extracted from input/output for chat types)
         "prompt_messages": [
@@ -543,12 +543,12 @@ curl -X GET "https://api.keywordsai.co/api/request-logs/list/?user_tier=premium&
                 },
                 {
                     "role": "user",
-                    "content": "What is Keywords AI?"
+                    "content": "What is Respan?"
                 }
         ],
         "completion_message": {
                 "role": "assistant",
-                "content": "Keywords AI is a unified DevOps platform for AI products."
+                "content": "Respan is a unified DevOps platform for AI products."
         },
         
         // Telemetry

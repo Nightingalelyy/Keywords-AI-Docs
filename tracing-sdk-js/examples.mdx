@@ -1,10 +1,10 @@
 ---
 title: "Examples"
-description: "Real TypeScript examples from the keywordsai-example-projects repository"
+description: "Real TypeScript examples from the respan-example-projects repository"
 ---
 
 <Check>
-All examples are available on GitHub: [keywordsai-example-projects/typescript/tracing_sdk_example](https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/example_scripts/typescript/tracing_sdk_example)
+All examples are available on GitHub: [respan-example-projects/typescript/tracing_sdk_example](https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/example_scripts/typescript/tracing_sdk_example)
 </Check>
 
 ## Setup
@@ -12,14 +12,14 @@ All examples are available on GitHub: [keywordsai-example-projects/typescript/tr
 All examples require:
 
 ```bash
-npm install @keywordsai/tracing
+npm install @respan/tracing
 ```
 
 Configure your `.env` file:
 
 ```bash .env
-KEYWORDSAI_API_KEY=your_keywordsai_api_key
-KEYWORDSAI_BASE_URL=https://api.keywordsai.co
+RESPAN_API_KEY=your_respan_api_key
+RESPAN_BASE_URL=https://api.respan.ai
 OPENAI_API_KEY=your_openai_api_key  # Optional
 ANTHROPIC_API_KEY=your_anthropic_api_key  # Optional
 ```
@@ -29,11 +29,11 @@ ANTHROPIC_API_KEY=your_anthropic_api_key  # Optional
 From [`basic_usage.ts`](https://github.com/Keywords-AI/keywordsai-example-projects/blob/main/example_scripts/typescript/tracing_sdk_example/basic_usage.ts). Core concepts: `withWorkflow`, `withTask`, `withAgent`, `withTool`.
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
-    baseURL: process.env.KEYWORDSAI_BASE_URL,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
+    baseURL: process.env.RESPAN_BASE_URL,
     appName: 'basic-example',
     disableBatch: true,
     logLevel: 'info'
@@ -97,10 +97,10 @@ From [`openai_integration.ts`](https://github.com/Keywords-AI/keywordsai-example
 
 ```typescript
 import OpenAI from "openai";
-import { KeywordsAITelemetry } from "@keywordsai/tracing";
+import { RespanTelemetry } from "@respan/tracing";
 
-const keywordsai = new KeywordsAITelemetry({
-  apiKey: process.env.KEYWORDSAI_API_KEY,
+const respan = new RespanTelemetry({
+  apiKey: process.env.RESPAN_API_KEY,
   appName: "openai-integration-test",
   instrumentModules: {
     openAI: OpenAI,  // Automatically instrument OpenAI SDK
@@ -115,9 +115,9 @@ const openai = new OpenAI({
 async function runOpenAIIntegrationTest() {
   console.log("🚀 Starting OpenAI Integration Test\n");
 
-  await keywordsai.initialize();
+  await respan.initialize();
 
-  await keywordsai.withWorkflow(
+  await respan.withWorkflow(
     { name: "openai_chat_completion" },
     async () => {
       console.log("📝 Sending request to OpenAI...");
@@ -134,7 +134,7 @@ async function runOpenAIIntegrationTest() {
     }
   );
 
-  await keywordsai.shutdown();
+  await respan.shutdown();
   console.log("✅ Done!");
 }
 
@@ -151,12 +151,12 @@ npx tsx openai_integration.ts
 From [`advanced_tracing.ts`](https://github.com/Keywords-AI/keywordsai-example-projects/blob/main/example_scripts/typescript/tracing_sdk_example/advanced_tracing.ts). Demonstrates `withAgent`, `withTool`, and custom metadata for complex agent workflows.
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 import OpenAI from 'openai';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
-    baseURL: process.env.KEYWORDSAI_BASE_URL,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
+    baseURL: process.env.RESPAN_BASE_URL,
     appName: 'advanced-tracing-example',
     instrumentModules: {
         openAI: OpenAI,
@@ -251,10 +251,10 @@ npx tsx advanced_tracing.ts
 Using `getClient()` API to manually update spans, add events, and record exceptions.
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'span-management-example',
 });
 
@@ -267,7 +267,7 @@ await keywordsAi.withTask(
         
         // Update current span with custom metadata
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 customer_identifier: 'user_123',
                 metadata: { stage: 'processing' }
             },
@@ -312,10 +312,10 @@ From [`multi_provider.ts`](https://github.com/Keywords-AI/keywordsai-example-pro
 ```typescript
 import OpenAI from 'openai';
 import Anthropic from '@anthropic-ai/sdk';
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'multi-provider-example',
     instrumentModules: {
         openAI: OpenAI,
@@ -428,7 +428,7 @@ console.log('Agent Response:', result);
 
 | Method | Description |
 | --- | --- |
-| `updateCurrentSpan` | Update name, attributes, status, KeywordsAI params |
+| `updateCurrentSpan` | Update name, attributes, status, Respan params |
 | `addSpanEvent` | Add a timestamped event to current span |
 | `recordSpanException` | Record an error on current span |
 | `getCurrentTraceId` | Get the current trace ID |

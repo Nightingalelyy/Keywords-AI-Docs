@@ -1,11 +1,11 @@
 ---
 title: "AWS Bedrock"
-description: "Use your own AWS credits through Keywords AI"
+description: "Use your own AWS credits through Respan"
 ---
 
 <CardGroup cols={1}>
   <Card title="Get AWS Bedrock credentials" icon="key" href="https://console.aws.amazon.com/iam/home#/security_credentials">
-    Get your AWS Bedrock credentials from the AWS Console to start using AWS Bedrock models through Keywords AI.
+    Get your AWS Bedrock credentials from the AWS Console to start using AWS Bedrock models through Respan.
   </Card>
 </CardGroup>
 
@@ -97,8 +97,8 @@ One-off credential overrides. Instead of using what is uploaded for each provide
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.chat.completions.create(
@@ -137,7 +137,7 @@ def demo_call(input,
         }
     }
 
-    response = requests.post('https://api.keywordsai.co/api/chat/completions', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/chat/completions', headers=headers, json=data)
     return response
 
 messages = "Say 'Hello World'"

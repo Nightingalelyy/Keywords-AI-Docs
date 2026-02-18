@@ -10,7 +10,7 @@ Use `task(name: str, method_name: Optional[str] = None)` to mark a task inside a
 ## Function usage
 
 ```python
-from keywordsai_tracing.decorators import workflow, task
+from respan_tracing.decorators import workflow, task
 
 @workflow(name="math_workflow")
 def math_workflow():
@@ -30,7 +30,7 @@ print(math_workflow())
 ## Class usage
 
 ```python
-from keywordsai_tracing.decorators import workflow, task
+from respan_tracing.decorators import workflow, task
 
 @workflow(name="agent_run", method_name="run")
 class Agent:

@@ -1,12 +1,12 @@
 ---
 title: Retrieve file content
-api: GET https://api.keywordsai.co/api/files/{file_id}/content/
+api: GET https://api.respan.ai/api/files/{file_id}/content/
 ---
 
 Download the raw contents of a file. This is particularly useful for downloading batch output files after a batch job completes.
 
 <Note>
-**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Keywords AI dashboard (Settings → Providers).
+**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Respan dashboard (Settings → Providers).
 </Note>
 
 ## Path parameters
@@ -54,7 +54,7 @@ Returns the raw file content. For JSONL files, each line is a separate JSON obje
 import requests
 
 file_id = "file-xyz789"
-url = f"https://api.keywordsai.co/api/files/{file_id}/content/"
+url = f"https://api.respan.ai/api/files/{file_id}/content/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -70,7 +70,7 @@ print("File downloaded successfully")
 
 ```typescript TypeScript
 const fileId = 'file-xyz789';
-const url = `https://api.keywordsai.co/api/files/${fileId}/content/`;
+const url = `https://api.respan.ai/api/files/${fileId}/content/`;
 const headers = {
     'Authorization': 'Bearer YOUR_API_KEY'
 };
@@ -85,7 +85,7 @@ console.log(content);
 ```
 
 ```bash cURL
-curl https://api.keywordsai.co/api/files/file-xyz789/content/ \
+curl https://api.respan.ai/api/files/file-xyz789/content/ \
   -H "Authorization: Bearer YOUR_API_KEY" \
   --output batch_output.jsonl
 ```

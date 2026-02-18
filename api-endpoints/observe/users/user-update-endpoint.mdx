@@ -1,6 +1,6 @@
 ---
 title: "Update user"
-api: "PATCH https://api.keywordsai.co/api/users/<customer_identifier>/"
+api: "PATCH https://api.respan.ai/api/users/<customer_identifier>/"
 ---
 
 Updates an existing customer. Use this to change budgets or contact info.
@@ -23,7 +23,7 @@ Your unique identifier for this customer.
 You can add these params to the **body**:
 
 ```python
-url = "https://api.keywordsai.co/api/users/user_123/"
+url = "https://api.respan.ai/api/users/user_123/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
 }
@@ -68,7 +68,7 @@ response = requests.patch(url, headers=headers, json=data)
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/users/user_123/"
+url = "https://api.respan.ai/api/users/user_123/"
 headers = {"Authorization": "Bearer YOUR_API_KEY", "Content-Type": "application/json"}
 payload = {"period_budget": 200.0, "metadata": {"plan": "pro"}}
 
@@ -77,7 +77,7 @@ print(resp.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/users/user_123/" \
+curl -X PATCH "https://api.respan.ai/api/users/user_123/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

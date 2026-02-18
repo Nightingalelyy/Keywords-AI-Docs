@@ -1,9 +1,9 @@
 ---
 title: Vercel AI SDK
-description: Learn how to integrate KeywordsAI tracing with Vercel AI SDK to monitor and analyze your AI application performance. Step-by-step guide for setting up environment variables and creating traced workflows.
+description: Learn how to integrate Respan tracing with Vercel AI SDK to monitor and analyze your AI application performance. Step-by-step guide for setting up environment variables and creating traced workflows.
 og:title: 'Agent tracing with Vercel AI SDK'
 ---
-This tutorial shows how to set up Keywords AI tracing with [Next.js](https://nextjs.org/) and the [Vercel AI SDK](https://ai-sdk.dev/) to monitor and trace your AI-powered applications.
+This tutorial shows how to set up Respan tracing with [Next.js](https://nextjs.org/) and the [Vercel AI SDK](https://ai-sdk.dev/) to monitor and trace your AI-powered applications.
 
 
 ## Start with the pre-built example
@@ -13,28 +13,28 @@ We have built a pre-built example for you to get started quickly. You can find t
 Get up and running quickly with our pre-configured example:
 
 ```bash
-npx create-next-app --example https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/vercel_ai_next_openai my-keywordsai-app
+npx create-next-app --example https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/vercel_ai_next_openai my-respan-app
 ```
 
 ```bash
-yarn create next-app --example https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/vercel_ai_next_openai my-keywordsai-app
+yarn create next-app --example https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/vercel_ai_next_openai my-respan-app
 ```
 ```bash
-pnpm create next-app --example https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/vercel_ai_next_openai my-keywordsai-app
+pnpm create next-app --example https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/vercel_ai_next_openai my-respan-app
 ```
 
 Then:
 
 1. Add your API keys to `.env.local` (see Step 3 below)
 2. Run `yarn dev` to start the development server
-3. Start chatting and check your [KeywordsAI dashboard](https://platform.keywordsai.co/platform/dashboard)
+3. Start chatting and check your [Respan dashboard](https://platform.keywordsai.co/platform/dashboard)
 
 
 ## Start from scratch
 
 You can also follow the Step-by-Step Tutorial to build your own application.
 
-If you want to understand the setup process or add KeywordsAI tracing to an existing project, follow the tutorial below.
+If you want to understand the setup process or add Respan tracing to an existing project, follow the tutorial below.
 
 Execute `create-next-app` with npm, Yarn, or pnpm to bootstrap the base example:
 
@@ -60,28 +60,28 @@ To run the base example locally you need to:
 6. Run `pnpm dev` to launch the development server.
 
 
-## KeywordsAI Telemetry Setup
+## Respan Telemetry Setup
 
-Now let's add KeywordsAI tracing to monitor your AI application's performance and usage.
+Now let's add Respan tracing to monitor your AI application's performance and usage.
 
-### Step 1: Install KeywordsAI Exporter
+### Step 1: Install Respan Exporter
 
-Install the KeywordsAI exporter package:
+Install the Respan exporter package:
 
 ```bash
-npm install @keywordsai/exporter-vercel
+npm install @respan/exporter-vercel
 ```
 
 ```bash
-yarn add @keywordsai/exporter-vercel
+yarn add @respan/exporter-vercel
 ```
 
 ```bash
-bun add @keywordsai/exporter-vercel
+bun add @respan/exporter-vercel
 ```
 
 ```bash
-pnpm add @keywordsai/exporter-vercel
+pnpm add @respan/exporter-vercel
 ```
 
 ### Step 2: Set up OpenTelemetry Instrumentation
@@ -97,14 +97,14 @@ Create instrumentation.ts in the root (where package.json lives) of your project
 
 ```typescript instrumentation.ts
 import { registerOTel } from "@vercel/otel";
-import { KeywordsAIExporter } from "@keywordsai/exporter-vercel";
+import { RespanExporter } from "@respan/exporter-vercel";
 
 export function register() {
   registerOTel({
     serviceName: "next-app",
-    traceExporter: new KeywordsAIExporter({ // <---- Use Keywords AI exporter as the custom exporter
-      apiKey: process.env.KEYWORDSAI_API_KEY,
-      baseUrl: process.env.KEYWORDSAI_BASE_URL,
+    traceExporter: new RespanExporter({ // <---- Use Respan exporter as the custom exporter
+      apiKey: process.env.RESPAN_API_KEY,
+      baseUrl: process.env.RESPAN_BASE_URL,
       debug: true
     }),
   });
@@ -112,15 +112,15 @@ export function register() {
 ```
 
 ### Step 3: Configure Environment Variables
-Add your KeywordsAI credentials to your `.env.local` file:
+Add your Respan credentials to your `.env.local` file:
 
 ```bash .env.local
 # OpenAI API Key (existing)
 OPENAI_API_KEY=your_openai_api_key_here
 
-# KeywordsAI Configuration
-KEYWORDSAI_API_KEY=your_keywordsai_api_key_here
-KEYWORDSAI_BASE_URL=https://api.keywordsai.co  # Optional: defaults to KeywordsAI API
+# Respan Configuration
+RESPAN_API_KEY=your_respan_api_key_here
+RESPAN_BASE_URL=https://api.respan.ai  # Optional: defaults to Respan API
 ```
 
 ### Step 4: Enable Telemetry in API Routes
@@ -198,12 +198,12 @@ And try again
 
 2. Make some chat requests through your application
 
-3. Check your KeywordsAI application:
+3. Check your Respan application:
 - Go to Signals -> Traces
 - Check the log that is traced
 
 ## What Gets Traced
-With this setup, KeywordsAI will automatically capture:
+With this setup, Respan will automatically capture:
 
 - **AI Model Calls**: All calls to OpenAI models through the AI SDK
 - **Request/Response Data**: Input messages and generated responses
@@ -228,23 +228,23 @@ To learn more about the technologies used in this tutorial:
 
 {/* ## Prerequisites
 - Vercel AI SDK
-- [KeywordsAI API key](https://platform.keywordsai.co/platform/api/api-keys)
+- [Respan API key](https://platform.keywordsai.co/platform/api/api-keys)
 
 ## Steps
 
 <Steps>
-<Step title="Install Keywords AI SDK"> 
+<Step title="Install Respan SDK"> 
   ```bash
-npm install @keywordsai/tracing
+npm install @respan/tracing
   ```
 </Step>
 <Step title="Add an instrumentation file to the root of your project">
 You should add an instrumentation file to the root of your project. For example, `instrumentation.ts`. Same level as `.env` or `next.config.js` file.
 
-Then add the `KeywordsAIExporter` as the trace exporter
+Then add the `RespanExporter` as the trace exporter
 
 ```typescript root-of-project/instrumentation.js
-import { KeywordsAIExporter } from "@keywordsai/tracing";
+import { RespanExporter } from "@respan/tracing";
 import { registerOTel } from "@vercel/otel";
 // This file is a special Next.js file that is loaded on startup
 export async function register() {
@@ -252,9 +252,9 @@ export async function register() {
     // Only load the instrumentation in the Node.js environment (not in edge runtime or client)
     registerOTel({
       serviceName: "keywords-ai-example",
-      traceExporter: new KeywordsAIExporter({
+      traceExporter: new RespanExporter({
         //   baseUrl: "https://api.keywords.co", # This will be the default base URL. enterprise customer should change it
-        apiKey: process.env.KEYWORDSAI_API_KEY_TEST,
+        apiKey: process.env.RESPAN_API_KEY_TEST,
       }),
     });
   } catch (error) {
@@ -304,7 +304,7 @@ webpack: (config, { isServer }) => {
 };
 ```
 </Step>
-<Step title="Send traces to KeywordsAI">
+<Step title="Send traces to Respan">
 Then, to trace a specific function, simply enable tracing. here is an example of it working on the streamText function:
 ```typescript
 import { openai } from "@ai-sdk/openai";

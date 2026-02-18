@@ -1,10 +1,10 @@
 ---
 title: Mastra
-description: Use Mastra with Keywords AI
-og:title: 'Mastra with Keywords AI'
+description: Use Mastra with Respan
+og:title: 'Mastra with Respan'
 ---
 
-This tutorial shows how to set up Keywords AI tracing with [Mastra](https://mastra.ai/) to monitor and trace your AI-powered applications.
+This tutorial shows how to set up Respan tracing with [Mastra](https://mastra.ai/) to monitor and trace your AI-powered applications.
 
 To help you get started quickly, we’ve provided a pre-built example. You can find the code [on GitHub](https://github.com/Keywords-AI/keywordsai-example-projects/tree/main/mastra-ai-weather-agent).
 
@@ -31,13 +31,13 @@ Update .env.local with your credentials:
 
 ```bash .env.local
 OPENAI_API_KEY=your-openai-api-key
-KEYWORDSAI_API_KEY=your-keywordsai-api-key
-KEYWORDSAI_BASE_URL=https://api.keywordsai.co
+RESPAN_API_KEY=your-keywordsai-api-key
+RESPAN_BASE_URL=https://api.respan.ai
 ```
 
-### 3. Setup Mastra client with Keywords AI tracing
+### 3. Setup Mastra client with Respan tracing
 
-Configure with KeywordsAI telemetry in `src/mastra/index.ts`:
+Configure with Respan telemetry in `src/mastra/index.ts`:
 
 ```typescript
 telemetry: {
@@ -47,9 +47,9 @@ telemetry: {
 # ===== Add this section =====
   export: {
     type: "custom",
-    exporter: new KeywordsAIExporter({
-      apiKey: process.env.KEYWORDSAI_API_KEY,
-      baseUrl: process.env.KEYWORDSAI_BASE_URL,
+    exporter: new RespanExporter({
+      apiKey: process.env.RESPAN_API_KEY,
+      baseUrl: process.env.RESPAN_BASE_URL,
       debug: true,
     })
   }
@@ -65,6 +65,6 @@ This opens the Mastra playground where you can interact with the weather agent.
 
 ## Observability
 
-Once configured, you can view your traces and analytics in the [Keywords AI platform](https://platform.keywordsai.co/platform/traces).
+Once configured, you can view your traces and analytics in the [Respan platform](https://platform.keywordsai.co/platform/traces).
 
 

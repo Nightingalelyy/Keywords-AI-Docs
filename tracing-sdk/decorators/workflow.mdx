@@ -10,7 +10,7 @@ Use `workflow(name: str, method_name: Optional[str] = None)` to mark an end-to-e
 ## Function usage
 
 ```python
-from keywordsai_tracing.decorators import workflow, task
+from respan_tracing.decorators import workflow, task
 
 @workflow(name="data_pipeline")
 def data_pipeline():
@@ -30,7 +30,7 @@ print(data_pipeline())
 ## Class usage
 
 ```python
-from keywordsai_tracing.decorators import workflow, task
+from respan_tracing.decorators import workflow, task
 
 @workflow(name="analysis_workflow", method_name="run")
 class Analyzer:

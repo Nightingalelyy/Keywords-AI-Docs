@@ -37,9 +37,9 @@ Returns a dictionary containing the evaluation report with metrics, scores, and 
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Get evaluation report
 report = client.datasets.get_evaluation_report(
@@ -73,10 +73,10 @@ else:
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def get_report_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     report = await client.datasets.get_evaluation_report(
         evaluation_id="eval_123"

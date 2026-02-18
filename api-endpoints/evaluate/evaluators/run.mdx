@@ -1,6 +1,6 @@
 ---
 title: "Run evaluator"
-api: "POST https://api.keywordsai.co/api/evaluators/{evaluator_id}/run/"
+api: "POST https://api.respan.ai/api/evaluators/{evaluator_id}/run/"
 ---
 
 Executes an evaluator against provided input/output data for testing purposes. This endpoint allows you to test your evaluator configuration before using it in production.
@@ -79,7 +79,7 @@ All evaluator runs now receive a single unified `inputs` object. This applies to
 import requests
 
 evaluator_id = "0f4325f9-55ef-4c20-8abe-376694419947"
-url = f"https://api.keywordsai.co/api/evaluators/{evaluator_id}/run/"
+url = f"https://api.respan.ai/api/evaluators/{evaluator_id}/run/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -109,7 +109,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/run/" \
+curl -X POST "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/run/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -139,7 +139,7 @@ curl -X POST "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-3
 ```python Python
 # Test boolean code evaluator
 code_evaluator_id = "bool-eval-456"
-url = f"https://api.keywordsai.co/api/evaluators/{code_evaluator_id}/run/"
+url = f"https://api.respan.ai/api/evaluators/{code_evaluator_id}/run/"
 
 data = {
     "inputs": {
@@ -157,7 +157,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/bool-eval-456/run/" \
+curl -X POST "https://api.respan.ai/api/evaluators/bool-eval-456/run/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -181,7 +181,7 @@ curl -X POST "https://api.keywordsai.co/api/evaluators/bool-eval-456/run/" \
 ```python Python
 # Test categorical evaluator
 categorical_evaluator_id = "cat-eval-123"
-url = f"https://api.keywordsai.co/api/evaluators/{categorical_evaluator_id}/run/"
+url = f"https://api.respan.ai/api/evaluators/{categorical_evaluator_id}/run/"
 
 data = {
     "inputs": {
@@ -205,7 +205,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/cat-eval-123/run/" \
+curl -X POST "https://api.respan.ai/api/evaluators/cat-eval-123/run/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -248,7 +248,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/run/" \
+curl -X POST "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/run/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

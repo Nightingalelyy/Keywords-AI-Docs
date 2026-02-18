@@ -1,6 +1,6 @@
 ---
 title: "Experiments API Overview"
-description: "Design, run, and analyze experiments with the Keywords AI Experiments API"
+description: "Design, run, and analyze experiments with the Respan Experiments API"
 ---
 
 ## Overview
@@ -18,9 +18,9 @@ The Experiments API allows you to design, execute, and analyze experiments to te
 ## Quick Start
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Create a new experiment
 experiment = client.experiments.create(
@@ -52,7 +52,7 @@ results = client.experiments.get_results(experiment_id=experiment['id'])
 - `get_results()` - Get experiment results and analysis
 
 ### Asynchronous Methods
-All methods are also available in asynchronous versions using `AsyncKeywordsAI`.
+All methods are also available in asynchronous versions using `AsyncRespan`.
 
 ## Experiment Structure
 

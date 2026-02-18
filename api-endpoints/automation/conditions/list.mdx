@@ -1,6 +1,6 @@
 ---
 title: "List conditions"
-api: "GET https://api.keywordsai.co/automation/conditions/"
+api: "GET https://api.respan.ai/automation/conditions/"
 ---
 
 Returns a paginated list of automation conditions for your organization.
@@ -13,7 +13,7 @@ All endpoints require API key authentication:
 Authorization: Bearer YOUR_API_KEY
 ```
 
-**Note:** Use your API Key (not JWT token) for all requests. You can find your API keys in the Keywords AI platform under Settings > API Keys.
+**Note:** Use your API Key (not JWT token) for all requests. You can find your API keys in the Respan platform under Settings > API Keys.
 
 ## Query Parameters
 
@@ -33,7 +33,7 @@ Authorization: Bearer YOUR_API_KEY
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/automation/conditions/"
+url = "https://api.respan.ai/automation/conditions/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -43,7 +43,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X GET "https://api.keywordsai.co/automation/conditions/" \
+curl -X GET "https://api.respan.ai/automation/conditions/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -64,7 +64,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X GET "https://api.keywordsai.co/automation/conditions/?page=1&page_size=10" \
+curl -X GET "https://api.respan.ai/automation/conditions/?page=1&page_size=10" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -85,7 +85,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X GET "https://api.keywordsai.co/automation/conditions/?search=success&condition_type=single_log" \
+curl -X GET "https://api.respan.ai/automation/conditions/?search=success&condition_type=single_log" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

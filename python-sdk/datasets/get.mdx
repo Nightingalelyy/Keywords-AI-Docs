@@ -62,9 +62,9 @@ Returns a `Dataset` object with the following structure:
 ### Basic Dataset Retrieval
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Get a specific dataset
 dataset_id = "dataset_123456789"
@@ -138,7 +138,7 @@ else:
 import asyncio
 
 async def get_dataset_async(dataset_id):
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     
     try:
         dataset = await client.datasets.aget(dataset_id)
@@ -195,7 +195,7 @@ datasets, failed = get_multiple_datasets(dataset_ids)
 import asyncio
 
 async def get_multiple_datasets_async(dataset_ids):
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     
     async def get_single_dataset(dataset_id):
         try:
@@ -589,7 +589,7 @@ analysis = analyze_dataset("dataset_123456789")
 
 ```python
 from keywordsai.exceptions import (
-    KeywordsAIError,
+    RespanError,
     NotFoundError,
     ValidationError,
     AuthenticationError,
@@ -619,7 +619,7 @@ def get_dataset_with_retry(dataset_id, max_retries=3):
             else:
                 print("Rate limit exceeded. Max retries reached.")
                 return None
-        except KeywordsAIError as e:
+        except RespanError as e:
             print(f"API error (attempt {attempt + 1}): {e}")
             if attempt < max_retries - 1:
                 time.sleep(1)

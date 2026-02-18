@@ -1,6 +1,6 @@
 ---
 title: "Update testset row"
-api: "PATCH https://api.keywordsai.co/api/testsets/{testset_id}/rows/{row_index}"
+api: "PATCH https://api.respan.ai/api/testsets/{testset_id}/rows/{row_index}"
 ---
 
 Update a specific row in a testset.
@@ -44,7 +44,7 @@ import requests
 
 testset_id = "testset_id_123"
 row_index = 0
-url = f"https://api.keywordsai.co/api/testsets/{testset_id}/rows/{row_index}"
+url = f"https://api.respan.ai/api/testsets/{testset_id}/rows/{row_index}"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -62,7 +62,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/testsets/{testset_id}/rows/{row_index}" \
+curl -X PATCH "https://api.respan.ai/api/testsets/{testset_id}/rows/{row_index}" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

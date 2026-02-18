@@ -1,15 +1,15 @@
 ---
 title: Vercel AI SDK
-description: Log LLM requests with Keywords AI gateway
-og:title: 'Vercel AI SDK with Keywords AI'
+description: Log LLM requests with Respan gateway
+og:title: 'Vercel AI SDK with Respan'
 ---
-<Note> This integration is for the **Keywords AI gateway**. </Note>
-With this integration, your LLM requests will go through **the Keywords AI gateway**, and the requests will be **automatically logged to Keywords AI**. 
+<Note> This integration is for the **Respan gateway**. </Note>
+With this integration, your LLM requests will go through **the Respan gateway**, and the requests will be **automatically logged to Respan**. 
 
 
-## 1. Get Keywords AI API key
+## 1. Get Respan API key
 
-After you create an account on [Keywords AI](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
+After you create an account on [Respan](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
 
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/get-started/api-keys.png" alt="Create API key placeholder" />
 
@@ -31,7 +31,7 @@ Go to the [Providers page](https://platform.keywordsai.co/platform/api/providers
 
 ## 3. Compatibility at a glance
 
-| SDK helper          | Works via Keywords AI?        | Switch models? |
+| SDK helper          | Works via Respan?        | Switch models? |
 | ------------------- | ----------------------------- | -------------- |
 | `@ai-sdk/openai`    | ✅ Yes                     |  ✅ Yes      |
 | `@ai-sdk/anthropic` | ✅ Yes (Anthropic models only) | ❌ No           |
@@ -41,7 +41,7 @@ Go to the [Providers page](https://platform.keywordsai.co/platform/api/providers
 
 ---
 
-## 4. Integrate Keywords AI gateway
+## 4. Integrate Respan gateway
 
 <Tabs>
 <Tab title="OpenAI">
@@ -54,7 +54,7 @@ import { streamText, streamObject } from 'ai'
 async function main() {
   // Initialize OpenAI with Keywords gateways
   const client: OpenAIProvider = createOpenAI({
-    baseURL: 'https://api.keywordsai.co',
+    baseURL: 'https://api.respan.ai',
     apiKey: 'YOUR_KEYWORDS_AI_API_KEY',
     compatibility: 'strict',
   })
@@ -94,7 +94,7 @@ import { streamText, streamObject, generateText, tool } from "ai";
 import { createOpenAI, openai } from "@ai-sdk/openai";
 import { z } from "zod";
 
-// Keywords AI parameters to be sent in the header
+// Respan parameters to be sent in the header
 const keywordsAIHeaderContent = {
     "customer_identifier": "test_customer_identifier_from_header"
 }
@@ -104,8 +104,8 @@ const client = createOpenAI({
   headers: {
     "X-Data-Keywordsai-Params": encoded
   },
-  baseURL: "https://api.keywordsai.co/api",
-  apiKey: process.env.KEYWORDSAI_API_KEY,
+  baseURL: "https://api.respan.ai/api",
+  apiKey: process.env.RESPAN_API_KEY,
 });
 
 const result = await generateText({
@@ -141,7 +141,7 @@ import { streamText, convertToCoreMessages } from 'ai';
 export const maxDuration = 30;
 
 export const anthropic: AnthropicProvider = createAnthropic({
-  baseURL: "https://api.keywordsai.co/api/anthropic/v1",
+  baseURL: "https://api.respan.ai/api/anthropic/v1",
   apiKey: process.env.KEYWORDS_AI_API_KEY,
 });
    
@@ -170,12 +170,12 @@ import {
 import { generateText, streamText } from "ai";
 
 
-const url = `https://api.keywordsai.co/api/google/`;
+const url = `https://api.respan.ai/api/google/`;
 
 const google = createGoogleGenerativeAI({
   // custom settings
   baseURL: url,
-  apiKey: process.env.KEYWORDSAI_API_KEY,
+  apiKey: process.env.RESPAN_API_KEY,
   
 });
 
@@ -208,13 +208,13 @@ Generates text and tool calls. This function is ideal for non-interactive use ca
     Generates a typed, structured object that matches a [Zod](https://zod.dev/) schema. You can use this function to force the language model to return structured data, e.g. for information extraction, synthetic data generation, or classification tasks.
 </ParamField> */}
 
-## 5. Add Keywords AI parameters
+## 5. Add Respan parameters
 
-Adding Keywords AI parameters to the Vercel AI SDK is different than other frameworks. Here is an example of how to do it:
+Adding Respan parameters to the Vercel AI SDK is different than other frameworks. Here is an example of how to do it:
 
 <Steps>
-<Step title="Specify Keywords AI params in an object">
-You should create an object with the Keywords AI parameters you want to use. Add parameters you want to use as keys in the object.
+<Step title="Specify Respan params in an object">
+You should create an object with the Respan parameters you want to use. Add parameters you want to use as keys in the object.
 ```typescript
 const keywordsAIHeaderContent = {
     "customer_params": {
@@ -237,8 +237,8 @@ You should send it in the `X-Data-Keywordsai-Params` header.
 <CodeGroup>
 ```typescript OpenAI
 const client = createOpenAI({
-  baseURL: process.env.KEYWORDSAI_ENDPOINT_LOCAL,
-  apiKey: process.env.KEYWORDSAI_API_KEY_TEST,
+  baseURL: process.env.RESPAN_ENDPOINT_LOCAL,
+  apiKey: process.env.RESPAN_API_KEY_TEST,
   compatibility: "strict",
   headers: {
     "X-Data-Keywordsai-Params": encoded
@@ -247,8 +247,8 @@ const client = createOpenAI({
 ```
 ```typescript Anthropic
 const client = createAnthropic({
-  baseURL: process.env.KEYWORDSAI_ENDPOINT_LOCAL,
-  apiKey: process.env.KEYWORDSAI_API_KEY_TEST,
+  baseURL: process.env.RESPAN_ENDPOINT_LOCAL,
+  apiKey: process.env.RESPAN_API_KEY_TEST,
   headers: {
     "X-Data-Keywordsai-Params": encoded
   }
@@ -268,8 +268,8 @@ const keywordsAIHeaderContent = {
 const encoded = Buffer.from(JSON.stringify(keywordsAIHeaderContent)).toString('base64');
 
 const client = createOpenAI({
-  baseURL: process.env.KEYWORDSAI_ENDPOINT_LOCAL,
-  apiKey: process.env.KEYWORDSAI_API_KEY_TEST,
+  baseURL: process.env.RESPAN_ENDPOINT_LOCAL,
+  apiKey: process.env.RESPAN_API_KEY_TEST,
   compatibility: "strict",
   headers: {
     "X-Data-Keywordsai-Params": encoded
@@ -310,8 +310,8 @@ const keywordsAIHeaderContent = {
 const encoded = Buffer.from(JSON.stringify(keywordsAIHeaderContent)).toString('base64');
 
 const anthropic = createAnthropic({
-  baseURL: process.env.KEYWORDSAI_ENDPOINT_LOCAL,
-  apiKey: process.env.KEYWORDSAI_API_KEY_TEST,
+  baseURL: process.env.RESPAN_ENDPOINT_LOCAL,
+  apiKey: process.env.RESPAN_API_KEY_TEST,
   headers: {
     "X-Data-Keywordsai-Params": encoded
   }

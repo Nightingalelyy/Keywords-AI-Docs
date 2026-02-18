@@ -1,13 +1,13 @@
 ---
 title: Haystack SDK
-description: "Use Haystack pipelines with Keywords AI gateway for automatic logging, fallbacks, and cost optimization"
+description: "Use Haystack pipelines with Respan gateway for automatic logging, fallbacks, and cost optimization"
 ---
 
-<Note> This integration is for the **Keywords AI gateway**. For workflow tracing, see [Haystack Tracing](/integration/development-frameworks/tracing/haystack). </Note>
+<Note> This integration is for the **Respan gateway**. For workflow tracing, see [Haystack Tracing](/integration/development-frameworks/tracing/haystack). </Note>
 
 ## Overview
 
-Haystack is an open-source framework for building LLM applications with composable pipelines. The Keywords AI gateway integration routes your LLM calls through Keywords AI for automatic logging, fallbacks, load balancing, and cost optimization.
+Haystack is an open-source framework for building LLM applications with composable pipelines. The Respan gateway integration routes your LLM calls through Respan for automatic logging, fallbacks, load balancing, and cost optimization.
 
 <Frame className="rounded-md">
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/Integrations/haystack/haystack_gateway.png" alt="Haystack gateway integration" />
@@ -16,7 +16,7 @@ Haystack is an open-source framework for building LLM applications with composab
 ## Installation
 
 ```bash
-pip install keywordsai-exporter-haystack
+pip install respan-exporter-haystack
 ```
 
 ## Quickstart
@@ -24,24 +24,24 @@ pip install keywordsai-exporter-haystack
 ### Step 1: Set Environment Variables
 
 ```bash
-export KEYWORDSAI_API_KEY="your-keywords-ai-key"
+export RESPAN_API_KEY="your-keywords-ai-key"
 ```
 
-### Step 2: Replace OpenAIGenerator with KeywordsAIGenerator
+### Step 2: Replace OpenAIGenerator with RespanGenerator
 
 <CodeGroup>
 ```python Basic Usage
 import os
 from haystack import Pipeline
 from haystack.components.builders import PromptBuilder
-from keywordsai_exporter_haystack import KeywordsAIGenerator
+from respan_exporter_haystack import RespanGenerator
 
 # Create pipeline
 pipeline = Pipeline()
 pipeline.add_component("prompt", PromptBuilder(template="Tell me about {{topic}}."))
-pipeline.add_component("llm", KeywordsAIGenerator(
+pipeline.add_component("llm", RespanGenerator(
     model="gpt-4o-mini",
-    api_key=os.getenv("KEYWORDSAI_API_KEY")
+    api_key=os.getenv("RESPAN_API_KEY")
 ))
 pipeline.connect("prompt", "llm")
 
@@ -51,11 +51,11 @@ print(result["llm"]["replies"][0])
 ```
 
 ```python With Metadata
-from keywordsai_exporter_haystack import KeywordsAIGenerator
+from respan_exporter_haystack import RespanGenerator
 
-pipeline.add_component("llm", KeywordsAIGenerator(
+pipeline.add_component("llm", RespanGenerator(
     model="gpt-4o-mini",
-    api_key=os.getenv("KEYWORDSAI_API_KEY"),
+    api_key=os.getenv("RESPAN_API_KEY"),
     generation_kwargs={
         "customer_identifier": "user_123",
         "metadata": {"session_id": "abc123"}
@@ -64,7 +64,7 @@ pipeline.add_component("llm", KeywordsAIGenerator(
 ```
 </CodeGroup>
 
-That's it! All LLM calls are now automatically logged to Keywords AI.
+That's it! All LLM calls are now automatically logged to Respan.
 
 ## Prompt Management
 
@@ -73,14 +73,14 @@ Use platform-managed prompts for centralized control:
 ```python
 import os
 from haystack import Pipeline
-from keywordsai_exporter_haystack import KeywordsAIGenerator
+from respan_exporter_haystack import RespanGenerator
 
 # Create pipeline with platform prompt
 # No model needed - it comes from the platform
 pipeline = Pipeline()
-pipeline.add_component("llm", KeywordsAIGenerator(
+pipeline.add_component("llm", RespanGenerator(
     prompt_id="your-prompt-id",  # Get from platform
-    api_key=os.getenv("KEYWORDSAI_API_KEY")
+    api_key=os.getenv("RESPAN_API_KEY")
 ))
 
 # Run with prompt variables
@@ -110,9 +110,9 @@ Create prompts at: [platform.keywordsai.co/platform/prompts](https://platform.ke
 All [OpenAI parameters](/api-endpoints/develop/gateway/chat-completions#openai-compatible-parameters) are supported:
 
 ```python
-pipeline.add_component("llm", KeywordsAIGenerator(
+pipeline.add_component("llm", RespanGenerator(
     model="gpt-4o-mini",
-    api_key=os.getenv("KEYWORDSAI_API_KEY"),
+    api_key=os.getenv("RESPAN_API_KEY"),
     generation_kwargs={
         "temperature": 0.7,      # Control randomness
         "max_tokens": 1000,      # Limit response length
@@ -120,14 +120,14 @@ pipeline.add_component("llm", KeywordsAIGenerator(
 ))
 ```
 
-### Keywords AI Parameters
+### Respan Parameters
 
-Use [Keywords AI parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters) for advanced features:
+Use [Respan parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters) for advanced features:
 
 ```python
-pipeline.add_component("llm", KeywordsAIGenerator(
+pipeline.add_component("llm", RespanGenerator(
     model="gpt-4o-mini",
-    api_key=os.getenv("KEYWORDSAI_API_KEY"),
+    api_key=os.getenv("RESPAN_API_KEY"),
     generation_kwargs={
         "customer_identifier": "user_123",           # Track users
         "fallback_models": ["gpt-3.5-turbo"],       # Auto fallbacks

@@ -1,9 +1,9 @@
 ---
 title: Create log
-api: POST https://api.keywordsai.co/api/request-logs/
+api: POST https://api.respan.ai/api/request-logs/
 ---
 
-This guide shows you how to log any type of LLM request to Keywords AI using the **universal input/output design** that supports all span types.
+This guide shows you how to log any type of LLM request to Respan using the **universal input/output design** that supports all span types.
 
 <Warning>
 **Log size limit: 20MB**
@@ -13,7 +13,7 @@ Each log payload has a maximum size limit of 20MB. This includes the `input`, `o
 
 ## Input/Output
 
-**Keywords AI uses universal `input` and `output` fields across all span types.** 
+**Respan uses universal `input` and `output` fields across all span types.** 
 
 - **Chat completions**: Messages arrays
 - **Embeddings**: Text strings or arrays
@@ -25,7 +25,7 @@ Each log payload has a maximum size limit of 20MB. This includes the `input`, `o
 **How it works:**
 1. You provide `input` and `output` fields in any structure (string, object, array, etc.)
 2. Set `log_type` to indicate span type (`"chat"`, `"embedding"`, `"workflow"`, etc.)
-3. Keywords AI automatically extracts type-specific fields for backward compatibility
+3. Respan automatically extracts type-specific fields for backward compatibility
 4. Your data is stored efficiently and retrieved with both universal and type-specific fields
 
 For complete `log_type` specifications, see [log types](/get-started/observability_data_model#log-types).
@@ -33,7 +33,7 @@ For complete `log_type` specifications, see [log types](/get-started/observabili
 <Note>
 ### Legacy field support
 
-For backward compatibility, Keywords AI still supports legacy fields:
+For backward compatibility, Respan still supports legacy fields:
 
 <ParamField body="prompt_messages" type="array">
 **Legacy field.** Use `input` instead.
@@ -67,7 +67,7 @@ See the **Span Types** section below for complete specifications.
 
 <Accordion title="Example for Embedding">
 ```json
-"input": "Keywords AI is an LLM observability platform"
+"input": "Respan is an LLM observability platform"
 ```
 </Accordion>
 
@@ -508,7 +508,7 @@ Custom price per 1M completion tokens. Used for self-hosted or fine-tuned models
 ### API controls
 
 <ParamField body="keywordsai_api_controls" type="object">
-Control the behavior of the Keywords AI logging API.
+Control the behavior of the Respan logging API.
 
 <AccordionGroup>
 <Accordion title="Properties">

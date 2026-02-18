@@ -52,9 +52,9 @@ Returns a dictionary containing the created experiment information.
 
 ### Basic A/B Test
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Create a simple A/B test
 experiment = client.experiments.create(
@@ -181,10 +181,10 @@ print(f"Experiment metadata: {experiment['metadata']}")
 ### Asynchronous Creation
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def create_experiment_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     experiment = await client.experiments.create(
         name="Async Experiment",

@@ -1,6 +1,6 @@
 ---
 title: Delete custom model
-api: DELETE https://api.keywordsai.co/api/models/{model_name}/
+api: DELETE https://api.respan.ai/api/models/{model_name}/
 ---
 
 Delete a specific custom model from your organization.
@@ -53,7 +53,7 @@ Returns no content on successful deletion.
 import requests
 
 model_name = "my-custom-gpt-4"
-url = f"https://api.keywordsai.co/api/models/{model_name}/"
+url = f"https://api.respan.ai/api/models/{model_name}/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -64,7 +64,7 @@ print(f"Status code: {response.status_code}")
 
 ```typescript TypeScript
 const modelName = 'my-custom-gpt-4';
-const url = `https://api.keywordsai.co/api/models/${modelName}/`;
+const url = `https://api.respan.ai/api/models/${modelName}/`;
 const headers = {
     'Authorization': 'Bearer YOUR_API_KEY'
 };
@@ -78,7 +78,7 @@ console.log(`Status code: ${response.status}`);
 ```
 
 ```bash cURL
-curl -X DELETE "https://api.keywordsai.co/api/models/my-custom-gpt-4/" \
+curl -X DELETE "https://api.respan.ai/api/models/my-custom-gpt-4/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 </RequestExample>

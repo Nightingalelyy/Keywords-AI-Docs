@@ -1,12 +1,12 @@
 ---
 title: Create a log score
-api: POST https://api.keywordsai.co/api/logs/{log_id}/scores/
+api: POST https://api.respan.ai/api/logs/{log_id}/scores/
 ---
 
 Creates a new evaluation score for a specific log. This ensures that only one score exists per evaluator per log.
 
 <ParamField body="evaluator_id" type="string">
-  UUID of evaluator created in Keywords AI. Either this or `evaluator_slug` must be provided.
+  UUID of evaluator created in Respan. Either this or `evaluator_slug` must be provided.
 </ParamField>
 
 <ParamField body="evaluator_slug" type="string">
@@ -33,8 +33,8 @@ Creates a new evaluation score for a specific log. This ensures that only one sc
 ```Python Python
 import requests
 
-url = "https://api.keywordsai.co/api/logs/{log_id}/scores/"
-api_key = "YOUR_KEY" # Replace with your actual Keywords AI API key
+url = "https://api.respan.ai/api/logs/{log_id}/scores/"
+api_key = "YOUR_KEY" # Replace with your actual Respan API key
 data = {
     "evaluator_slug": "my_custom_evaluator",
     "numerical_value": 4.5,

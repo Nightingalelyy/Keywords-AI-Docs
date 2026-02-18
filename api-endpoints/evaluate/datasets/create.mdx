@@ -1,6 +1,6 @@
 ---
 title: "Create dataset"
-api: "POST https://api.keywordsai.co/api/datasets/"
+api: "POST https://api.respan.ai/api/datasets/"
 ---
 
 Creates a new dataset, either populated with existing logs or empty for manual population. You can specify filters and sampling rate to select which logs to include, or create an empty dataset to add logs manually later.
@@ -61,7 +61,7 @@ Authorization: Bearer YOUR_API_KEY
 import requests
 import json
 
-url = "https://api.keywordsai.co/api/datasets/"
+url = "https://api.respan.ai/api/datasets/"
 
 payload = json.dumps({
   "name": "Support Conversations - July",
@@ -90,7 +90,7 @@ print(response.text)
 import requests
 import json
 
-url = "https://api.keywordsai.co/api/datasets/"
+url = "https://api.respan.ai/api/datasets/"
 
 payload = json.dumps({
   "name": "Custom Workflow Logs",

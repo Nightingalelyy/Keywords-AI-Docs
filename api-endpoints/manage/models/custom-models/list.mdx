@@ -1,6 +1,6 @@
 ---
 title: List custom models
-api: GET https://api.keywordsai.co/api/models/
+api: GET https://api.respan.ai/api/models/
 ---
 
 Retrieve all models accessible to your organization, including both global models (shared across all organizations) and your custom models.
@@ -83,7 +83,7 @@ Returns an array of model objects with their configurations and associated provi
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/models/"
+url = "https://api.respan.ai/api/models/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -94,7 +94,7 @@ print(response.json())
 ```
 
 ```typescript TypeScript
-const url = 'https://api.keywordsai.co/api/models/?sort_by=model_name';
+const url = 'https://api.respan.ai/api/models/?sort_by=model_name';
 const headers = {
     'Authorization': 'Bearer YOUR_API_KEY'
 };
@@ -109,7 +109,7 @@ console.log(data);
 ```
 
 ```bash cURL
-curl "https://api.keywordsai.co/api/models/?sort_by=model_name" \
+curl "https://api.respan.ai/api/models/?sort_by=model_name" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 </RequestExample>

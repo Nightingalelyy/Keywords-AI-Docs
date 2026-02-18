@@ -1,24 +1,24 @@
 ---
 title: RubyLLM
-description: "Use RubyLLM with Keywords AI gateway for logging, analytics, and access to 250+ models."
+description: "Use RubyLLM with Respan gateway for logging, analytics, and access to 250+ models."
 ---
 
-<Note> This integration is for the **Keywords AI gateway**. </Note>
+<Note> This integration is for the **Respan gateway**. </Note>
 
 ## Overview
 
 [RubyLLM](https://rubyllm.com/) is a delightful Ruby gem that provides a unified interface for interacting with AI models from OpenAI, Anthropic, Google, and more.
 
-By pointing RubyLLM's OpenAI-compatible endpoint to Keywords AI, you get automatic logging, analytics, fallbacks, and access to 250+ models through a single API key.
+By pointing RubyLLM's OpenAI-compatible endpoint to Respan, you get automatic logging, analytics, fallbacks, and access to 250+ models through a single API key.
 
 ## Quickstart
 
-### Step 1: Get a Keywords AI API key
+### Step 1: Get a Respan API key
 
-Create an API key in the [Keywords AI dashboard](https://platform.keywordsai.co/platform/api/api-keys).
+Create an API key in the [Respan dashboard](https://platform.keywordsai.co/platform/api/api-keys).
 
 <Frame className="rounded-md">
-<img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/documentation/admin/kai_create_api_key_v0.png" alt="Create a Keywords AI API key" />
+<img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/documentation/admin/kai_create_api_key_v0.png" alt="Create a Respan API key" />
 </Frame>
 
 ### Step 2: Install RubyLLM
@@ -37,11 +37,11 @@ bundle install
 
 ### Step 3: Configure RubyLLM
 
-Point RubyLLM to the Keywords AI gateway by setting the `openai_api_base` and `openai_api_key`:
+Point RubyLLM to the Respan gateway by setting the `openai_api_base` and `openai_api_key`:
 
 ```ruby {3-4}
 RubyLLM.configure do |config|
-  config.openai_api_base = "https://api.keywordsai.co/api/"
+  config.openai_api_base = "https://api.respan.ai/api/"
   config.openai_api_key = ENV['KEYWORDS_AI_API_KEY']
 end
 ```
@@ -58,7 +58,7 @@ puts response.content
 
 ## Switch models
 
-Since all requests go through the Keywords AI gateway, you can use any of the 250+ supported models by changing the model name:
+Since all requests go through the Respan gateway, you can use any of the 250+ supported models by changing the model name:
 
 ```ruby {2-4}
 # OpenAI
@@ -91,13 +91,13 @@ For Rails applications, configure RubyLLM in an initializer:
 ```ruby
 # config/initializers/ruby_llm.rb
 RubyLLM.configure do |config|
-  config.openai_api_base = "https://api.keywordsai.co/api/"
+  config.openai_api_base = "https://api.respan.ai/api/"
   config.openai_api_key = ENV['KEYWORDS_AI_API_KEY']
 end
 ```
 
 <Card title="View your analytics" href="https://platform.keywordsai.co/platform/dashboard">
-  Access your Keywords AI dashboard to see detailed analytics
+  Access your Respan dashboard to see detailed analytics
 </Card>
 
 ## Next Steps

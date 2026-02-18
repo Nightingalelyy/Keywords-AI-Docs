@@ -46,9 +46,9 @@ Returns a dictionary containing the list of evaluation reports and pagination in
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # List all evaluation reports
 reports = client.datasets.list_evaluation_reports()
@@ -107,10 +107,10 @@ print(f"Page 2: {len(next_reports['reports'])} reports")
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def list_reports_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     reports = await client.datasets.list_evaluation_reports(
         dataset_id="dataset_123",

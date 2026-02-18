@@ -1,11 +1,11 @@
 ---
 title: "Cognee"
-description: "LLM observability for AI memory with Keywords AI and Cognee"
+description: "LLM observability for AI memory with Respan and Cognee"
 ---
 
 ## Cognee integration
 
-[Cognee](https://www.cognee.ai/) is an open-source memory engine with a semantic graph at its core that provides observability for AI agents and semantic workflows. When integrated with Keywords AI, it offers comprehensive tracing and monitoring capabilities for complex AI systems.
+[Cognee](https://www.cognee.ai/) is an open-source memory engine with a semantic graph at its core that provides observability for AI agents and semantic workflows. When integrated with Respan, it offers comprehensive tracing and monitoring capabilities for complex AI systems.
 
 ### Original resources
 <CardGroup cols={2}>
@@ -14,7 +14,7 @@ description: "LLM observability for AI memory with Keywords AI and Cognee"
     icon="book-open"
     href="https://docs.cognee.ai/integrations/keywordsai-integration"
   >
-    Official integration guide for Keywords AI with Cognee
+    Official integration guide for Respan with Cognee
   </Card>
   <Card
     title="Cognee Blog"
@@ -36,7 +36,7 @@ description: "LLM observability for AI memory with Keywords AI and Cognee"
 
 ## Installation
 
-Install the Keywords AI integration for Cognee:
+Install the Respan integration for Cognee:
 
 ```bash
 pip install cognee-community-observability-keywordsai
@@ -47,9 +47,9 @@ pip install cognee-community-observability-keywordsai
 Set up your environment variables:
 
 ```bash
-# Required for Keywords AI setup
+# Required for Respan setup
 export MONITORING_TOOL=keywordsai
-export KEYWORDSAI_API_KEY=<your_KeywordsAI_key>
+export RESPAN_API_KEY=<your_Respan_key>
 
 # Required for cognee (if your pipeline calls LLMs)
 export LLM_API_KEY=<your_OpenAI_key>
@@ -60,7 +60,7 @@ export LLM_API_KEY=<your_OpenAI_key>
 ### Prerequisites
 
 - Python 3.10+
-- Keywords AI API key ([Get yours here](https://keywordsai.co))
+- Respan API key ([Get yours here](https://keywordsai.co))
 - LLM API key (e.g., OpenAI)
 - A clean virtual environment
 
@@ -72,7 +72,7 @@ import cognee_community_observability_keywordsai  # noqa: F401
 
 # 2) Use Cognee's abstraction
 from cognee.modules.observability.get_observe import get_observe
-observe = get_observe()  # returns Keywords AI decorator when MONITORING_TOOL=keywordsai
+observe = get_observe()  # returns Respan decorator when MONITORING_TOOL=keywordsai
 
 # 3) Decorate a task
 @observe
@@ -143,19 +143,19 @@ Cognee exposes a single surface for observability: `@observe`. This decorator wo
 
 ### Backend Integration
 
-The Keywords AI integration:
+The Respan integration:
 
 1. **Patches** Cognee's `get_observe()` at import time
-2. **Maps** `@observe` to Keywords AI's `task()` decorator
-3. **Maps** `@observe(workflow=True)` to Keywords AI's `workflow()` decorator
-4. **Initializes** telemetry via `KeywordsAITelemetry()` once on import
+2. **Maps** `@observe` to Respan's `task()` decorator
+3. **Maps** `@observe(workflow=True)` to Respan's `workflow()` decorator
+4. **Initializes** telemetry via `RespanTelemetry()` once on import
 
 ### Monitoring Dashboard
 
 Once configured, you can:
 
 1. Run your Cognee workflows with the `@observe` decorators
-2. Open your [Keywords AI dashboard](https://keywordsai.co)
+2. Open your [Respan dashboard](https://keywordsai.co)
 3. Inspect spans across tasks and workflows
 4. Monitor token usage, latency, and error rates
 5. Debug issues with detailed trace information
@@ -167,7 +167,7 @@ Once configured, you can:
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `MONITORING_TOOL` | Set to `keywordsai` | Yes |
-| `KEYWORDSAI_API_KEY` | Your Keywords AI API key | Yes |
+| `RESPAN_API_KEY` | Your Respan API key | Yes |
 | `LLM_API_KEY` | Your LLM provider API key | Optional |
 
 ### Custom Span Names
@@ -186,7 +186,7 @@ async def my_workflow():
 
 ## Community Integration
 
-The Keywords AI integration is part of the `cognee-community` extension hub, which provides:
+The Respan integration is part of the `cognee-community` extension hub, which provides:
 
 - **Independent Evolution**: Adapters iterate at their own pace
 - **Slim Installs**: Pull in only what you need
@@ -197,7 +197,7 @@ The Keywords AI integration is part of the `cognee-community` extension hub, whi
 
 ### Common Issues
 
-1. **Missing API Key**: Ensure `KEYWORDSAI_API_KEY` is set
+1. **Missing API Key**: Ensure `RESPAN_API_KEY` is set
 2. **Wrong Monitoring Tool**: Verify `MONITORING_TOOL=keywordsai`
 3. **Import Order**: Import the integration package before using `get_observe()`
 

@@ -1,6 +1,6 @@
 ---
 title: "AI gateway"
-description: "Keywords AI AI gateway supports you call 250+ LLMs using the same input/output format."
+description: "Respan AI gateway supports you call 250+ LLMs using the same input/output format."
 og:title: 'AI gateway'
 ---
 ---
@@ -26,9 +26,9 @@ Keywords AI's AI Gateway is a gateway that lets you interface with 250+ large 
 - May not be ideal for those who do not want to integrate a third-party service into the core of their application.
 
 ## Use AI gateway
-### 1. Get your Keywords AI API key
+### 1. Get your Respan API key
 
-After you create an account on [Keywords AI](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
+After you create an account on [Respan](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
 
 <Frame className="rounded-md">
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/get-started/api-keys.png" alt="Create API key placeholder" />
@@ -65,7 +65,7 @@ def demo_call(input,
         'messages': [{'role': 'user', 'content': input}],
     }
 
-    response = requests.post('https://api.keywordsai.co/api/chat/completions', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/chat/completions', headers=headers, json=data)
     return response
 
 messages = "Say 'Hello World'"
@@ -73,7 +73,7 @@ print(demo_call(messages).json())
 ```
 
 ```TypeScript TypeScript
-fetch('https://api.keywordsai.co/api/chat/completions', {
+fetch('https://api.respan.ai/api/chat/completions', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -89,9 +89,9 @@ fetch('https://api.keywordsai.co/api/chat/completions', {
 ```
 
 ```bash Bash
-curl -X POST "https://api.keywordsai.co/chat/completions" 
+curl -X POST "https://api.respan.ai/chat/completions" 
 -H "Content-Type: application/json" 
--H "Authorization: Bearer Your_KeywordsAI_API_Key" 
+-H "Authorization: Bearer Your_Respan_API_Key" 
 -d "{
   "model": "gpt-4o-mini",
   "messages": [{"role": "user", "content": "Hello"}],
@@ -102,11 +102,11 @@ curl -X POST "https://api.keywordsai.co/chat/completions"
 <?php
   $ch = curl_init();
     
-  curl_setopt($ch, CURLOPT_URL, "https://api.keywordsai.co/chat/completions");
+  curl_setopt($ch, CURLOPT_URL, "https://api.respan.ai/chat/completions");
   curl_setopt($ch, CURLOPT_POST, 1);
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     "Content-Type: application/json",
-    "Authorization: Bearer Your_KeywordsAI_API_Key",
+    "Authorization: Bearer Your_Respan_API_Key",
   ));
   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
     "model" => "gpt-4o-mini",
@@ -126,7 +126,7 @@ import (
 )
     
 func main() {
-  url := "https://api.keywordsai.co/chat/completions"
+  url := "https://api.respan.ai/chat/completions"
   method := "POST"
     
   payload := []byte(`{
@@ -142,7 +142,7 @@ func main() {
   }
     
   req.Header.Add("Content-Type", "application/json")
-  req.Header.Add("Authorization", "Bearer Your_KeywordsAI_API_Key")
+  req.Header.Add("Authorization", "Bearer Your_Respan_API_Key")
     
   res, err := client.Do(req)
   defer res.Body.Close()
@@ -156,13 +156,13 @@ func main() {
     We support all OpenAI parameters, which is the standard format for LLMs. You can check out important [OpenAI parameters in this page](/api-endpoints/develop/gateway/chat-completions#openai-compatible-parameters). You can also learn more about OpenAI parameters [here](https://platform.openai.com/docs/api-reference/chat).
   </Accordion>
   
-  <Accordion title="Keywords AI Parameters">
-    Use these when you want to achieve specific goals. For example, you can use `fallback_models` to specify fallback models when the primary model is down. You can check out all [Keywords AI parameters in this page](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters).
+  <Accordion title="Respan Parameters">
+    Use these when you want to achieve specific goals. For example, you can use `fallback_models` to specify fallback models when the primary model is down. You can check out all [Respan parameters in this page](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters).
   </Accordion>
 </AccordionGroup>
 
 ## Integrate with your existing AI framework
-Keywords AI offers various integration options, including all mainstream LLM frameworks and REST APIs.
+Respan offers various integration options, including all mainstream LLM frameworks and REST APIs.
 
 ### Supported frameworks
 

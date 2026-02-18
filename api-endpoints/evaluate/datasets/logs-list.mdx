@@ -1,6 +1,6 @@
 ---
 title: "List logs"
-api: "GET https://api.keywordsai.co/api/datasets/{dataset_id}/logs/list/"
+api: "GET https://api.respan.ai/api/datasets/{dataset_id}/logs/list/"
 ---
 
 This endpoint retrieves the logs that have been added to a dataset. It supports pagination, filtering, and ordering.
@@ -26,7 +26,7 @@ Response (200 OK):
 ```json
 {
   "count": 250,
-  "next": "https://api.keywordsai.co/api/datasets/{dataset_id}/logs/list/?page=2&page_size=10",
+  "next": "https://api.respan.ai/api/datasets/{dataset_id}/logs/list/?page=2&page_size=10",
   "previous": null,
   "results": [
     {

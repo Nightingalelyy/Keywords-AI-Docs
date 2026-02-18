@@ -1,12 +1,12 @@
 ---
 title: "Logging via API"
-description: "Send your LLM logs to Keywords AI and monitor them in real-time"
+description: "Send your LLM logs to Respan and monitor them in real-time"
 ---
 
 ## What is logging?
 
 1. Send a `POST` request to log your AI conversations
-2. See them appear instantly on your Keywords AI platform
+2. See them appear instantly on your Respan platform
 
 <Frame className="rounded-md">
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/observability/overview/logs.jpg" />
@@ -15,9 +15,9 @@ description: "Send your LLM logs to Keywords AI and monitor them in real-time"
 
 
 ## Use logging API
-### 1. Get your Keywords AI API key
+### 1. Get your Respan API key
 
-After you create an account on [Keywords AI](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
+After you create an account on [Respan](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
 
 <Frame className="rounded-md">
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/get-started/api-keys.png" alt="Create API key placeholder" />
@@ -30,7 +30,7 @@ After you create an account on [Keywords AI](https://platform.keywordsai.co), yo
 import requests
 import json
 
-url = "https://api.keywordsai.co/api/request-logs/create/"
+url = "https://api.respan.ai/api/request-logs/create/"
 payload = {
     "model": "gpt-4o",
     "log_type": "chat",
@@ -56,7 +56,7 @@ response = requests.post(url, headers=headers, json=payload)
 ```
 
 ```typescript TypeScript {3}
-const url = 'https://api.keywordsai.co/api/request-logs/create/';
+const url = 'https://api.respan.ai/api/request-logs/create/';
 const headers = {
     'Authorization': 'Bearer YOUR_KEYWORDS_AI_API_KEY',
     'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ fetch(url, {
 ```
 
 ```bash cURL {3}
-curl -X POST "https://api.keywordsai.co/api/request-logs/create/" \
+curl -X POST "https://api.respan.ai/api/request-logs/create/" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY" \
 -d '{

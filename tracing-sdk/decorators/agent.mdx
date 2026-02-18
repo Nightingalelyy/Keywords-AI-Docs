@@ -10,7 +10,7 @@ Use `agent(name: Optional[str] = None, version: Optional[int] = None, method_nam
 ## Function usage
 
 ```python
-from keywordsai_tracing.decorators import agent, task
+from respan_tracing.decorators import agent, task
 
 @agent(name="support_agent")
 def support_agent():
@@ -25,7 +25,7 @@ print(support_agent())
 ## Class usage
 
 ```python
-from keywordsai_tracing.decorators import agent, task
+from respan_tracing.decorators import agent, task
 
 @agent(name="assistant", method_name="run")
 class Assistant:

@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Agents SDK"
-description: "Build multi-agent workflows with the OpenAI Agents SDK and Keywords AI."
+description: "Build multi-agent workflows with the OpenAI Agents SDK and Respan."
 ---
 <Note>This integration is only for Agent tracing. If you are looking for a general integration for OpenAI, please see the [OpenAI integration](/integration/development-frameworks/llm_framework/openai/openai-sdk).</Note>
 
@@ -18,7 +18,7 @@ The [OpenAI Agents SDK](https://github.com/openai/openai-agents-python?tab=readm
 
 ## Quickstart
 
-When install OpenAI Agents SDK and [Keywords AI tracing SDK](https://github.com/Keywords-AI/keywordsai), implement `KeywordsProcessor` in your code to send traces from the OpenAI Agents SDK to Keywords AI.
+When install OpenAI Agents SDK and [Respan tracing SDK](https://github.com/Keywords-AI/keywordsai), implement `KeywordsProcessor` in your code to send traces from the OpenAI Agents SDK to Respan.
 
 ### Prerequisites
 
@@ -27,17 +27,17 @@ pip install openai-agents
 ```
 
 ```bash
-pip install keywordsai-tracing
+pip install respan-tracing
 ```
 
 ```bash
-pip install "keywordsai-tracing[openai-agents]"
+pip install "respan-tracing[openai-agents]"
 ```
 
 **Please use the specific endpoint for the OpenAI Agents SDK.**
 
 ```bash
-https://api.keywordsai.co/api/openai/v1/traces/ingest
+https://api.respan.ai/api/openai/v1/traces/ingest
 ```
 
 <Note>If you are on the enterprise platform, please use the enterprise endpoint plus the suffix.</Note>
@@ -49,13 +49,13 @@ import asyncio
 import os
 from agents import Agent, Runner
 from agents.tracing import set_trace_processors
-from keywordsai_tracing.integrations.openai_agents_integration import KeywordsAITraceProcessor
+from respan_tracing.integrations.openai_agents_integration import RespanTraceProcessor
 
 set_trace_processors(
     [
-        KeywordsAITraceProcessor(
-            api_key=os.getenv("KEYWORDSAI_API_KEY"),
-            endpoint="https://api.keywordsai.co/api/openai/v1/traces/ingest"
+        RespanTraceProcessor(
+            api_key=os.getenv("RESPAN_API_KEY"),
+            endpoint="https://api.respan.ai/api/openai/v1/traces/ingest"
         ),
     ]
 )
@@ -80,15 +80,15 @@ if __name__ == "__main__":
 ```python Python
 from agents import Agent, Runner
 import asyncio
-from keywordsai_tracing.integrations.openai_agents_integration import KeywordsAITraceProcessor
+from respan_tracing.integrations.openai_agents_integration import RespanTraceProcessor
 from agents.tracing import set_trace_processors
 import os
 
 set_trace_processors(
     [
-        KeywordsAITraceProcessor(
-            api_key=os.getenv("KEYWORDSAI_API_KEY"),
-            endpoint="https://api.keywordsai.co/api/openai/v1/traces/ingest",
+        RespanTraceProcessor(
+            api_key=os.getenv("RESPAN_API_KEY"),
+            endpoint="https://api.respan.ai/api/openai/v1/traces/ingest",
         ),
     ]
 )
@@ -125,15 +125,15 @@ if __name__ == "__main__":
 import asyncio
 
 from agents import Agent, Runner, function_tool
-from keywordsai_tracing.integrations.openai_agents_integration import KeywordsAITraceProcessor
+from respan_tracing.integrations.openai_agents_integration import RespanTraceProcessor
 from agents.tracing import set_trace_processors
 import os
 
 set_trace_processors(
     [
-        KeywordsAITraceProcessor(
-            os.getenv("KEYWORDSAI_API_KEY"),
-            endpoint="https://api.keywordsai.co/api/openai/v1/traces/ingest",
+        RespanTraceProcessor(
+            os.getenv("RESPAN_API_KEY"),
+            endpoint="https://api.respan.ai/api/openai/v1/traces/ingest",
         ),
     ]
 )

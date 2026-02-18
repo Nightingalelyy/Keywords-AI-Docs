@@ -37,9 +37,9 @@ async def acreate_version(
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Create a new version
 version = client.prompts.create_version(
@@ -58,10 +58,10 @@ print(f"Created version: {version.version}")
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def create_version():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     version = await client.prompts.acreate_version(
         prompt_id="prompt_123",

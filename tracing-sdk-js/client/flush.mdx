@@ -1,11 +1,11 @@
 ---
 title: "flush()"
-description: "Manually flush pending spans to Keywords AI"
+description: "Manually flush pending spans to Respan"
 ---
 
 ## Overview
 
-`flush()` forces immediate export of all pending spans to Keywords AI. Useful before application shutdown or when you need to ensure data is sent immediately.
+`flush()` forces immediate export of all pending spans to Respan. Useful before application shutdown or when you need to ensure data is sent immediately.
 
 ## Signature
 
@@ -16,10 +16,10 @@ async flush(): Promise<void>
 ## Basic Usage
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app'
 });
 
@@ -34,15 +34,15 @@ await keywordsAi.withWorkflow(
 
 // Manually flush spans
 await keywordsAi.getClient().flush();
-console.log('Spans sent to Keywords AI');
+console.log('Spans sent to Respan');
 ```
 
 ## Before Application Exit
 
 ```typescript
 async function main() {
-    const keywordsAi = new KeywordsAITelemetry({
-        apiKey: process.env.KEYWORDSAI_API_KEY,
+    const keywordsAi = new RespanTelemetry({
+        apiKey: process.env.RESPAN_API_KEY,
         appName: 'batch-job'
     });
     
@@ -99,8 +99,8 @@ await keywordsAi.withWorkflow(
 ```typescript
 // AWS Lambda handler
 export async function handler(event: any) {
-    const keywordsAi = new KeywordsAITelemetry({
-        apiKey: process.env.KEYWORDSAI_API_KEY,
+    const keywordsAi = new RespanTelemetry({
+        apiKey: process.env.RESPAN_API_KEY,
         appName: 'lambda-function'
     });
     
@@ -136,8 +136,8 @@ import express from 'express';
 
 const app = express();
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'api-server'
 });
 
@@ -176,11 +176,11 @@ process.on('SIGTERM', async () => {
 import { describe, it, beforeAll, afterAll } from '@jest/globals';
 
 describe('My Service', () => {
-    let keywordsAi: KeywordsAITelemetry;
+    let keywordsAi: RespanTelemetry;
     
     beforeAll(async () => {
-        keywordsAi = new KeywordsAITelemetry({
-            apiKey: process.env.KEYWORDSAI_API_KEY,
+        keywordsAi = new RespanTelemetry({
+            apiKey: process.env.RESPAN_API_KEY,
             appName: 'test-suite'
         });
         await keywordsAi.initialize();

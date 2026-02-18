@@ -30,9 +30,9 @@ async def aget_version(
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Get a specific version
 version = client.prompts.get_version(
@@ -58,10 +58,10 @@ print(f"Configuration: {version.model}, temp={version.temperature}")
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def get_version():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     version = await client.prompts.aget_version(
         prompt_id="prompt_123",
@@ -128,9 +128,9 @@ Returns a dictionary containing the complete version information.
 
 ### Get Version by Number
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Get version 2 of a prompt
 version = client.prompts.get_version(
@@ -181,10 +181,10 @@ if version.get('metadata'):
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def get_version_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     version = await client.prompts.get_version(
         prompt_id="prompt_123",
@@ -298,10 +298,10 @@ print(f"Successfully retrieved {len(versions)} versions")
 ### Asynchronous Batch Retrieval
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def get_multiple_versions():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     version_numbers = [1, 2, 3, 4]
     
     # Get all versions concurrently

@@ -52,9 +52,9 @@ Returns a dictionary containing the updated experiment information.
 
 ### Basic Update
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Update experiment name and description
 experiment = client.experiments.update(
@@ -153,10 +153,10 @@ print(f"Status notes: {experiment['metadata']['status_notes']}")
 ### Asynchronous Update
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def update_experiment_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     experiment = await client.experiments.update(
         experiment_id="exp_123",
@@ -310,10 +310,10 @@ print(f"Successfully updated {len(updated_experiments)} experiments")
 ### Asynchronous Batch Updates
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def batch_update_experiments(updates):
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     async def update_single_experiment(update_config):
         try:

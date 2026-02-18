@@ -1,11 +1,11 @@
 ---
-title: "Keywords AI Parameters"
-description: "Understanding Keywords AI-specific span parameters for filtering and metadata"
+title: "Respan Parameters"
+description: "Understanding Respan-specific span parameters for filtering and metadata"
 ---
 
 ## Overview
 
-Keywords AI Parameters are special attributes you can attach to spans for enhanced filtering, grouping, and metadata in the Keywords AI dashboard.
+Respan Parameters are special attributes you can attach to spans for enhanced filtering, grouping, and metadata in the Respan dashboard.
 
 ## Parameters
 
@@ -20,7 +20,7 @@ await keywordsAi.withWorkflow(
         const client = keywordsAi.getClient();
         
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 customer_identifier: 'user-123'
             }
         });
@@ -41,7 +41,7 @@ await keywordsAi.withWorkflow(
         const client = keywordsAi.getClient();
         
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 trace_group_identifier: 'ecommerce-orders'
             }
         });
@@ -62,7 +62,7 @@ await keywordsAi.withWorkflow(
         const client = keywordsAi.getClient();
         
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 metadata: {
                     order_id: 'ORDER-789',
                     payment_method: 'credit_card',
@@ -81,10 +81,10 @@ await keywordsAi.withWorkflow(
 ## Complete Example
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'ecommerce-api'
 });
 
@@ -101,7 +101,7 @@ await keywordsAi.withWorkflow(
         const client = keywordsAi.getClient();
         
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 customer_identifier: 'customer-abc123',
                 trace_group_identifier: 'checkout',
                 metadata: {
@@ -138,7 +138,7 @@ Filter traces by customer ID when investigating support tickets:
 
 ```typescript
 client.updateCurrentSpan({
-    keywordsai_params: {
+    respan_params: {
         customer_identifier: supportTicket.customerId,
         metadata: {
             ticket_id: supportTicket.id,
@@ -155,7 +155,7 @@ Group traces by feature for usage analytics:
 
 ```typescript
 client.updateCurrentSpan({
-    keywordsai_params: {
+    respan_params: {
         trace_group_identifier: 'new-search-feature',
         metadata: {
             feature_flag: 'search_v2',
@@ -172,7 +172,7 @@ Track business-relevant information:
 
 ```typescript
 client.updateCurrentSpan({
-    keywordsai_params: {
+    respan_params: {
         customer_identifier: order.customerId,
         trace_group_identifier: 'orders',
         metadata: {
@@ -191,7 +191,7 @@ Identify traces by tenant:
 
 ```typescript
 client.updateCurrentSpan({
-    keywordsai_params: {
+    respan_params: {
         customer_identifier: tenant.id,
         trace_group_identifier: `tenant-${tenant.plan}`,
         metadata: {
@@ -204,9 +204,9 @@ client.updateCurrentSpan({
 });
 ```
 
-## Association Properties vs Keywords AI Params
+## Association Properties vs Respan Params
 
-| Feature | associationProperties | keywordsai_params |
+| Feature | associationProperties | respan_params |
 | --- | --- | --- |
 | Set via | Method options | `updateCurrentSpan()` |
 | When to set | At span creation | During span execution |
@@ -229,7 +229,7 @@ await keywordsAi.withWorkflow(
         
         // Add dynamic runtime metadata
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 customer_identifier: userId,
                 metadata: {
                     action: 'purchase',

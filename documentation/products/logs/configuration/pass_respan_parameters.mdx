@@ -1,15 +1,15 @@
 ---
-title: "Pass Keywords AI parameters"
-description: "Complete guide to passing Keywords AI parameters using the 3-layer approach: required fields, telemetry, and metadata"
+title: "Pass Respan parameters"
+description: "Complete guide to passing Respan parameters using the 3-layer approach: required fields, telemetry, and metadata"
 ---
 
-This guide shows you how to pass Keywords AI parameters using the structured 3-layer approach for comprehensive LLM logging and monitoring.
+This guide shows you how to pass Respan parameters using the structured 3-layer approach for comprehensive LLM logging and monitoring.
 
 ---
 
 ## Understanding the 3-Layer Structure
 
-Keywords AI parameters are organized into three distinct layers, each serving a specific purpose in your LLM observability stack:
+Respan parameters are organized into three distinct layers, each serving a specific purpose in your LLM observability stack:
 
 - **Layer 1: Required fields** - Essential data for basic logging
 - **Layer 2: Telemetry** - Performance and cost metrics  
@@ -39,7 +39,7 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-url = "https://api.keywordsai.co/api/request-logs/create/"
+url = "https://api.respan.ai/api/request-logs/create/"
 payload = {
     # --- Layer 1: Required fields ---
     "model": "claude-3-5-sonnet-20240620",  # model name
@@ -147,7 +147,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-url = "https://api.keywordsai.co/api/request-logs/create/"
+url = "https://api.respan.ai/api/request-logs/create/"
 payload = {
     # --- Layer 1: Required fields ---
     "model": "claude-3-5-sonnet-20240620",  # model name
@@ -190,9 +190,9 @@ payload = {
 }
 
 # Get API key from environment variable
-api_key = os.getenv("KEYWORDSAI_API_KEY")
+api_key = os.getenv("RESPAN_API_KEY")
 if not api_key:
-    raise ValueError("KEYWORDSAI_API_KEY environment variable is required")
+    raise ValueError("RESPAN_API_KEY environment variable is required")
 
 headers = {
     "Authorization": f"Bearer {api_key}",

@@ -1,6 +1,6 @@
 ---
 title: "Datasets API Overview"
-description: "Manage datasets and collections of logs with the Keywords AI Python SDK"
+description: "Manage datasets and collections of logs with the Respan Python SDK"
 ---
 
 ## Overview
@@ -19,9 +19,9 @@ The Datasets API allows you to create, manage, and organize collections of logs 
 ## Quick Start
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Create a dataset
 dataset = client.datasets.create(

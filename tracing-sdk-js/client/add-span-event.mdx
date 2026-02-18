@@ -19,10 +19,10 @@ addSpanEvent(
 ## Basic Usage
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app'
 });
 
@@ -237,4 +237,4 @@ await keywordsAi.withWorkflow(
 - Use consistent naming conventions for events
 - Events are automatically timestamped
 - Only call within an active span
-- Events are visible in the Keywords AI dashboard timeline
+- Events are visible in the Respan dashboard timeline

@@ -1,6 +1,6 @@
 ---
 title: "Update evaluator"
-api: "PATCH https://api.keywordsai.co/api/evaluators/{evaluator_id}/"
+api: "PATCH https://api.respan.ai/api/evaluators/{evaluator_id}/"
 ---
 
 Updates specific fields of an evaluator. Supports partial updates of configuration fields.
@@ -57,7 +57,7 @@ This example shows adding LLM automation to any evaluator type, demonstrating th
 import requests
 
 evaluator_id = "0f4325f9-55ef-4c20-8abe-376694419947"
-url = f"https://api.keywordsai.co/api/evaluators/{evaluator_id}/"
+url = f"https://api.respan.ai/api/evaluators/{evaluator_id}/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -85,7 +85,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -116,7 +116,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -151,7 +151,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -172,7 +172,7 @@ curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-
 import requests
 
 evaluator_id = "0f4325f9-55ef-4c20-8abe-376694419947"
-url = f"https://api.keywordsai.co/api/evaluators/{evaluator_id}/"
+url = f"https://api.respan.ai/api/evaluators/{evaluator_id}/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -191,7 +191,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -219,7 +219,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -237,7 +237,7 @@ curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-
 ```python Python
 # For categorical evaluators
 categorical_evaluator_id = "cat-eval-123"
-url = f"https://api.keywordsai.co/api/evaluators/{categorical_evaluator_id}/"
+url = f"https://api.respan.ai/api/evaluators/{categorical_evaluator_id}/"
 
 data = {
     "categorical_choices": [
@@ -254,7 +254,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/cat-eval-123/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/cat-eval-123/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -277,7 +277,7 @@ curl -X PATCH "https://api.keywordsai.co/api/evaluators/cat-eval-123/" \
 ```python Python
 # For code evaluators
 code_evaluator_id = "bool-eval-456"
-url = f"https://api.keywordsai.co/api/evaluators/{code_evaluator_id}/"
+url = f"https://api.respan.ai/api/evaluators/{code_evaluator_id}/"
 
 data = {
     "name": "Enhanced Length Checker",
@@ -291,7 +291,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/bool-eval-456/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/bool-eval-456/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -319,7 +319,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -350,7 +350,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X PATCH "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
+curl -X PATCH "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -394,12 +394,12 @@ Returns the updated evaluator object with all current field values:
     "passing_score": 4.0
   },
   "created_by": {
-    "first_name": "Keywords AI",
+    "first_name": "Respan",
     "last_name": "Team",
     "email": "admin@keywordsai.co"
   },
   "updated_by": {
-    "first_name": "Keywords AI",
+    "first_name": "Respan",
     "last_name": "Team",
     "email": "admin@keywordsai.co"
   },

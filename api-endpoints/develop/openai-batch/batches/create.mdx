@@ -1,6 +1,6 @@
 ---
 title: Create batch
-api: POST https://api.keywordsai.co/api/v1/batches/
+api: POST https://api.respan.ai/api/v1/batches/
 ---
 
 Create a new batch job for asynchronous processing of multiple LLM requests. Batch processing offers 50% cost savings compared to synchronous API calls, with results delivered within 24 hours.
@@ -10,12 +10,12 @@ Create a new batch job for asynchronous processing of multiple LLM requests. Bat
 </Note>
 
 <Note>
-**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Keywords AI dashboard (Settings → Providers). Keywords AI credits cannot be used for batch processing.
+**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Respan dashboard (Settings → Providers). Respan credits cannot be used for batch processing.
 </Note>
 
-## Keywords AI parameters
+## Respan parameters
 
-You can pass Keywords AI tracking parameters via the `X-Data-Keywordsai-Params` header:
+You can pass Respan tracking parameters via the `X-Data-Keywordsai-Params` header:
 
 ```bash
 -H "X-Data-Keywordsai-Params: {\"customer_identifier\": \"user123\", \"environment\": \"production\"}"
@@ -156,7 +156,7 @@ Returns a batch object with status information. The batch starts in `validating`
 import requests
 import json
 
-url = "https://api.keywordsai.co/api/v1/batches/"
+url = "https://api.respan.ai/api/v1/batches/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json",
@@ -179,7 +179,7 @@ print(response.json())
 ```
 
 ```typescript TypeScript
-const url = 'https://api.keywordsai.co/api/v1/batches/';
+const url = 'https://api.respan.ai/api/v1/batches/';
 const headers = {
     'Authorization': 'Bearer YOUR_API_KEY',
     'Content-Type': 'application/json',
@@ -209,7 +209,7 @@ console.log(data);
 ```
 
 ```bash cURL
-curl https://api.keywordsai.co/api/v1/batches/ \
+curl https://api.respan.ai/api/v1/batches/ \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -H "X-Data-Keywordsai-Params: {\"customer_identifier\": \"user123\", \"environment\": \"production\"}" \

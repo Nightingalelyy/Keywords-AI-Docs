@@ -43,10 +43,10 @@ Returns a dictionary containing:
 ## Example
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 from keywordsai.types.experiment_types import AddExperimentRowsRequest, ExperimentRowType
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Add rows to experiment
 rows_request = AddExperimentRowsRequest(
@@ -77,7 +77,7 @@ try:
         experiment_id="experiment-123",
         rows_request=rows_request
     )
-except KeywordsAIError as e:
+except RespanError as e:
     if "not found" in str(e):
         print("Experiment not found")
     else:

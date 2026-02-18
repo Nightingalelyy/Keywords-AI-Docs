@@ -1,6 +1,6 @@
 ---
 title: "Delete user"
-api: "DELETE https://api.keywordsai.co/api/users/<customer_identifier>/"
+api: "DELETE https://api.respan.ai/api/users/<customer_identifier>/"
 ---
 
 Deletes a customer and all associated data.
@@ -29,7 +29,7 @@ Your unique identifier for this customer.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/users/user_123/"
+url = "https://api.respan.ai/api/users/user_123/"
 headers = {"Authorization": "Bearer YOUR_API_KEY"}
 
 resp = requests.delete(url, headers=headers)
@@ -37,7 +37,7 @@ print(resp.status_code)
 ```
 
 ```bash cURL
-curl -X DELETE "https://api.keywordsai.co/api/users/user_123/" \
+curl -X DELETE "https://api.respan.ai/api/users/user_123/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 </RequestExample>

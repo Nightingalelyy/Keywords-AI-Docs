@@ -33,9 +33,9 @@ Returns a dictionary containing detailed experiment information including config
 
 ### Basic Retrieval
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Get experiment details
 experiment = client.experiments.get("exp_123")
@@ -145,10 +145,10 @@ except Exception as e:
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def get_experiment_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     try:
         experiment = await client.experiments.get("exp_123")
@@ -214,10 +214,10 @@ print(f"\nSuccessfully retrieved {len(experiments)} experiments")
 ### Asynchronous Batch Retrieval
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def get_experiments_batch(experiment_ids):
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     async def get_single_experiment(exp_id):
         try:

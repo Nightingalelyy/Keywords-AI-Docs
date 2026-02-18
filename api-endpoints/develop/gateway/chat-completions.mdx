@@ -1,13 +1,13 @@
 ---
 title: Create chat completion
-api: POST https://api.keywordsai.co/api/chat/completions
+api: POST https://api.respan.ai/api/chat/completions
 ---
 
 ## OpenAI compatible parameters 
-To use [Keywords AI parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters), you can pass them in the `extra_body` parameter if you're using the OpenAI SDK.
+To use [Respan parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters), you can pass them in the `extra_body` parameter if you're using the OpenAI SDK.
 
 <Info>
-**Environment Switching**: Keywords AI doesn't support an `env` parameter in API calls. To switch between environments (test/production), use different API keys - one for your test environment and another for production. You can manage these keys in your [API Keys settings](https://platform.keywordsai.co/platform/api/api-keys).
+**Environment Switching**: Respan doesn't support an `env` parameter in API calls. To switch between environments (test/production), use different API keys - one for your test environment and another for production. You can manage these keys in your [API Keys settings](https://platform.keywordsai.co/platform/api/api-keys).
 </Info>
 
 <RequestExample>
@@ -16,8 +16,8 @@ To use [Keywords AI parameters](/api-endpoints/develop/gateway/chat-completions#
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.chat.completions.create(
@@ -32,7 +32,7 @@ response = client.chat.completions.create(
 import { OpenAI } from "openai";
 
 const client = new OpenAI({
-  baseURL: "https://api.keywordsai.co/api",
+  baseURL: "https://api.respan.ai/api",
   apiKey: process.env.KEYWORDS_AI_API_KEY,
 });
 
@@ -64,7 +64,7 @@ def demo_call(input,
         'messages': [{'role': 'user', 'content': input}],
     }
 
-    response = requests.post('https://api.keywordsai.co/api/chat/completions', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/chat/completions', headers=headers, json=data)
     return response
 
 messages = "Say 'Hello World'"
@@ -72,7 +72,7 @@ print(demo_call(messages).json())
 ```
 
 ```TypeScript TypeScript
-fetch('https://api.keywordsai.co/api/chat/completions', {
+fetch('https://api.respan.ai/api/chat/completions', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -88,9 +88,9 @@ fetch('https://api.keywordsai.co/api/chat/completions', {
 ```
 
 ```bash Bash
-curl -X POST "https://api.keywordsai.co/chat/completions" 
+curl -X POST "https://api.respan.ai/chat/completions" 
 -H "Content-Type: application/json" 
--H "Authorization: Bearer Your_KeywordsAI_API_Key" 
+-H "Authorization: Bearer Your_Respan_API_Key" 
 -d "{
   "model": "gpt-4o-mini",
   "messages": [{"role": "user", "content": "Hello"}],
@@ -101,11 +101,11 @@ curl -X POST "https://api.keywordsai.co/chat/completions"
 <?php
   $ch = curl_init();
     
-  curl_setopt($ch, CURLOPT_URL, "https://api.keywordsai.co/chat/completions");
+  curl_setopt($ch, CURLOPT_URL, "https://api.respan.ai/chat/completions");
   curl_setopt($ch, CURLOPT_POST, 1);
   curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     "Content-Type: application/json",
-    "Authorization: Bearer Your_KeywordsAI_API_Key",
+    "Authorization: Bearer Your_Respan_API_Key",
   ));
   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(array(
     "model" => "gpt-4o-mini",
@@ -125,7 +125,7 @@ import (
 )
     
 func main() {
-  url := "https://api.keywordsai.co/chat/completions"
+  url := "https://api.respan.ai/chat/completions"
   method := "POST"
     
   payload := []byte(`{
@@ -141,7 +141,7 @@ func main() {
   }
     
   req.Header.Add("Content-Type", "application/json")
-  req.Header.Add("Authorization", "Bearer Your_KeywordsAI_API_Key")
+  req.Header.Add("Authorization", "Bearer Your_Respan_API_Key")
     
   res, err := client.Do(req)
   defer res.Body.Close()
@@ -161,7 +161,7 @@ response = keywords_ai_generate(**params)
 def  keywords_ai_generate(
                 messages,
                 api_key=os.getenv("KEYWORDS_AI_API_KEY"),
-                url="https://api.keywordsai.co/api/chat/completions",
+                url="https://api.respan.ai/api/chat/completions",
                 **kwargs
                 ):
     print("Calling: ",url)
@@ -187,11 +187,11 @@ params ={"messages": [{"role": "user", "content": "Hello"}],
 
 ```TypeScript TypeScript
 // Define the function with TypeScript
-fetch('https://api.keywordsai.co/api/chat/completions', {
+fetch('https://api.respan.ai/api/chat/completions', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer {YOUR_KEYWORDSAI_API_KEY}'
+    'Authorization': 'Bearer {YOUR_RESPAN_API_KEY}'
   }
     body: JSON.stringify({
         model: 'gpt-3.5-turbo',
@@ -203,9 +203,9 @@ fetch('https://api.keywordsai.co/api/chat/completions', {
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/chat/completions" \
+curl -X POST "https://api.respan.ai/api/chat/completions" \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer {YOUR_KEYWORDSAI_API_KEY}" \
+-H "Authorization: Bearer {YOUR_RESPAN_API_KEY}" \
 -d '{
   "messages": [
     {
@@ -407,8 +407,8 @@ response_format={
   Whether to enable parallel function calling during tool use.
 </ParamField>
 
-## Keywords AI parameters
-See how to make a standard Keywords AI API call in the [Gateway Quickstart](/get-started/quickstart/gateway) guide.
+## Respan parameters
+See how to make a standard Respan API call in the [Gateway Quickstart](/get-started/quickstart/gateway) guide.
 ### Generation parameters
 
 <ParamField body="load_balance_group" type="object">
@@ -661,7 +661,7 @@ This parameter allows you to control how you can override the parameters in the 
 
 <ParamField body="model_name_map" type="object">
 <Note>This parameter is for Azure deployment only!! </Note>
-We understand that you may have a custom name for your Azure deployment. Keywords AI is using the model's origin name which may not be able to match your deployment. You can use this parameter to map the default name to your custom name. 
+We understand that you may have a custom name for your Azure deployment. Respan is using the model's origin name which may not be able to match your deployment. You can use this parameter to map the default name to your custom name. 
     <Accordion title="Example">
 ```json
 {
@@ -676,7 +676,7 @@ We understand that you may have a custom name for your Azure deployment. Keyword
 </ParamField>
 
 <ParamField body="models" type="array">
-  Specify the list of models for the Keywords AI LLM router to choose between. 
+  Specify the list of models for the Respan LLM router to choose between. 
   If not specified,{" "}
   <strong>all models</strong> will be used. See the list of models
   [here](/integration/overview)
@@ -745,7 +745,7 @@ You can use this parameter to send an extra custom tag with your request. This w
 </ParamField>
 
 <ParamField body="customer_params" type="object">
-  Pass the customer's parameters in the API call to monitor the user's data in the Keywords AI platform. See how to get insights into your users' data [here](/api-endpoints/observe/users/user-creation-endpoint)
+  Pass the customer's parameters in the API call to monitor the user's data in the Respan platform. See how to get insights into your users' data [here](/api-endpoints/observe/users/user-creation-endpoint)
   <Accordion title="Properties">
 <ParamField body="customer_identifier" type="string" required>
 The unique identifier for the customer. It can be any string.
@@ -908,7 +908,7 @@ Adding this returns the summarization of the response in the response body. If s
 ## Deprecated parameters
 
 <ParamField body="customer_api_keys" type="object">
-You can pass in a dictionary of your customer's API keys for specific models. If the router selects a model that is in the dictionary, it will attempt to use the customer's API key for calling the model before using your [integration API key](/documentation/admin/llm_provider_keys) or Keywords AI's default API key.
+You can pass in a dictionary of your customer's API keys for specific models. If the router selects a model that is in the dictionary, it will attempt to use the customer's API key for calling the model before using your [integration API key](/documentation/admin/llm_provider_keys) or Respan's default API key.
 
 ```json
 {

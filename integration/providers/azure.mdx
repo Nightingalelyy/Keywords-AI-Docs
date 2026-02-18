@@ -1,6 +1,6 @@
 ---
 title: "Azure OpenAI"
-description: "Use your own Azure OpenAI credits through Keywords AI"
+description: "Use your own Azure OpenAI credits through Respan"
 ---
 
 <Note>
@@ -9,7 +9,7 @@ Azure OpenAI requires three credentials: **API key**, **API base URL** (also cal
 
 ## Prerequisites
 
-Before integrating Azure OpenAI with Keywords AI, ensure you have:
+Before integrating Azure OpenAI with Respan, ensure you have:
 1. An active Azure OpenAI subscription
 2. At least one deployed model in your Azure OpenAI resource
 3. Your deployment name matches those listed on our [Models page](https://platform.keywordsai.co/platform/models)
@@ -118,7 +118,7 @@ Fill in the three required Azure OpenAI credentials:
 </Step>
 
 <Step title="Map your deployment name">
-Azure allows custom deployment names. You need to map your deployment name so Keywords AI knows which Azure deployment to call.
+Azure allows custom deployment names. You need to map your deployment name so Respan knows which Azure deployment to call.
 
 **Important:** When testing the model, use the format `azure/{your-deployment-name}` in the model test input.
 
@@ -170,8 +170,8 @@ npm install openai
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.chat.completions.create(
@@ -194,8 +194,8 @@ print(response)
 import { OpenAI } from "openai";
 
 const client = new OpenAI({
-  baseURL: "https://api.keywordsai.co/api",
-  apiKey: "YOUR_KEYWORDSAI_API_KEY",
+  baseURL: "https://api.respan.ai/api",
+  apiKey: "YOUR_RESPAN_API_KEY",
 });
 
 const response = await client.chat.completions.create({
@@ -325,16 +325,16 @@ Learn more: [Load Balancing Guide](/documentation/products/gateway/traffic_manag
 <Tab title="Standard API">
 <Steps>
 <Step title="Make API request with credentials">
-Use the standard Keywords AI endpoint with Azure credentials:
+Use the standard Respan endpoint with Azure credentials:
 
 <CodeGroup>
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/chat/completions"
+url = "https://api.respan.ai/api/chat/completions"
 headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer YOUR_KEYWORDSAI_API_KEY"
+    "Authorization": "Bearer YOUR_RESPAN_API_KEY"
 }
 
 payload = {
@@ -354,8 +354,8 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/chat/completions" \
-  -H "Authorization: Bearer YOUR_KEYWORDSAI_API_KEY" \
+curl -X POST "https://api.respan.ai/api/chat/completions" \
+  -H "Authorization: Bearer YOUR_RESPAN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "azure/gpt-4o",

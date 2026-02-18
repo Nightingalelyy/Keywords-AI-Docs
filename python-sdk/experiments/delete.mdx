@@ -33,9 +33,9 @@ Returns a dictionary confirming the deletion with details about the deleted expe
 
 ### Basic Deletion
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Delete an experiment
 result = client.experiments.delete("exp_123")
@@ -83,10 +83,10 @@ else:
 ### Asynchronous Deletion
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def delete_experiment_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     try:
         result = await client.experiments.delete("exp_123")
@@ -187,10 +187,10 @@ print(f"Deleted: {deletion_result['experiment_id']}")
 ### Asynchronous Batch Deletion
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def batch_delete_experiments(experiment_ids):
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     async def delete_single_experiment(exp_id):
         try:

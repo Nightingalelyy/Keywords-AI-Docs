@@ -1,6 +1,6 @@
 ---
 title: "Agent tracing"
-description: "You can use Keywords AI Traces to trace your LLM requests and responses."
+description: "You can use Respan Traces to trace your LLM requests and responses."
 og:title: 'LLM tracing'
 ---
 
@@ -12,15 +12,15 @@ Traces are a chained collection of workflows and tasks. You can use tree views a
 </Frame>
 
 ## Use agent tracing
-### 1. Get your Keywords AI API key
+### 1. Get your Respan API key
 
-After you create an account on [Keywords AI](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
+After you create an account on [Respan](https://platform.keywordsai.co), you can get your API key from the [API keys page](https://platform.keywordsai.co/platform/api/api-keys).
 <Frame className="rounded-md">
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/documentation/admin/kai_create_api_key_v0.png"/>
 </Frame>
 
-### 2. Keywords AI Native (OpenTelemetry)
-You just need to add the `keywordsai_tracing` package to your project and annotate your workflows.
+### 2. Respan Native (OpenTelemetry)
+You just need to add the `respan_tracing` package to your project and annotate your workflows.
  
 
 <Tabs>
@@ -32,7 +32,7 @@ You just need to add the `keywordsai_tracing` package to your project and annota
 **Python Requirement**: This package requires **Python 3.9** or later.
 </Note>
 ```bash pip
-pip install keywordsai-tracing
+pip install respan-tracing
 ```
 </Step>
 
@@ -40,8 +40,8 @@ pip install keywordsai-tracing
 Get your API key from the [API Keys page](https://platform.keywordsai.co/platform/api/api-keys) in Settings, then configure it in your environment:
 
 ```python .env
-KEYWORDSAI_BASE_URL="https://api.keywordsai.co/api"
-KEYWORDSAI_API_KEY="YOUR_KEYWORDSAI_API_KEY"
+RESPAN_BASE_URL="https://api.respan.ai/api"
+RESPAN_API_KEY="YOUR_RESPAN_API_KEY"
 ```
 </Step>
 
@@ -50,12 +50,12 @@ Use the `@workflow` and `@task` decorators to instrument your code:
 ```python Python {8}
 import os
 from openai import OpenAI
-from keywordsai_tracing.decorators import workflow, task
-from keywordsai_tracing.main import KeywordsAITelemetry
+from respan_tracing.decorators import workflow, task
+from respan_tracing.main import RespanTelemetry
 
-# Initialize Keywords AI Telemetry
-os.environ["KEYWORDSAI_API_KEY"] = "YOUR_KEYWORDSAI_API_KEY"
-k_tl = KeywordsAITelemetry()
+# Initialize Respan Telemetry
+os.environ["RESPAN_API_KEY"] = "YOUR_RESPAN_API_KEY"
+k_tl = RespanTelemetry()
 
 # Initialize OpenAI client
 client = OpenAI()
@@ -89,29 +89,29 @@ if __name__ == "__main__":
 <Step title="Install the SDK">
 Install the package using your preferred package manager:
 ```bash 
-npm install @keywordsai/tracing
+npm install @respan/tracing
 # or yarn
 
-yarn add @keywordsai/tracing
+yarn add @respan/tracing
 ```
 </Step>
 <Step title="Set up Environment Variables">
 Get your API key from the [API Keys page](https://platform.keywordsai.co/platform/api/api-keys) in Settings, then configure it in your environment:
 
 ```bash .env
-KEYWORDSAI_BASE_URL="https://api.keywordsai.co/api"
-KEYWORDSAI_API_KEY="YOUR_KEYWORDSAI_API_KEY"
+RESPAN_BASE_URL="https://api.respan.ai/api"
+RESPAN_API_KEY="YOUR_RESPAN_API_KEY"
 OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
 ```
 </Step>
 <Step title="Create a simple workflow">
 ```typescript server.ts {1-2, 5-9, 13-14, 16-17, 25-28}
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 import OpenAI from 'openai';
 
-// Initialize Keywords AI Telemetry
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY || "",
+// Initialize Respan Telemetry
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY || "",
     appName: 'test-app',
     disableBatch: true  // For testing, disable batching
 });
@@ -181,7 +181,7 @@ You can now see your traces in the [Traces](https://platform.keywordsai.co/platf
 
 ## Integrate with your existing AI framework
 
-Keywords AI also integrates seamlessly with popular AI frameworks to give you complete observability into your agent workflows.
+Respan also integrates seamlessly with popular AI frameworks to give you complete observability into your agent workflows.
 
 <CardGroup cols={2}>
 <Card href="/integration/development-frameworks/tracing/openai-agents-sdk" className="bg-white">

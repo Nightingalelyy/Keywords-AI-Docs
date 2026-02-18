@@ -78,9 +78,9 @@ Returns the updated `Dataset` object with the following structure:
 ### Basic Dataset Update
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Update dataset name and description
 updated_dataset = client.datasets.update(
@@ -238,7 +238,7 @@ updated = update_dataset_if_needed("dataset_123456789")
 import asyncio
 
 async def update_dataset_async(dataset_id, **updates):
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     
     try:
         updated_dataset = await client.datasets.aupdate(dataset_id, **updates)
@@ -263,7 +263,7 @@ updated = asyncio.run(update_dataset_async(
 import asyncio
 
 async def update_multiple_datasets_async(updates_list):
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     
     async def update_single_dataset(dataset_id, updates):
         try:
@@ -601,7 +601,7 @@ updated = perform_maintenance_update("dataset_123456789")
 
 ```python
 from keywordsai.exceptions import (
-    KeywordsAIError,
+    RespanError,
     NotFoundError,
     ValidationError,
     AuthenticationError,
@@ -631,7 +631,7 @@ def update_dataset_with_retry(dataset_id, max_retries=3, **updates):
             else:
                 print("Rate limit exceeded. Max retries reached.")
                 return None
-        except KeywordsAIError as e:
+        except RespanError as e:
             print(f"API error (attempt {attempt + 1}): {e}")
             if attempt < max_retries - 1:
                 time.sleep(1)

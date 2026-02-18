@@ -1,6 +1,6 @@
 ---
 title: "Ingest Logs from traces"
-api: "POST https://api.keywordsai.co/api/traces/ingest/"
+api: "POST https://api.respan.ai/api/traces/ingest/"
 ---
 
 Ingest trace data as logs. This endpoint allows you to convert trace data into log format for storage and analysis using the **universal input/output design**.
@@ -101,7 +101,7 @@ The request body should be an array of log objects. Each log object should conta
 ```python Python - Chat Log
 import requests
 
-url = "https://api.keywordsai.co/api/traces/ingest/"
+url = "https://api.respan.ai/api/traces/ingest/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -136,7 +136,7 @@ print(response.json())
 ```python Python - Workflow with Tasks
 import requests
 
-url = "https://api.keywordsai.co/api/traces/ingest/"
+url = "https://api.respan.ai/api/traces/ingest/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -181,7 +181,7 @@ print(response.json())
 ```
 
 ```bash cURL - Chat Log
-curl -X POST "https://api.keywordsai.co/api/traces/ingest/" \
+curl -X POST "https://api.respan.ai/api/traces/ingest/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '[{
@@ -206,7 +206,7 @@ curl -X POST "https://api.keywordsai.co/api/traces/ingest/" \
 ```
 
 ```bash cURL - Workflow Log
-curl -X POST "https://api.keywordsai.co/api/traces/ingest/" \
+curl -X POST "https://api.respan.ai/api/traces/ingest/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '[{

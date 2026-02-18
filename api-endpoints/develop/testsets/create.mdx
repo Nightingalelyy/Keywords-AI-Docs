@@ -1,6 +1,6 @@
 ---
 title: "Create testset"
-api: "POST https://api.keywordsai.co/api/testsets"
+api: "POST https://api.respan.ai/api/testsets"
 ---
 
 Create a new testset for evaluation.
@@ -36,7 +36,7 @@ Create a new testset for evaluation.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/testsets"
+url = "https://api.respan.ai/api/testsets"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -57,7 +57,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/testsets" \
+curl -X POST "https://api.respan.ai/api/testsets" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

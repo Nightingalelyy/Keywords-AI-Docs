@@ -1,6 +1,6 @@
 ---
 title: Delete custom provider
-api: DELETE https://api.keywordsai.co/api/providers/{pk}/
+api: DELETE https://api.respan.ai/api/providers/{pk}/
 ---
 
 Delete a specific custom provider from your organization.
@@ -8,7 +8,7 @@ Delete a specific custom provider from your organization.
 <Note>
 **Important**: 
 - This action is permanent and cannot be undone
-- Managed providers (`is_managed: true`) cannot be deleted as they are managed by Keywords AI
+- Managed providers (`is_managed: true`) cannot be deleted as they are managed by Respan
 - Deleting a provider may affect models that reference it
 </Note>
 
@@ -34,7 +34,7 @@ Returns no content on successful deletion.
 
 ```json 403 Forbidden
 {
-  "error": "Cannot delete managed provider. This provider is managed by Keywords AI and cannot be deleted."
+  "error": "Cannot delete managed provider. This provider is managed by Respan and cannot be deleted."
 }
 ```
 
@@ -56,7 +56,7 @@ Returns no content on successful deletion.
 import requests
 
 provider_pk = 123
-url = f"https://api.keywordsai.co/api/providers/{provider_pk}/"
+url = f"https://api.respan.ai/api/providers/{provider_pk}/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -67,7 +67,7 @@ print(f"Status code: {response.status_code}")
 
 ```typescript TypeScript
 const providerPk = 123;
-const url = `https://api.keywordsai.co/api/providers/${providerPk}/`;
+const url = `https://api.respan.ai/api/providers/${providerPk}/`;
 const headers = {
     'Authorization': 'Bearer YOUR_API_KEY'
 };
@@ -81,7 +81,7 @@ console.log(`Status code: ${response.status}`);
 ```
 
 ```bash cURL
-curl -X DELETE "https://api.keywordsai.co/api/providers/123/" \
+curl -X DELETE "https://api.respan.ai/api/providers/123/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 </RequestExample>

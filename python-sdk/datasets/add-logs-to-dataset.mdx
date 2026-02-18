@@ -43,11 +43,11 @@ Returns a dictionary containing:
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 from keywordsai_sdk.keywordsai_types.dataset_types import LogManagementRequest
 from datetime import datetime, timedelta
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Add error logs from the last week
 end_time = datetime.utcnow()
@@ -68,12 +68,12 @@ print(f"Added {result['count']} error logs to dataset")
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 from keywordsai_sdk.keywordsai_types.dataset_types import LogManagementRequest
 from datetime import datetime, timedelta
 
 async def add_logs_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     end_time = datetime.utcnow()
     start_time = end_time - timedelta(days=7)
@@ -100,7 +100,7 @@ try:
         dataset_id="dataset-123",
         log_request=log_request
     )
-except KeywordsAIError as e:
+except RespanError as e:
     if "not found" in str(e):
         print("Dataset not found")
     elif "no logs match" in str(e):

@@ -50,7 +50,7 @@
                     "group": "Logs",
                     "pages": [
                       "/documentation/products/logs/quickstart",
-                      "/documentation/products/logs/configuration/pass_keywordsai_parameters",
+                      "/documentation/products/logs/configuration/pass_respan_parameters",
                       "/documentation/products/logs/configuration/custom_properties",
                       "/documentation/products/logs/log_variables",
                       "/documentation/products/logs/log_tool_calls",
@@ -70,7 +70,7 @@
                     "pages": [
                       "/documentation/products/traces/quickstart",
                       "/documentation/products/traces/decorators",
-                      "/documentation/products/traces/configuration/pass_keywordsai_parameters",
+                      "/documentation/products/traces/configuration/pass_respan_parameters",
                       "/documentation/products/traces/configuration/group_traces",
                       "/documentation/products/traces/configuration/customer_identifier",
                       "/documentation/products/traces/override-span-input-output",
@@ -674,7 +674,7 @@
               {
                 "group": "Contexts",
                 "pages": [
-                  "/tracing-sdk/contexts/keywordsai-span-attributes"
+                  "/tracing-sdk/contexts/respan-span-attributes"
                 ]
               },
               {
@@ -725,7 +725,7 @@
               {
                 "group": "Configuration",
                 "pages": [
-                  "/tracing-sdk-js/configuration/keywordsai-params"
+                  "/tracing-sdk-js/configuration/respan-params"
                 ]
               },
               {
@@ -737,7 +737,7 @@
             ]
           },
           {
-            "group": "Keywords AI SDK",
+            "group": "Respan SDK",
             "pages": [
               {
                 "group": "Getting Started",
@@ -812,14 +812,14 @@
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg",
-    "href": "https://www.keywordsai.co"
+    "href": "https://www.respan.ai"
   },
   "api": {
     "playground": {
       "display": "interactive"
     },
     "mdx": {
-      "server": "https://api.keywordsai.co",
+      "server": "https://api.respan.ai",
       "auth": {
         "method": "bearer",
         "name": "Authorization"
@@ -850,7 +850,7 @@
   },
   "seo": {
     "metatags": {
-      "og:site_name": "Keywords AI | LLM monitoring platform",
+      "og:site_name": "Respan | LLM monitoring platform",
       "og:image": "/logo.svg",
       "twitter:site": "@keywordsai"
     },
@@ -877,6 +877,10 @@
     }
   },
   "redirects": [
+    {
+      "source": "/integration/dev-tools/zapier",
+      "destination": "https://zapier.com/apps/keywords-ai/integrations"
+    },
     {
       "source": "/integration/development-frameworks/openai-agent",
       "destination": "/integration/development-frameworks/tracing/openai-agents-sdk"

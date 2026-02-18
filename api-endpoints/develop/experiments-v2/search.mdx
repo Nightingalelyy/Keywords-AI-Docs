@@ -1,6 +1,6 @@
 ---
 title: "Search experiment"
-api: "POST https://api.keywordsai.co/api/v2/experiments/list"
+api: "POST https://api.respan.ai/api/v2/experiments/list"
 ---
 
 Search experiments using filters with the V2 API.
@@ -31,7 +31,7 @@ Search experiments using filters with the V2 API.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/v2/experiments/list"
+url = "https://api.respan.ai/api/v2/experiments/list"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -51,7 +51,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/v2/experiments/list" \
+curl -X POST "https://api.respan.ai/api/v2/experiments/list" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

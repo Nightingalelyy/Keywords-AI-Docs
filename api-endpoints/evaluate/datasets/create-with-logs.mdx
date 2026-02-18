@@ -1,6 +1,6 @@
 ---
 title: "Create dataset with specified logs"
-api: "POST https://api.keywordsai.co/api/datasets/"
+api: "POST https://api.respan.ai/api/datasets/"
 ---
 
 Create a dataset and specify which logs to include using filters.
@@ -37,7 +37,7 @@ Create a dataset and specify which logs to include using filters.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/datasets/"
+url = "https://api.respan.ai/api/datasets/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -63,7 +63,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/datasets/" \
+curl -X POST "https://api.respan.ai/api/datasets/" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

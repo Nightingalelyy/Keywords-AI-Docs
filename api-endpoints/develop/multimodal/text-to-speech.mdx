@@ -1,12 +1,12 @@
 ---
 title: Text to speech
-api: POST https://api.keywordsai.co/api/audio/speech
+api: POST https://api.respan.ai/api/audio/speech
 mode: wide
 ---
 
-You could use Keywords AI's unified LLM API to call Text-to-speech model to turn text into lifelike spoken audio.
+You could use Respan's unified LLM API to call Text-to-speech model to turn text into lifelike spoken audio.
 
-Keywords AI now supports `tts-1` and `tts-1-hd` models from OpenAI.
+Respan now supports `tts-1` and `tts-1-hd` models from OpenAI.
 
 | Model    | Description                           |
 | -------- | ------------------------------------- |
@@ -21,7 +21,7 @@ Keywords AI now supports `tts-1` and `tts-1-hd` models from OpenAI.
 Go to [OpenAI API plaform](https://platform.openai.com/api-keys) to get your OpenAI API key.
 </Step>
 <Step title="Add OpenAI's API key in Providers" >
-You should add your OpenAI's API key on [Keywords AI credentials page](https://platform.keywordsai.co/platform/api/providers).
+You should add your OpenAI's API key on [Respan credentials page](https://platform.keywordsai.co/platform/api/providers).
 <img height="200" width="500"  src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/settings/providers.jpg"/>
 </Step>
 
@@ -31,15 +31,15 @@ You should add your OpenAI's API key on [Keywords AI credentials page](https://p
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.audio.speech.create(
     model="tts-1", # or "tts-1-hd"
     voice="alloy",
     input="Today is a wonderful day to build something people love!",
-    extra_body={"customer_identifier": "customer_11"}  # All Keywords AI parameters are supported
+    extra_body={"customer_identifier": "customer_11"}  # All Respan parameters are supported
 )
 ```
 
@@ -48,15 +48,15 @@ import OpenAI from "openai";
 const speechFile = path.resolve("./speech.mp3");
 
 const openai = new OpenAI({
-  baseURL: "https://api.keywordsai.co/api/",
-  apiKey: "YOUR_KEYWORDSAI_API_KEY",
+  baseURL: "https://api.respan.ai/api/",
+  apiKey: "YOUR_RESPAN_API_KEY",
 });
 
 const mp3 = await openai.audio.speech.create({
   model: "tts-1", // or "tts-1-hd"
   voice: "alloy",
   input: "Today is a wonderful day to build something people love!",
-  extra_body: { customer_identifier: "customer_11" } // All Keywords AI parameters are supported
+  extra_body: { customer_identifier: "customer_11" } // All Respan parameters are supported
 });
 
 ```
@@ -79,7 +79,7 @@ def demo_call(input,
         'customer_identifier': "customer_11"
     }
 
-    response = requests.post('https://api.keywordsai.co/api/audio/speech', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/audio/speech', headers=headers, json=data)
     return response
 
 messages = "Today is a wonderful day to build something people love!"
@@ -87,7 +87,7 @@ print(demo_call(messages).json())
 ```
 ```TypeScript TypeScript
 // Define the function with TypeScript
-fetch('https://api.keywordsai.co/api/audio/speech', {
+fetch('https://api.respan.ai/api/audio/speech', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -126,8 +126,8 @@ The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the de
 </ParamField>
 
 
-## Keywords AI parameters
-See how to make a standard Keywords AI API call in the [Quick Start](/get-started/quickstart/gateway) guide.
+## Respan parameters
+See how to make a standard Respan API call in the [Quick Start](/get-started/quickstart/gateway) guide.
 ### Generation parameters
 
 <ParamField path="customer_credentials" type="object">

@@ -1,6 +1,6 @@
 ---
 title: Ingest traces from logs
-api: POST https://api.keywordsai.co/api/v1/traces/ingest
+api: POST https://api.respan.ai/api/v1/traces/ingest
 ---
 Ingest a batch of span logs to construct one or more traces. Use this to import historical data or programmatically build traces when SDK instrumentation isn't feasible.
 
@@ -79,8 +79,8 @@ Set true to disable logging for the span in observability system.
 <ParamField body="disable_fallback" type="boolean">
 Disable fallback behavior for the span if supported.
 </ParamField>
-<ParamField body="keywordsai_params" type="object">
-Additional Keywords AI parameters (e.g., has_webhook, environment).
+<ParamField body="respan_params" type="object">
+Additional Respan parameters (e.g., has_webhook, environment).
 </ParamField>
 <ParamField body="temperature" type="number">
 Controls randomness for LLM spans; typical range 0.0–1.0.
@@ -111,7 +111,7 @@ Assistant message returned by the LLM (role/content). Present for chat spans.
 ```python Python
 import requests
 
-URL = "https://api.keywordsai.co/v1/traces/ingest"
+URL = "https://api.respan.ai/v1/traces/ingest"
 headers = {
     "Authorization": f"Bearer {YOUR_KEYWORDS_AI_API_KEY}",
     "Content-Type": "application/json",
@@ -133,7 +133,7 @@ payload = [
         "output": "\"python\"",
         "encoding_format": "float",
         "latency": 5.034556,
-        "keywordsai_params": {"has_webhook": false, "environment": "prod"},
+        "respan_params": {"has_webhook": false, "environment": "prod"},
         "disable_log": false
     },
     {
@@ -159,7 +159,7 @@ payload = [
         "completion_tokens": 10,
         "cost": 2.25e-05,
         "latency": 0.610535,
-        "keywordsai_params": {"has_webhook": false, "environment": "prod"},
+        "respan_params": {"has_webhook": false, "environment": "prod"},
         "disable_log": false
     }
 ]
@@ -170,7 +170,7 @@ print(resp.text)
 ```
 
 ```typescript TypeScript
-const URL = "https://api.keywordsai.co/v1/traces/ingest";
+const URL = "https://api.respan.ai/v1/traces/ingest";
 const headers = {
   Authorization: `Bearer ${YOUR_KEYWORDS_AI_API_KEY}`,
   "Content-Type": "application/json",
@@ -192,7 +192,7 @@ const payload = [
     output: "\"python\"",
     encoding_format: "float",
     latency: 5.034556,
-    keywordsai_params: { has_webhook: false, environment: "prod" },
+    respan_params: { has_webhook: false, environment: "prod" },
     disable_log: false
   },
   {
@@ -218,7 +218,7 @@ const payload = [
     completion_tokens: 10,
     cost: 2.25e-05,
     latency: 0.610535,
-    keywordsai_params: { has_webhook: false, environment: "prod" },
+    respan_params: { has_webhook: false, environment: "prod" },
     disable_log: false
   }
 ];
@@ -234,7 +234,7 @@ fetch(URL, {
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/v1/traces/ingest" \
+curl -X POST "https://api.respan.ai/v1/traces/ingest" \
   -H "Authorization: Bearer YOUR_KEYWORDS_AI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '[
@@ -253,7 +253,7 @@ curl -X POST "https://api.keywordsai.co/v1/traces/ingest" \
       "output": "\"python\"",
       "encoding_format": "float",
       "latency": 5.034556,
-      "keywordsai_params": { "has_webhook": false, "environment": "prod" },
+      "respan_params": { "has_webhook": false, "environment": "prod" },
       "disable_log": false
     },
     {
@@ -279,7 +279,7 @@ curl -X POST "https://api.keywordsai.co/v1/traces/ingest" \
       "completion_tokens": 10,
       "cost": 0.0000225,
       "latency": 0.610535,
-      "keywordsai_params": { "has_webhook": false, "environment": "prod" },
+      "respan_params": { "has_webhook": false, "environment": "prod" },
       "disable_log": false
     }
   ]'

@@ -1,14 +1,14 @@
 ---
 title: "Chat completion"
-description: "Complete guide to integrating Keywords AI with OpenAI SDK for seamless LLM gateway usage."
+description: "Complete guide to integrating Respan with OpenAI SDK for seamless LLM gateway usage."
 ---
-<Note> This integration is for the **Keywords AI gateway**. </Note>
+<Note> This integration is for the **Respan gateway**. </Note>
 
 ## Overview
 
 OpenAI SDK provides the most robust integration method for accessing multiple model providers. 
 
-Since most AI providers prioritize OpenAI SDK compatibility, you can seamlessly call all 250+ models available through the Keywords AI platform gateway.
+Since most AI providers prioritize OpenAI SDK compatibility, you can seamlessly call all 250+ models available through the Respan platform gateway.
 
 ## Quickstart
 
@@ -39,8 +39,8 @@ go get github.com/openai/openai-go
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDS_AI_API_KEY",  # Get from Keywords AI dashboard
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_KEYWORDS_AI_API_KEY",  # Get from Respan dashboard
 )
 ```
 
@@ -48,8 +48,8 @@ client = OpenAI(
 import { OpenAI } from "openai";
 
 const client = new OpenAI({
-  baseURL: "https://api.keywordsai.co/api/",
-  apiKey: process.env.KEYWORDS_AI_API_KEY,  # Get from Keywords AI dashboard
+  baseURL: "https://api.respan.ai/api/",
+  apiKey: process.env.KEYWORDS_AI_API_KEY,  # Get from Respan dashboard
 });
 ```
 
@@ -64,8 +64,8 @@ import (
 
 func main() {
     client := openai.NewClient(
-        option.WithBaseURL("https://api.keywordsai.co/api/"),
-        option.WithAPIKey("YOUR_KEYWORDS_AI_API_KEY"), // Get from Keywords AI dashboard
+        option.WithBaseURL("https://api.respan.ai/api/"),
+        option.WithAPIKey("YOUR_KEYWORDS_AI_API_KEY"), // Get from Respan dashboard
     )
 }
 ```
@@ -171,9 +171,9 @@ const response = await client.chat.completions.create({
 ```
 </CodeGroup>
 
-### Keywords AI Parameters
+### Respan Parameters
 
-[Keywords AI parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters) can be passed for better handling and customization.
+[Respan parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters) can be passed for better handling and customization.
 
 <CodeGroup>
 ```python Python {4-10}
@@ -194,7 +194,7 @@ response = client.chat.completions.create(
 const response = await client.chat.completions.create({
     model: "gpt-4o-mini",
     messages: [{ role: "user", content: "Tell me a story" }],
-    // @ts-expect-error - Keywords AI parameters
+    // @ts-expect-error - Respan parameters
     customer_identifier: "user_123",           // Track specific users
     fallback_models: ["gpt-3.5-turbo"],       // Automatic fallbacks
     metadata: { session_id: "abc123" },        // Custom metadata
@@ -209,19 +209,19 @@ To call Azure OpenAI models, instead of using azure OpenAI's client, the easier 
 
 <CodeGroup>
 ```plain Setup
-1. Go to [Keywords AI Providers](https://platform.keywordsai.co/platform/api/providers)
+1. Go to [Respan Providers](https://platform.keywordsai.co/platform/api/providers)
 2. Add your Azure OpenAI credentials
 3. Configure your Azure deployment settings
-4. Use Azure models through the same Keywords AI endpoint
+4. Use Azure models through the same Respan endpoint
 ```
 
 ```python Python
 from openai import AsyncOpenAI
 
-# Use the same Keywords AI endpoint
+# Use the same Respan endpoint
 azure_client = AsyncOpenAI(
     api_key="YOUR_KEYWORDS_AI_API_KEY",
-    base_url="https://api.keywordsai.co/api/"
+    base_url="https://api.respan.ai/api/"
 )
 
 # Call Azure models directly
@@ -233,7 +233,7 @@ response = await azure_client.chat.completions.create(
 </CodeGroup>
 
 <Card title="View your analytics" href="https://platform.keywordsai.co/platform/dashboard">
-  Access your Keywords AI dashboard to see detailed analytics
+  Access your Respan dashboard to see detailed analytics
 </Card>
 
 ## Next Steps

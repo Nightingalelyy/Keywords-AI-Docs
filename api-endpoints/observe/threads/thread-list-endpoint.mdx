@@ -1,6 +1,6 @@
 ---
 title: List thread
-api: POST https://api.keywordsai.co/api/log_threads/
+api: POST https://api.respan.ai/api/log_threads/
 ---
 
 This endpoint retrieves log threads based on specified filters and pagination parameters.
@@ -73,7 +73,7 @@ This is controlled by the API key. A `prod` API key creates `prod` threads, `tes
 ```python Python
 import requests
 import json
-url = "https://api.keywordsai.co/api/log_threads/?page_size=100"
+url = "https://api.respan.ai/api/log_threads/?page_size=100"
 payload = json.dumps({
   "filters": {
     "thread_identifier": {

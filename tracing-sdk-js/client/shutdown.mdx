@@ -16,10 +16,10 @@ async shutdown(): Promise<void>
 ## Basic Usage
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app'
 });
 
@@ -41,8 +41,8 @@ console.log('Tracing shutdown complete');
 
 ```typescript
 async function main() {
-    const keywordsAi = new KeywordsAITelemetry({
-        apiKey: process.env.KEYWORDSAI_API_KEY,
+    const keywordsAi = new RespanTelemetry({
+        apiKey: process.env.RESPAN_API_KEY,
         appName: 'my-app'
     });
     
@@ -73,8 +73,8 @@ main();
 ## Graceful Shutdown on Signals
 
 ```typescript
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-server'
 });
 
@@ -104,8 +104,8 @@ import express from 'express';
 
 const app = express();
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'api-server'
 });
 
@@ -155,8 +155,8 @@ process.on('SIGINT', gracefulShutdown);
 
 ```typescript
 async function processJobs() {
-    const keywordsAi = new KeywordsAITelemetry({
-        apiKey: process.env.KEYWORDSAI_API_KEY,
+    const keywordsAi = new RespanTelemetry({
+        apiKey: process.env.RESPAN_API_KEY,
         appName: 'job-worker'
     });
     
@@ -200,8 +200,8 @@ processJobs();
 import { program } from 'commander';
 
 async function runCLI() {
-    const keywordsAi = new KeywordsAITelemetry({
-        apiKey: process.env.KEYWORDSAI_API_KEY,
+    const keywordsAi = new RespanTelemetry({
+        apiKey: process.env.RESPAN_API_KEY,
         appName: 'cli-tool'
     });
     
@@ -238,11 +238,11 @@ runCLI();
 import { describe, it, beforeAll, afterAll } from '@jest/globals';
 
 describe('My Service', () => {
-    let keywordsAi: KeywordsAITelemetry;
+    let keywordsAi: RespanTelemetry;
     
     beforeAll(async () => {
-        keywordsAi = new KeywordsAITelemetry({
-            apiKey: process.env.KEYWORDSAI_API_KEY,
+        keywordsAi = new RespanTelemetry({
+            apiKey: process.env.RESPAN_API_KEY,
             appName: 'test-suite'
         });
         await keywordsAi.initialize();
@@ -267,7 +267,7 @@ describe('My Service', () => {
 
 ## What shutdown() Does
 
-1. **Flushes all pending spans** - Sends any buffered spans to Keywords AI
+1. **Flushes all pending spans** - Sends any buffered spans to Respan
 2. **Closes the tracer** - Gracefully closes the OpenTelemetry tracer
 3. **Cleans up resources** - Releases any held resources
 

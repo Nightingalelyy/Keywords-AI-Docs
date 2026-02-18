@@ -1,17 +1,17 @@
 ---
 title: "updateCurrentSpan()"
-description: "Update name, status, attributes, and Keywords AI params on the current span"
+description: "Update name, status, attributes, and Respan params on the current span"
 ---
 
 ## Overview
 
-`updateCurrentSpan()` allows you to modify the currently active span's metadata, status, attributes, and Keywords AI-specific parameters.
+`updateCurrentSpan()` allows you to modify the currently active span's metadata, status, attributes, and Respan-specific parameters.
 
 ## Signature
 
 ```typescript
 updateCurrentSpan(options: {
-    keywordsai_params?: {
+    respan_params?: {
         customer_identifier?: string;
         trace_group_identifier?: string;
         metadata?: Record<string, any>;
@@ -25,10 +25,10 @@ updateCurrentSpan(options: {
 ## Basic Usage
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app'
 });
 
@@ -40,7 +40,7 @@ await keywordsAi.withWorkflow(
         const client = keywordsAi.getClient();
         
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 customer_identifier: 'user-123',
                 metadata: { 
                     environment: 'production',
@@ -117,7 +117,7 @@ await keywordsAi.withWorkflow(
 );
 ```
 
-## Keywords AI Parameters
+## Respan Parameters
 
 ```typescript
 await keywordsAi.withWorkflow(
@@ -126,7 +126,7 @@ await keywordsAi.withWorkflow(
         const client = keywordsAi.getClient();
         
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 customer_identifier: 'customer-abc123',
                 trace_group_identifier: 'support-tickets',
                 metadata: {
@@ -177,7 +177,7 @@ await keywordsAi.withWorkflow(
         
         client.updateCurrentSpan({
             name: `order_processing:${orderId}`,
-            keywordsai_params: {
+            respan_params: {
                 customer_identifier: customerId,
                 trace_group_identifier: 'orders',
                 metadata: {
@@ -201,8 +201,8 @@ await keywordsAi.withWorkflow(
 
 ## Parameters
 
-<ParamField body="keywordsai_params" type="object">
-  Keywords AI-specific parameters for filtering and grouping
+<ParamField body="respan_params" type="object">
+  Respan-specific parameters for filtering and grouping
   
   <ParamField body="customer_identifier" type="string">
     Customer or user identifier for filtering traces by customer
@@ -234,6 +234,6 @@ await keywordsAi.withWorkflow(
 - Update spans with customer identifiers for user-specific filtering
 - Set status to ERROR when operations fail
 - Use attributes for technical details (HTTP status, DB queries, etc.)
-- Use Keywords AI metadata for business context (order IDs, ticket numbers, etc.)
+- Use Respan metadata for business context (order IDs, ticket numbers, etc.)
 - Update spans early in the function with identifying information
 - Only call within an active span

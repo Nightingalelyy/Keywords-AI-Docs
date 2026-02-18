@@ -10,7 +10,7 @@ Use `tool(name: Optional[str] = None, version: Optional[int] = None, method_name
 ## Function usage
 
 ```python
-from keywordsai_tracing.decorators import workflow, task, tool
+from respan_tracing.decorators import workflow, task, tool
 
 @workflow(name="document_workflow")
 def document_workflow():
@@ -22,7 +22,7 @@ def document_workflow():
     def process(text: str):
         return summarize(text)
 
-    return process("Tracing with KeywordsAI is straightforward.")
+    return process("Tracing with Respan is straightforward.")
 
 print(document_workflow())
 ```
@@ -30,7 +30,7 @@ print(document_workflow())
 ## Class usage
 
 ```python
-from keywordsai_tracing.decorators import agent, tool
+from respan_tracing.decorators import agent, tool
 
 @agent(name="analysis", method_name="run")
 class Analyzer:

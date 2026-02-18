@@ -1,12 +1,12 @@
 ---
 title: Upload file
-api: POST https://api.keywordsai.co/api/files/
+api: POST https://api.respan.ai/api/files/
 ---
 
 Upload a file for use with OpenAI Batch API. The uploaded file is stored on OpenAI's servers and can be used to create batch jobs for asynchronous LLM request processing.
 
 <Note>
-**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Keywords AI dashboard (Settings → Providers). Keywords AI passes the request through to OpenAI's infrastructure.
+**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Respan dashboard (Settings → Providers). Respan passes the request through to OpenAI's infrastructure.
 </Note>
 
 ## Request body
@@ -73,7 +73,7 @@ Returns a file object with metadata about the uploaded file.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/files/"
+url = "https://api.respan.ai/api/files/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -87,7 +87,7 @@ print(response.json())
 ```
 
 ```typescript TypeScript
-const url = 'https://api.keywordsai.co/api/files/';
+const url = 'https://api.respan.ai/api/files/';
 const formData = new FormData();
 formData.append('file', fileInput.files[0]);
 formData.append('purpose', 'batch');
@@ -105,7 +105,7 @@ console.log(data);
 ```
 
 ```bash cURL
-curl https://api.keywordsai.co/api/files/ \
+curl https://api.respan.ai/api/files/ \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -F "file=@batch_input.jsonl" \
   -F "purpose=batch"

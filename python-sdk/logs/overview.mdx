@@ -1,6 +1,6 @@
 ---
 title: "Logs API Overview"
-description: "Manage conversation logs and request/response data with the Keywords AI Python SDK"
+description: "Manage conversation logs and request/response data with the Respan Python SDK"
 ---
 
 ## Overview
@@ -18,9 +18,9 @@ The Logs API allows you to create, retrieve, and list conversation logs. Logs ca
 ## Quick Start
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Create a log
 log = client.logs.create(

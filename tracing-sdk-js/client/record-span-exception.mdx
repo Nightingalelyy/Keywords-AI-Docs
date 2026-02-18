@@ -5,7 +5,7 @@ description: "Record an error or exception on the current span"
 
 ## Overview
 
-`recordSpanException()` records an error or exception on the currently active span, making it visible in the Keywords AI dashboard for debugging.
+`recordSpanException()` records an error or exception on the currently active span, making it visible in the Respan dashboard for debugging.
 
 ## Signature
 
@@ -16,10 +16,10 @@ recordSpanException(error: Error | unknown): void
 ## Basic Usage
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app'
 });
 
@@ -210,7 +210,7 @@ await keywordsAi.withWorkflow(
             
             client.recordSpanException(error);
             client.updateCurrentSpan({
-                keywordsai_params: {
+                respan_params: {
                     metadata: {
                         error_reported: true,
                         trace_id_shared: traceId
@@ -248,5 +248,5 @@ The exception recording captures:
 - Add context attributes before recording for better debugging
 - Record all errors, even if you handle them gracefully
 - Include trace IDs in user-facing error messages for support
-- Exception details are visible in the Keywords AI dashboard
+- Exception details are visible in the Respan dashboard
 - Only call within an active span

@@ -1,6 +1,6 @@
 ---
 title: "List evaluators"
-api: "GET https://api.keywordsai.co/api/evaluators/"
+api: "GET https://api.respan.ai/api/evaluators/"
 ---
 
 Returns a paginated list of evaluators for your organization.
@@ -34,7 +34,7 @@ Authorization: Bearer YOUR_API_KEY
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/evaluators/"
+url = "https://api.respan.ai/api/evaluators/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -44,7 +44,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X GET "https://api.keywordsai.co/api/evaluators/" \
+curl -X GET "https://api.respan.ai/api/evaluators/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -57,7 +57,7 @@ curl -X GET "https://api.keywordsai.co/api/evaluators/" \
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/evaluators/"
+url = "https://api.respan.ai/api/evaluators/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -75,7 +75,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X GET "https://api.keywordsai.co/api/evaluators/?type=llm&score_value_type=numerical&page=1&page_size=10" \
+curl -X GET "https://api.respan.ai/api/evaluators/?type=llm&score_value_type=numerical&page=1&page_size=10" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -88,7 +88,7 @@ curl -X GET "https://api.keywordsai.co/api/evaluators/?type=llm&score_value_type
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/evaluators/"
+url = "https://api.respan.ai/api/evaluators/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -104,7 +104,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X GET "https://api.keywordsai.co/api/evaluators/?search=quality&starred=true" \
+curl -X GET "https://api.respan.ai/api/evaluators/?search=quality&starred=true" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
@@ -126,12 +126,12 @@ curl -X GET "https://api.keywordsai.co/api/evaluators/?search=quality&starred=tr
       "eval_class": "",
       "description": "Evaluates response quality on a 1-5 scale",
       "created_by": {
-        "first_name": "Keywords AI",
+        "first_name": "Respan",
         "last_name": "Team",
         "email": "admin@keywordsai.co"
       },
       "updated_by": {
-        "first_name": "Keywords AI",
+        "first_name": "Respan",
         "last_name": "Team",
         "email": "admin@keywordsai.co"
       },
@@ -152,12 +152,12 @@ curl -X GET "https://api.keywordsai.co/api/evaluators/?search=quality&starred=tr
       "eval_class": "",
       "description": "Human assessment of content quality with predefined categories",
       "created_by": {
-        "first_name": "Keywords AI",
+        "first_name": "Respan",
         "last_name": "Team",
         "email": "admin@keywordsai.co"
       },
       "updated_by": {
-        "first_name": "Keywords AI",
+        "first_name": "Respan",
         "last_name": "Team",
         "email": "admin@keywordsai.co"
       },
@@ -184,12 +184,12 @@ curl -X GET "https://api.keywordsai.co/api/evaluators/?search=quality&starred=tr
       "eval_class": "",
       "description": "Checks if response meets minimum length requirement",
       "created_by": {
-        "first_name": "Keywords AI",
+        "first_name": "Respan",
         "last_name": "Team",
         "email": "admin@keywordsai.co"
       },
       "updated_by": {
-        "first_name": "Keywords AI",
+        "first_name": "Respan",
         "last_name": "Team",
         "email": "admin@keywordsai.co"
       },

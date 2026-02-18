@@ -23,9 +23,9 @@ async def adelete(prompt_id: str) -> Dict[str, Any]
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Delete a prompt
 result = client.prompts.delete(prompt_id="prompt_123")
@@ -35,10 +35,10 @@ print(f"Deletion result: {result['message']}")
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def delete_prompt():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     result = await client.prompts.adelete(prompt_id="prompt_123")
     print(f"Prompt deleted: {result['message']}")
 

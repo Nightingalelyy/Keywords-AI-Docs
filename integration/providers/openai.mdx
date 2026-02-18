@@ -1,14 +1,14 @@
 ---
 title: "OpenAI"
-description: "Route OpenAI model calls through Keywords AI Gateway and track requests."
+description: "Route OpenAI model calls through Respan Gateway and track requests."
 ---
 
-<Note> This section is for **Keywords AI LLM gateway** users.</Note>
+<Note> This section is for **Respan LLM gateway** users.</Note>
 
-Use Keywords AI Gateway to call OpenAI models while keeping unified observability (logs, cost, latency, and reliability metrics) in Keywords AI.
+Use Respan Gateway to call OpenAI models while keeping unified observability (logs, cost, latency, and reliability metrics) in Respan.
 
 ## Prerequisites
-- A **Keywords AI API key**
+- A **Respan API key**
 - An **OpenAI API key** (BYOK)
 
 <CardGroup cols={1}>
@@ -44,7 +44,7 @@ There are 2 ways to add your OpenAI credentials to your requests:
   <Step title="Navigate to Providers">
     Go to the [Providers page](https://platform.keywordsai.co/platform/api/providers). This page allows you to manage credentials for over 20+ supported providers.
     <Frame>
-      <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/settings/providers.jpg" alt="Keywords AI Providers Page"/>
+      <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/settings/providers.jpg" alt="Respan Providers Page"/>
     </Frame>
   </Step>
   <Step title="Add your OpenAI API Key">
@@ -74,12 +74,12 @@ Add the `customer_credentials` parameter to your [Gateway request](/api-endpoint
 
 ## Log OpenAI requests
 
-If you are not using the Gateway to proxy requests, you can still log your OpenAI requests to Keywords AI asynchronously. This allows you to track cost, latency, and performance metrics for external calls.
+If you are not using the Gateway to proxy requests, you can still log your OpenAI requests to Respan asynchronously. This allows you to track cost, latency, and performance metrics for external calls.
 
 ```python OpenAI Python SDK
 import requests
 
-url = "https://api.keywordsai.co/api/request-logs/create/"
+url = "https://api.respan.ai/api/request-logs/create/"
 payload = {
     "model": "gpt-4o",
     "prompt_messages": [

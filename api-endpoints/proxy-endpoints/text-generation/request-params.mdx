@@ -1,20 +1,20 @@
 ---
 title: "Text Generation"
 description: "An overview of LLM generation parameters"
-api: "POST https://api.keywordsai.co/api/generate/"
+api: "POST https://api.respan.ai/api/generate/"
 ---
 <Info>Make sure you add **Bearer** prefix to your token</Info>
 
-You can paste the command below into your terminal to run your first API request. Make sure to replace `YOUR_KEYWORDSAI_API_KEY` with your actual Keywords AI API key.
+You can paste the command below into your terminal to run your first API request. Make sure to replace `YOUR_RESPAN_API_KEY` with your actual Respan API key.
 
 ## Example Call
 
 <CodeGroup>
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/generate/" \
+curl -X POST "https://api.respan.ai/api/generate/" \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer {YOUR_KEYWORDSAI_API_KEY}" \
+-H "Authorization: Bearer {YOUR_RESPAN_API_KEY}" \
 -d '{
   "messages": [
     {
@@ -47,7 +47,7 @@ def demo_call(input,
         "models": ["gpt-3.5-turbo", "gpt-3.5-turbo-16k"],
     }
 
-    response = requests.post('https://api.keywordsai.co/api/generate/', headers=headers, json=data, stream=stream)
+    response = requests.post('https://api.respan.ai/api/generate/', headers=headers, json=data, stream=stream)
     return response
 
 messages = "Say 'Hello World'"
@@ -56,7 +56,7 @@ print(demo_call(messages).json())
 
 ```TypeScript TypeScript
 // Define the function with TypeScript
-fetch('https://api.keywordsai.co/api/generate/', {
+fetch('https://api.respan.ai/api/generate/', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -202,7 +202,7 @@ fetch('https://api.keywordsai.co/api/generate/', {
   ```
 </ParamField>
 
-## Keywords AI Parameters
+## Respan Parameters
 
 <ParamField path="request_breakdown" type="boolean" default={false}>
 Adding this returns the summarization of the response in the response body. If streaming is on, the metrics will be streamed as the last chunk
@@ -379,7 +379,7 @@ Example:
 ## Deprecated Parameters
 
 <ParamField path="customer_api_keys" type="object">
-You can pass in a dictionary of your customer's API keys for specific models. If the router selects a model that is in the dictionary, it will attempt to use the customer's API key for calling the model before using your [integration API key](/documentation/admin/llm_provider_keys) or Keywords AI's default API key.
+You can pass in a dictionary of your customer's API keys for specific models. If the router selects a model that is in the dictionary, it will attempt to use the customer's API key for calling the model before using your [integration API key](/documentation/admin/llm_provider_keys) or Respan's default API key.
 
 ```json
 {

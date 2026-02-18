@@ -1,6 +1,6 @@
 ---
 title: "Delete evaluator"
-api: "DELETE https://api.keywordsai.co/api/evaluators/{evaluator_id}/"
+api: "DELETE https://api.respan.ai/api/evaluators/{evaluator_id}/"
 ---
 
 Permanently deletes an evaluator from your organization.
@@ -52,7 +52,7 @@ Authorization: Bearer YOUR_API_KEY
 import requests
 
 evaluator_id = "0f4325f9-55ef-4c20-8abe-376694419947"
-url = f"https://api.keywordsai.co/api/evaluators/{evaluator_id}/"
+url = f"https://api.respan.ai/api/evaluators/{evaluator_id}/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -70,13 +70,13 @@ else:
 ```
 
 ```bash cURL
-curl -X DELETE "https://api.keywordsai.co/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
+curl -X DELETE "https://api.respan.ai/api/evaluators/0f4325f9-55ef-4c20-8abe-376694419947/" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
 ```javascript JavaScript
 const evaluatorId = "0f4325f9-55ef-4c20-8abe-376694419947";
-const url = `https://api.keywordsai.co/api/evaluators/${evaluatorId}/`;
+const url = `https://api.respan.ai/api/evaluators/${evaluatorId}/`;
 
 const response = await fetch(url, {
   method: 'DELETE',
@@ -116,7 +116,7 @@ import requests
 from datetime import datetime, timedelta
 
 evaluator_id = "your-evaluator-id"
-scores_url = "https://api.keywordsai.co/api/scores/"
+scores_url = "https://api.respan.ai/api/scores/"
 headers = {"Authorization": "Bearer YOUR_API_KEY"}
 
 # Check for scores created in the last 30 days
@@ -144,7 +144,7 @@ import requests
 import json
 
 evaluator_id = "your-evaluator-id"
-url = f"https://api.keywordsai.co/api/evaluators/{evaluator_id}/"
+url = f"https://api.respan.ai/api/evaluators/{evaluator_id}/"
 headers = {"Authorization": "Bearer YOUR_API_KEY"}
 
 # Get evaluator details
@@ -214,7 +214,7 @@ evaluator_id = "new-evaluator-id-here"  # Use replacement evaluator
 Since deletion is permanent, you have these options:
 
 1. **Recreate from backup**: If you exported the configuration, recreate the evaluator
-2. **Contact support**: For critical evaluators, contact Keywords AI support immediately
+2. **Contact support**: For critical evaluators, contact Respan support immediately
 3. **Check version control**: If evaluator configurations are in your codebase
 
 ### Recreating a Deleted Evaluator
@@ -240,7 +240,7 @@ create_payload = {
 }
 
 # Create new evaluator
-url = "https://api.keywordsai.co/api/evaluators/"
+url = "https://api.respan.ai/api/evaluators/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"

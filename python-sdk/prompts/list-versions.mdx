@@ -33,9 +33,9 @@ async def alist_versions(
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # List all versions
 versions = client.prompts.list_versions("prompt_123")
@@ -64,10 +64,10 @@ if page1.next:
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def list_versions():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     versions = await client.prompts.alist_versions("prompt_123")
     

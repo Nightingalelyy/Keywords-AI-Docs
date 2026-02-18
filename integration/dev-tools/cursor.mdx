@@ -1,24 +1,24 @@
 ---
 title: "Cursor"
-description: "Trace your Cursor AI agent conversations with Keywords AI for full observability into thinking, tool calls, and responses."
+description: "Trace your Cursor AI agent conversations with Respan for full observability into thinking, tool calls, and responses."
 ---
 
 <Frame className="rounded-md">
 <img width="100%" src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/Integrations/cursor/cursor.png" alt="Cursor agent tracing visualization" />
 </Frame>
 
-[Cursor](https://cursor.com) is an AI-powered code editor with built-in agent capabilities. With Keywords AI integration, you get hierarchical traces of every agent interaction including thinking blocks, file edits, shell commands, and MCP tool calls.
+[Cursor](https://cursor.com) is an AI-powered code editor with built-in agent capabilities. With Respan integration, you get hierarchical traces of every agent interaction including thinking blocks, file edits, shell commands, and MCP tool calls.
 
 ## How It Works
 
-Cursor provides [hooks](https://cursor.com/docs/agent/hooks) that fire during agent execution. Our integration captures these events in real-time and sends them to Keywords AI as hierarchical traces.
+Cursor provides [hooks](https://cursor.com/docs/agent/hooks) that fire during agent execution. Our integration captures these events in real-time and sends them to Respan as hierarchical traces.
 
 ```mermaid
 sequenceDiagram
     participant User
     participant Cursor
-    participant Hook as Keywords AI Hook
-    participant API as Keywords AI API
+    participant Hook as Respan Hook
+    participant API as Respan API
 
     User->>Cursor: Submit prompt
     Cursor->>Hook: beforeSubmitPrompt
@@ -37,7 +37,7 @@ For details on trace structure and span types, see the [Observability Data Model
 ## Prerequisites
 
 - [Cursor IDE](https://cursor.com) installed
-- [Keywords AI API key](https://platform.keywordsai.co)
+- [Respan API key](https://platform.keywordsai.co)
 - Python 3.8+ with `requests` library
 
 ## Installation
@@ -48,25 +48,25 @@ Add these to your shell profile (`.bashrc`, `.zshrc`, or PowerShell `$PROFILE`):
 
 <CodeGroup>
 ```bash Bash/Zsh
-export KEYWORDSAI_API_KEY="your-api-key"
-export TRACE_TO_KEYWORDSAI="true"
+export RESPAN_API_KEY="your-api-key"
+export TRACE_TO_RESPAN="true"
 
-# Optional: Enterprise endpoint (default: api.keywordsai.co)
-# export KEYWORDSAI_BASE_URL="https://endpoint.keywordsai.co/api"
+# Optional: Enterprise endpoint (default: api.respan.ai)
+# export RESPAN_BASE_URL="https://endpoint.respan.ai/api"
 
 # Optional: Enable debug logging
-# export CURSOR_KEYWORDSAI_DEBUG="true"
+# export CURSOR_RESPAN_DEBUG="true"
 ```
 
 ```powershell PowerShell
-$env:KEYWORDSAI_API_KEY = "your-api-key"
-$env:TRACE_TO_KEYWORDSAI = "true"
+$env:RESPAN_API_KEY = "your-api-key"
+$env:TRACE_TO_RESPAN = "true"
 
-# Optional: Enterprise endpoint (default: api.keywordsai.co)
-# $env:KEYWORDSAI_BASE_URL = "https://endpoint.keywordsai.co/api"
+# Optional: Enterprise endpoint (default: api.respan.ai)
+# $env:RESPAN_BASE_URL = "https://endpoint.respan.ai/api"
 
 # Optional: Enable debug logging
-# $env:CURSOR_KEYWORDSAI_DEBUG = "true"
+# $env:CURSOR_RESPAN_DEBUG = "true"
 ```
 </CodeGroup>
 
@@ -201,14 +201,14 @@ Get-Content "$env:USERPROFILE\.cursor\state\keywordsai_hook.log" -Tail 50 -Wait
 
 | Issue | Solution |
 |-------|----------|
-| No traces appearing | Check `TRACE_TO_KEYWORDSAI=true` is set |
-| API errors | Verify `KEYWORDSAI_API_KEY` is correct |
+| No traces appearing | Check `TRACE_TO_RESPAN=true` is set |
+| API errors | Verify `RESPAN_API_KEY` is correct |
 | Only root span | Ensure all hooks are configured in `hooks.json` |
 | Missing thinking | Check `afterAgentThought` hook is active |
 
 ## Example Output
 
-After setup, you'll see traces in Keywords AI with full hierarchy:
+After setup, you'll see traces in Respan with full hierarchy:
 
 ```
 cursor_abc123_xyz789 (38.9s)
@@ -226,4 +226,4 @@ The full source code is available on GitHub: [Keywords-AI/keywordsai-example-pro
 ## References
 
 - [Cursor Hooks Documentation](https://cursor.com/docs/agent/hooks)
-- [Keywords AI Traces Ingest API](/api-endpoints/observe/traces/traces-ingest-from-logs)
+- [Respan Traces Ingest API](/api-endpoints/observe/traces/traces-ingest-from-logs)

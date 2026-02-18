@@ -14,7 +14,7 @@ Exports spans with the configured exporter. Returns `True` on success.
 ## Example
 
 ```python
-from keywordsai_tracing import get_client
+from respan_tracing import get_client
 
 client = get_client()
 with client.get_span_buffer("trace-xyz") as buffer:

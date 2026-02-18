@@ -1,9 +1,9 @@
 ---
 title: "Enable user analytics"
-description: "Keywords AI allows you to track user data and monitor the user's data in the platform."
+description: "Respan allows you to track user data and monitor the user's data in the platform."
 ---
 ## How does user analytics work?
-On Keywords AI, we built a [Users page](https://platform.keywordsai.co/platform/users) to help you understand your users and their behavior on your LLM applications. With our user analytics feature, you can;
+On Respan, we built a [Users page](https://platform.keywordsai.co/platform/users) to help you understand your users and their behavior on your LLM applications. With our user analytics feature, you can;
 - Track user LLM usage
 - Set user budget
 - Filter logs by user identifier
@@ -16,13 +16,13 @@ On Keywords AI, we built a [Users page](https://platform.keywordsai.co/platform/
 You can pass a `customer_params` to the request to track the user's behavior on your LLM applications.
 <Tabs>
 <Tab title="OpenAI Python SDK">
-Here is an example of how to send a user's data with the parameter `customer_params` to Keywords AI in the OpenAI Python SDK.
+Here is an example of how to send a user's data with the parameter `customer_params` to Respan in the OpenAI Python SDK.
 ```python {13-19}
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 response = client.chat.completions.create(
@@ -41,13 +41,13 @@ response = client.chat.completions.create(
 ```
 </Tab>
 <Tab title="OpenAI TypeScript SDK">
-Here is an example of how to send a user's data with the parameter `customer_params` to Keywords AI in the OpenAI TypeScript SDK. In OpenAI TypeScript SDK, you should add a `// @ts-expect-error` before the metadata field.
+Here is an example of how to send a user's data with the parameter `customer_params` to Respan in the OpenAI TypeScript SDK. In OpenAI TypeScript SDK, you should add a `// @ts-expect-error` before the metadata field.
 ```typescript {12-17}
 import { OpenAI } from "openai";
 
 const client = new OpenAI({
-  baseURL: "https://api.keywordsai.co/api",
-  apiKey: "YOUR_KEYWORDSAI_API_KEY",
+  baseURL: "https://api.respan.ai/api",
+  apiKey: "YOUR_RESPAN_API_KEY",
 });
 
 const response = await client.chat.completions
@@ -89,7 +89,7 @@ def demo_call(input,
         }
     }
 
-    response = requests.post('https://api.keywordsai.co/api/chat/completions', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/chat/completions', headers=headers, json=data)
     return response
 
 messages = "Say 'Hello World'"
@@ -100,7 +100,7 @@ print(demo_call(messages).json())
 ```python Async logging {16-20}
 import requests
 
-url = "https://api.keywordsai.co/api/request-logs/create/"
+url = "https://api.respan.ai/api/request-logs/create/"
 payload = {
     "model": "gpt-4o-mini",
     "prompt_messages": [
@@ -135,7 +135,7 @@ We also support adding credentials in other SDKs or languages, please check out 
 </Tabs>
 
 ## See user data on the platform
-After you send the user's data to Keywords AI, there are 3 places you can see the user's data on the platform.
+After you send the user's data to Respan, there are 3 places you can see the user's data on the platform.
 ### 1. [Users page](https://platform.keywordsai.co/platform/users)
 You will see each user's detail information and their LLM usage on the Users page and the side panel.
 <Frame>

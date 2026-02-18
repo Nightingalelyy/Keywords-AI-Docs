@@ -1,6 +1,6 @@
 ---
 title: "List traces"
-api: "POST https://api.keywordsai.co/api/traces/list/"
+api: "POST https://api.respan.ai/api/traces/list/"
 ---
 
 Retrieves a paginated list of traces matching your filters. This endpoint supports both `POST` (recommended for complex filters) and `GET` for simple queries.
@@ -66,7 +66,7 @@ Use filters to refine results server-side. See the [Filters API Reference](/api-
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/traces/list/"
+url = "https://api.respan.ai/api/traces/list/"
 headers = {"Authorization": "Bearer YOUR_API_KEY", "Content-Type": "application/json"}
 params = {
     "start_time": "2024-01-15T00:00:00Z",
@@ -87,7 +87,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/traces/list/?start_time=2024-01-15T00:00:00Z&end_time=2024-01-15T23:59:59Z&page_size=20&sort_by=-total_cost" \
+curl -X POST "https://api.respan.ai/api/traces/list/?start_time=2024-01-15T00:00:00Z&end_time=2024-01-15T23:59:59Z&page_size=20&sort_by=-total_cost" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -106,7 +106,7 @@ curl -X POST "https://api.keywordsai.co/api/traces/list/?start_time=2024-01-15T0
 ```json 200 OK
 {
   "count": 150,
-  "next": "https://api.keywordsai.co/api/traces/list/?page=2",
+  "next": "https://api.respan.ai/api/traces/list/?page=2",
   "previous": null,
   "results": [
     {

@@ -1,12 +1,12 @@
 ---
 title: Create score
-api: POST https://api.keywordsai.co/api/scores/
+api: POST https://api.respan.ai/api/scores/
 ---
 
 Creates a new evaluation score.
 
 <ParamField body="evaluator_id" type="string">
-  UUID of evaluator created in Keywords AI platform
+  UUID of evaluator created in Respan platform
 </ParamField>
 
 <ParamField body="evaluator_slug" type="string">
@@ -29,8 +29,8 @@ Creates a new evaluation score.
 ```Python Python
 import requests
 
-url = "https://api.keywordsai.co/api/scores/"
-api_key = "YOUR_KEY" # Replace with your actual Keywords AI API key
+url = "https://api.respan.ai/api/scores/"
+api_key = "YOUR_KEY" # Replace with your actual Respan API key
 data = {
     "evaluator_slug": "my_custom_evaluator",
     "numerical_value": 4.5,

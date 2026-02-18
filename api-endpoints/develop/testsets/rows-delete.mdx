@@ -1,6 +1,6 @@
 ---
 title: "Delete testset row"
-api: "DELETE https://api.keywordsai.co/api/testsets/{testset_id}/rows/{row_index}"
+api: "DELETE https://api.respan.ai/api/testsets/{testset_id}/rows/{row_index}"
 ---
 
 Delete a specific row from a testset.
@@ -28,7 +28,7 @@ import requests
 
 testset_id = "testset_id_123"
 row_index = 0
-url = f"https://api.keywordsai.co/api/testsets/{testset_id}/rows/{row_index}"
+url = f"https://api.respan.ai/api/testsets/{testset_id}/rows/{row_index}"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY"
 }
@@ -38,7 +38,7 @@ print(response.status_code)
 ```
 
 ```bash cURL
-curl -X DELETE "https://api.keywordsai.co/api/testsets/{testset_id}/rows/{row_index}" \
+curl -X DELETE "https://api.respan.ai/api/testsets/{testset_id}/rows/{row_index}" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

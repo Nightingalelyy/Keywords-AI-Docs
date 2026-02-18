@@ -1,6 +1,6 @@
 ---
 title: Update log
-api: PATCH https://api.keywordsai.co/api/request-logs/batch-update/
+api: PATCH https://api.respan.ai/api/request-logs/batch-update/
 ---
 
 You may want to update logs to add more information or correct the existing information. In order to protect the integrity of the logs, you can only update specific fields.
@@ -73,8 +73,8 @@ Update the log's positive_feedback field.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/request-logs/batch-update/"
-api_key = "YOUR_KEY" # Replace with your actual Keywords AI API key
+url = "https://api.respan.ai/api/request-logs/batch-update/"
+api_key = "YOUR_KEY" # Replace with your actual Respan API key
 data = {
     "logs": [
         {   "unique_id": "xxxxxx",
@@ -96,7 +96,7 @@ print(response.json())
 ```
 ```typescript TypeScript
 // Define the function with TypeScript
-fetch("https://api.keywordsai.co/api/request-logs/batch-update/", {
+fetch("https://api.respan.ai/api/request-logs/batch-update/", {
   method: 'PATCH',
   headers: {
     'Content-Type': 'application/json',

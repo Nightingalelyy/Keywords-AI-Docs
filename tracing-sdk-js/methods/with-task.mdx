@@ -23,10 +23,10 @@ withTask<T>(
 ## Basic Usage
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app'
 });
 
@@ -104,7 +104,7 @@ try {
 ## Parameters
 
 <ParamField body="name" type="string" required>
-  Task display name for identification in the Keywords AI dashboard
+  Task display name for identification in the Respan dashboard
 </ParamField>
 
 <ParamField body="version" type="number">

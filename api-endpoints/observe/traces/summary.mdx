@@ -1,6 +1,6 @@
 ---
 title: "Retrive traces summary"
-api: "POST https://api.keywordsai.co/clickhouse/traces/summary/"
+api: "POST https://api.respan.ai/clickhouse/traces/summary/"
 ---
 
 Retrieves aggregated summary statistics for traces matching your filters.
@@ -49,7 +49,7 @@ Use filters to refine results server-side. See the [Filters API Reference](/api-
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/clickhouse/traces/summary/"
+url = "https://api.respan.ai/clickhouse/traces/summary/"
 headers = {"Authorization": "Bearer YOUR_API_KEY", "Content-Type": "application/json"}
 params = {"start_time": "2024-01-15T00:00:00Z", "end_time": "2024-01-15T23:59:59Z"}
 body = {"filters": {"environment": {"operator": "", "value": ["production"]}}}
@@ -59,7 +59,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/clickhouse/traces/summary/?start_time=2024-01-15T00:00:00Z&end_time=2024-01-15T23:59:59Z" \
+curl -X POST "https://api.respan.ai/clickhouse/traces/summary/?start_time=2024-01-15T00:00:00Z&end_time=2024-01-15T23:59:59Z" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

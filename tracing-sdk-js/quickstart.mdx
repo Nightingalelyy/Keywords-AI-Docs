@@ -1,11 +1,11 @@
 ---
 title: "Quickstart"
-description: "Get started with the @keywordsai/tracing TypeScript SDK"
+description: "Get started with the @respan/tracing TypeScript SDK"
 ---
 
 <Check>[Give us a star](https://github.com/Keywords-AI/keywordsai) on GitHub!</Check>
 
-The Keywords AI Tracing SDK for TypeScript/JavaScript provides comprehensive observability for your AI applications with automatic instrumentation for OpenAI, Anthropic, and other providers.
+The Respan Tracing SDK for TypeScript/JavaScript provides comprehensive observability for your AI applications with automatic instrumentation for OpenAI, Anthropic, and other providers.
 
 ## Installation
 
@@ -14,7 +14,7 @@ The Keywords AI Tracing SDK for TypeScript/JavaScript provides comprehensive obs
 </Note>
 
 ```bash
-npm install @keywordsai/tracing
+npm install @respan/tracing
 ```
 
 ## Configure credentials
@@ -22,18 +22,18 @@ npm install @keywordsai/tracing
 Set up your environment variables:
 
 ```bash .env
-KEYWORDSAI_API_KEY=your-api-key
-KEYWORDSAI_BASE_URL=https://api.keywordsai.co
+RESPAN_API_KEY=your-api-key
+RESPAN_BASE_URL=https://api.respan.ai
 ```
 
 Initialize the SDK:
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
-    baseURL: process.env.KEYWORDSAI_BASE_URL,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
+    baseURL: process.env.RESPAN_BASE_URL,
     appName: 'my-app',
     logLevel: 'info'
 });
@@ -46,10 +46,10 @@ await keywordsAi.initialize();
 Use `withWorkflow` and `withTask` to create structured traces:
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'hello-world'
 });
 
@@ -93,10 +93,10 @@ Automatically instrument OpenAI SDK calls:
 
 ```typescript
 import OpenAI from 'openai';
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'openai-example',
     instrumentModules: {
         openAI: OpenAI,  // Automatically instrument OpenAI
@@ -169,11 +169,11 @@ console.log(result);
 ## Configuration Options
 
 <ParamField body="apiKey" type="string" required>
-  Your Keywords AI API key
+  Your Respan API key
 </ParamField>
 
-<ParamField body="baseURL" type="string" default="https://api.keywordsai.co">
-  Keywords AI API base URL
+<ParamField body="baseURL" type="string" default="https://api.respan.ai">
+  Respan API base URL
 </ParamField>
 
 <ParamField body="appName" type="string">

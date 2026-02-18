@@ -1,6 +1,6 @@
 ---
 title: "List testsets"
-api: "POST https://api.keywordsai.co/api/testsets/list"
+api: "POST https://api.respan.ai/api/testsets/list"
 ---
 
 List all testsets with optional filtering.
@@ -30,7 +30,7 @@ List all testsets with optional filtering.
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/testsets/list"
+url = "https://api.respan.ai/api/testsets/list"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "Content-Type": "application/json"
@@ -49,7 +49,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X POST "https://api.keywordsai.co/api/testsets/list" \
+curl -X POST "https://api.respan.ai/api/testsets/list" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

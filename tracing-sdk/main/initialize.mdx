@@ -1,5 +1,5 @@
 ---
-title: "Initialize KeywordsAITelemetry"
+title: "Initialize RespanTelemetry"
 description: "Set up the tracing client and environment configuration"
 ---
 
@@ -7,23 +7,23 @@ description: "Set up the tracing client and environment configuration"
 
 ```python
 import os
-from keywordsai_tracing import KeywordsAITelemetry
+from respan_tracing import RespanTelemetry
 
-os.environ["KEYWORDSAI_API_KEY"] = "your-api-key"
-os.environ["KEYWORDSAI_BASE_URL"] = "https://api.keywordsai.co/api"
+os.environ["RESPAN_API_KEY"] = "your-api-key"
+os.environ["RESPAN_BASE_URL"] = "https://api.respan.ai/api"
 
-k_tl = KeywordsAITelemetry()
+k_tl = RespanTelemetry()
 ```
 
 ## Environment variables
 
-- `KEYWORDSAI_API_KEY`: required API key
-- `KEYWORDSAI_BASE_URL`: service base URL; default `https://api.keywordsai.co/api`
+- `RESPAN_API_KEY`: required API key
+- `RESPAN_BASE_URL`: service base URL; default `https://api.respan.ai/api`
 
 ## Usage with decorators
 
 ```python
-from keywordsai_tracing.decorators import workflow, task
+from respan_tracing.decorators import workflow, task
 
 @workflow(name="pipeline")
 def pipeline():

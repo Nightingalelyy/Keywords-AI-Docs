@@ -1,13 +1,13 @@
 ---
 title: "Mem0"
-description: "A guide to integrating Mem0 with Keywords AI."
+description: "A guide to integrating Mem0 with Respan."
 ---
 
 <img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/Integrations/mem0-chart.jpg" alt="Mem0 flow" />
 
 Mem0 is a self-improving memory layer for LLM applications, enabling personalized AI experiences that save costs and delight users.
 
-Mem0 + Keywords AI provides a powerful combination for building AI applications that can remember user interactions over time and get complete LLM observability.  
+Mem0 + Respan provides a powerful combination for building AI applications that can remember user interactions over time and get complete LLM observability.  
 
 Check out the [Mem0 documentation](https://docs.mem0.ai) for more information.
 
@@ -15,7 +15,7 @@ Check out the [Mem0 documentation](https://docs.mem0.ai) for more information.
 
 ### Prerequisites
 
-- A [Keywords AI API key](https://platform.keywordsai.co/platform/api/api-keys)
+- A [Respan API key](https://platform.keywordsai.co/platform/api/api-keys)
 - A [Mem0 API key](https://app.mem0.ai/dashboard/api-keys)
 
 ### Add memory with Mem0 SDK
@@ -25,15 +25,15 @@ Check out the [Mem0 documentation](https://docs.mem0.ai) for more information.
 ```bash
 pip install mem0
 ```
-Add Keywords AI gateway to the Mem0 client as an LLM provider. You can go to the [Models page](https://platform.keywordsai.co/platform/models?sort_by=model_name) to find the available models.
+Add Respan gateway to the Mem0 client as an LLM provider. You can go to the [Models page](https://platform.keywordsai.co/platform/models?sort_by=model_name) to find the available models.
 
 ```python Python {8-18}
 from mem0 import Memory
 import os
 
 api_key = os.getenv("MEM0_API_KEY")
-keywordsai_api_key = os.getenv("KEYWORDSAI_API_KEY")
-base_url = os.getenv("KEYWORDSAI_BASE_URL") # "https://api.keywordsai.co/api/"
+keywordsai_api_key = os.getenv("RESPAN_API_KEY")
+base_url = os.getenv("RESPAN_BASE_URL") # "https://api.respan.ai/api/"
 
 config = {
     "llm": {
@@ -63,12 +63,12 @@ print(result)
 Currently we only support adding memory to your AI products using the [OpenAI SDK integration](/integration/development-frameworks/llm_framework/openai/openai-sdk).
 
 
-Once you integrate Keywords AI gateway with the OpenAI SDK, you can add memory to your AI product by following the code example below.
+Once you integrate Respan gateway with the OpenAI SDK, you can add memory to your AI product by following the code example below.
 
 ```python OpenAI Python SDK {18-27}
 client = OpenAI(
-    api_key=os.environ.get("KEYWORDSAI_API_KEY"),
-    base_url=os.environ.get("KEYWORDSAI_BASE_URL"),
+    api_key=os.environ.get("RESPAN_API_KEY"),
+    base_url=os.environ.get("RESPAN_BASE_URL"),
 )
 
 def plain_json_version():
@@ -106,17 +106,17 @@ def plain_json_version():
                 }, */}
 In this case, the `messages` will be added to the memory and the `query` will be used to search the memory.
 
-### Add memory through Keywords AI SDK
+### Add memory through Respan SDK
 
-We recommend using the [Keywords AI SDK](https://github.com/keywordsai/keywordsai-sdk) for better type checking and autocomplete.
+We recommend using the [Respan SDK](https://github.com/keywordsai/keywordsai-sdk) for better type checking and autocomplete.
 
-**Install the Keywords AI SDK**
+**Install the Respan SDK**
 
 ```bash
 pip install keywordsai-sdk
 ```
 
-```python Keywords AI Python SDK {1-5, 28-37}
+```python Respan Python SDK {1-5, 28-37}
 from keywordsai_sdk.keywordsai_types.services_types.mem0_types import (
     Mem0Params,
     AddMemoriesParams,
@@ -126,8 +126,8 @@ from openai import OpenAI
 
 
 client = OpenAI(
-    api_key=os.environ.get("KEYWORDSAI_API_KEY"),
-    base_url=os.environ.get("KEYWORDSAI_BASE_URL"),
+    api_key=os.environ.get("RESPAN_API_KEY"),
+    base_url=os.environ.get("RESPAN_BASE_URL"),
 )
 
 

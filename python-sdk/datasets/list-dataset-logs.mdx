@@ -43,9 +43,9 @@ Returns a dictionary containing the list of logs and pagination information.
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # List all logs in a dataset
 logs = client.datasets.list_dataset_logs(dataset_id="dataset_123")
@@ -79,10 +79,10 @@ print(f"Page 2: {len(next_logs['logs'])} logs")
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def list_logs_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     logs = await client.datasets.list_dataset_logs(
         dataset_id="dataset_123",

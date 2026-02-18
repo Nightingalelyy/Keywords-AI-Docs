@@ -1,6 +1,6 @@
 ---
 title: "Prompts API Overview"
-description: "Manage and version your prompts with the Keywords AI Prompts API"
+description: "Manage and version your prompts with the Respan Prompts API"
 ---
 
 ## Overview
@@ -18,9 +18,9 @@ The Prompts API allows you to create, manage, and version prompts for your AI ap
 ## Quick Start
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Create a new prompt
 prompt = client.prompts.create(
@@ -50,7 +50,7 @@ prompt_details = client.prompts.get(prompt_id="prompt_123")
 - `deploy_version()` - Deploy a prompt version to an environment
 
 ### Asynchronous Methods
-All methods are also available in asynchronous versions using `AsyncKeywordsAI`.
+All methods are also available in asynchronous versions using `AsyncRespan`.
 
 ## Prompt Structure
 

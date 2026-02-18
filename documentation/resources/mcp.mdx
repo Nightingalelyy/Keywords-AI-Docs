@@ -1,23 +1,23 @@
 ---
 title: "Model Context Protocol (MCP)"
-description: "Access Keywords AI data directly from your AI coding assistant using MCP"
+description: "Access Respan data directly from your AI coding assistant using MCP"
 ---
 
-The Model Context Protocol (MCP) is a standardized framework that enables AI models to interact with external data sources and tools. It allows for real-time access to your Keywords AI logs, traces, prompts, and customer data directly from your coding environment.
+The Model Context Protocol (MCP) is a standardized framework that enables AI models to interact with external data sources and tools. It allows for real-time access to your Respan logs, traces, prompts, and customer data directly from your coding environment.
 
 ## Getting started
 
-Keywords AI provides an MCP server that gives your AI tools direct access to your observability data. The server supports both HTTP streamable (for hosted deployments) and stdio (for local use).
+Respan provides an MCP server that gives your AI tools direct access to your observability data. The server supports both HTTP streamable (for hosted deployments) and stdio (for local use).
 
 ## Installation
 
 <Tabs>
   <Tab title="Public HTTP (Recommended)">
-    Connect to Keywords AI's hosted MCP server. The simplest setup - no installation required.
+    Connect to Respan's hosted MCP server. The simplest setup - no installation required.
 
     <Steps>
       <Step title="Get your API key">
-        Get your Keywords AI API key from [platform.keywordsai.co](https://platform.keywordsai.co/platform/api/api-keys).
+        Get your Respan API key from [platform.keywordsai.co](https://platform.keywordsai.co/platform/api/api-keys).
       </Step>
       <Step title="Configure your AI tool">
         Add to your MCP configuration file:
@@ -92,7 +92,7 @@ Keywords AI provides an MCP server that gives your AI tools direct access to you
         ```
       </Step>
       <Step title="Get your API key">
-        Get your Keywords AI API key from [platform.keywordsai.co](https://platform.keywordsai.co/platform/api/api-keys).
+        Get your Respan API key from [platform.keywordsai.co](https://platform.keywordsai.co/platform/api/api-keys).
       </Step>
       <Step title="Configure your AI tool">
         Add to your MCP configuration file. **Important:** Replace the path with your actual installation path.
@@ -205,7 +205,7 @@ Keywords AI provides an MCP server that gives your AI tools direct access to you
 | **Local Stdio** | `KEYWORDS_API_KEY` env var | Personal development, offline use |
 | **Private HTTP** | Vercel environment variable | Teams, shared access |
 
-Get your Keywords AI API key from [platform.keywordsai.co](https://platform.keywordsai.co/platform/api/api-keys).
+Get your Respan API key from [platform.keywordsai.co](https://platform.keywordsai.co/platform/api/api-keys).
 
 ---
 
@@ -224,7 +224,7 @@ For enterprise users with a custom API endpoint (e.g., `endpoint.keywordsai.co`)
           "url": "https://mcp.keywordsai.co/api/mcp",
           "headers": {
             "Authorization": "Bearer your_keywords_ai_api_key",
-            "keywords-api-base-url": "https://endpoint.keywordsai.co/api"
+            "keywords-api-base-url": "https://endpoint.respan.ai/api"
           }
         }
       }
@@ -242,7 +242,7 @@ For enterprise users with a custom API endpoint (e.g., `endpoint.keywordsai.co`)
           "args": ["/path/to/keywordsai-mcp/dist/lib/index.js"],
           "env": {
             "KEYWORDS_API_KEY": "your_keywords_ai_api_key",
-            "KEYWORDS_API_BASE_URL": "https://endpoint.keywordsai.co/api"
+            "KEYWORDS_API_BASE_URL": "https://endpoint.respan.ai/api"
           }
         }
       }
@@ -254,15 +254,15 @@ For enterprise users with a custom API endpoint (e.g., `endpoint.keywordsai.co`)
 **Supported endpoints:**
 | Endpoint | URL |
 |----------|-----|
-| Default (Cloud) | `https://api.keywordsai.co/api` |
-| Enterprise | `https://endpoint.keywordsai.co/api` |
+| Default (Cloud) | `https://api.respan.ai/api` |
+| Enterprise | `https://endpoint.respan.ai/api` |
 | Local development | `http://localhost:8000/api` |
 
 ---
 
 ## Available tools
 
-Once connected, your AI tools have access to the following Keywords AI features.
+Once connected, your AI tools have access to the following Respan features.
 
 ### Logs
 
@@ -341,7 +341,7 @@ Once connected, your AI tools have access to the following Keywords AI features.
 
 ## Source code
 
-The Keywords AI MCP server is open source:
+The Respan MCP server is open source:
 
 <Card title="GitHub Repository" icon="github" href="https://github.com/Keywords-AI/keywordsai-mcp">
   View source code, report issues, and contribute

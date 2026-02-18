@@ -1,13 +1,13 @@
 ---
 title: LangChain SDK
-description: "Use LangChain with Keywords AI"
+description: "Use LangChain with Respan"
 ---
 
-<Note> This integration is for the **Keywords AI gateway**. </Note>
+<Note> This integration is for the **Respan gateway**. </Note>
 
 ## Overview
 
-LangChain provides a powerful framework for building applications with language models. You can seamlessly integrate Keywords AI with LangChain's `ChatOpenAI` LLM with minimal code changes.
+LangChain provides a powerful framework for building applications with language models. You can seamlessly integrate Respan with LangChain's `ChatOpenAI` LLM with minimal code changes.
 
 ## Quickstart
 
@@ -23,15 +23,15 @@ npm install @langchain/openai langchain
 ```
 </CodeGroup>
 
-### Step 2: Initialize LangChain with Keywords AI
+### Step 2: Initialize LangChain with Respan
 
 <CodeGroup>
 ```python Python
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="<Your Keywords AI API Key>",
+    base_url="https://api.respan.ai/api/",
+    api_key="<Your Respan API Key>",
     model="gpt-3.5-turbo",
     streaming=True,
 )
@@ -42,9 +42,9 @@ import { ChatOpenAI } from "@langchain/openai";
 
 const llm = new ChatOpenAI({
     configuration: {
-        baseURL: "https://api.keywordsai.co/api/",
+        baseURL: "https://api.respan.ai/api/",
     },
-    openAIApiKey: "<Your Keywords AI API Key>",
+    openAIApiKey: "<Your Respan API Key>",
     modelName: "gpt-3.5-turbo",
     streaming: true,
 });
@@ -75,8 +75,8 @@ model = "gpt-4o"
 # model = "gemini-1.5-pro"
 
 llm = ChatOpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="<Your Keywords AI API Key>",
+    base_url="https://api.respan.ai/api/",
+    api_key="<Your Respan API Key>",
     model=model,
 )
 ```
@@ -89,9 +89,9 @@ let model = "gpt-4o";
 
 const llm = new ChatOpenAI({
     configuration: {
-        baseURL: "https://api.keywordsai.co/api/",
+        baseURL: "https://api.respan.ai/api/",
     },
-    openAIApiKey: "<Your Keywords AI API Key>",
+    openAIApiKey: "<Your Respan API Key>",
     modelName: model,
 });
 ```
@@ -110,8 +110,8 @@ We support all the [OpenAI parameters](/api-endpoints/develop/gateway/chat-compl
 <CodeGroup>
 ```python Python
 llm = ChatOpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="<Your Keywords AI API Key>",
+    base_url="https://api.respan.ai/api/",
+    api_key="<Your Respan API Key>",
     model="gpt-4o-mini",
     temperature=0.7,          # Control randomness
     max_tokens=1000,          # Limit response length
@@ -122,9 +122,9 @@ llm = ChatOpenAI(
 ```typescript TypeScript
 const llm = new ChatOpenAI({
     configuration: {
-        baseURL: "https://api.keywordsai.co/api/",
+        baseURL: "https://api.respan.ai/api/",
     },
-    openAIApiKey: "<Your Keywords AI API Key>",
+    openAIApiKey: "<Your Respan API Key>",
     modelName: "gpt-4o-mini",
     temperature: 0.7,         // Control randomness
     maxTokens: 1000,          // Limit response length
@@ -133,15 +133,15 @@ const llm = new ChatOpenAI({
 ```
 </CodeGroup>
 
-### Keywords AI Parameters
+### Respan Parameters
 
-[Keywords AI parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters) can be passed using `extra_body` for better handling and customization.
+[Respan parameters](/api-endpoints/develop/gateway/chat-completions#keywords-ai-parameters) can be passed using `extra_body` for better handling and customization.
 
 <CodeGroup>
 ```python Python
 llm = ChatOpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="<Your Keywords AI API Key>",
+    base_url="https://api.respan.ai/api/",
+    api_key="<Your Respan API Key>",
     model="gpt-4o-mini",
     extra_body={
         "customer_identifier": "user_123",           # Track specific users
@@ -156,9 +156,9 @@ llm = ChatOpenAI(
 ```typescript TypeScript
 const llm = new ChatOpenAI({
     configuration: {
-        baseURL: "https://api.keywordsai.co/api/",
+        baseURL: "https://api.respan.ai/api/",
     },
-    openAIApiKey: "<Your Keywords AI API Key>",
+    openAIApiKey: "<Your Respan API Key>",
     modelName: "gpt-4o-mini",
     modelKwargs: {
         extra_body: {
@@ -183,8 +183,8 @@ from langchain.chains import ConversationChain
 from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="<Your Keywords AI API Key>",
+    base_url="https://api.respan.ai/api/",
+    api_key="<Your Respan API Key>",
     model="gpt-4o-mini",
 )
 
@@ -199,9 +199,9 @@ import { ChatOpenAI } from "@langchain/openai";
 
 const llm = new ChatOpenAI({
     configuration: {
-        baseURL: "https://api.keywordsai.co/api/",
+        baseURL: "https://api.respan.ai/api/",
     },
-    openAIApiKey: "<Your Keywords AI API Key>",
+    openAIApiKey: "<Your Respan API Key>",
     modelName: "gpt-4o-mini",
 });
 
@@ -219,7 +219,7 @@ main();
 </CodeGroup>
 
 <Card title="View your analytics" href="https://platform.keywordsai.co/platform/dashboard">
-  Access your Keywords AI dashboard to see detailed analytics
+  Access your Respan dashboard to see detailed analytics
 </Card>
 
 ## Next Steps

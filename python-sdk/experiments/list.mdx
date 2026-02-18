@@ -60,9 +60,9 @@ Returns a dictionary containing:
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Get all experiments
 response = client.experiments.list()
@@ -168,10 +168,10 @@ for experiment in user_experiments['experiments']:
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def list_experiments_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     # Get experiments asynchronously
     response = await client.experiments.list(limit=20)
@@ -274,10 +274,10 @@ print(f"Exported {len(experiments)} experiments to {filename}")
 ### Asynchronous Batch Processing
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def process_experiments_batch():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     # Get experiments in batches
     batch_size = 25

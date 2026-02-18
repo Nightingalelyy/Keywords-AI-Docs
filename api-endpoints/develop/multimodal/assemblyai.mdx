@@ -1,9 +1,9 @@
 ---
 title: "AssemblyAI integration"
-api: "GET https://api.keywordsai.co/api/assemblyai/v2/transcript/{transcript_id}"
+api: "GET https://api.respan.ai/api/assemblyai/v2/transcript/{transcript_id}"
 ---
 
-Use Keywords AI gateway to call and log AssemblyAI speech-to-text models.
+Use Respan gateway to call and log AssemblyAI speech-to-text models.
 
 ## Authentication
 
@@ -33,9 +33,9 @@ X-Assemblyai-Api-Key: YOUR_ASSEMBLYAI_API_KEY
 ```python Python
 import requests
 
-url = "https://api.keywordsai.co/api/assemblyai/v2/transcript/{transcript_id}"
+url = "https://api.respan.ai/api/assemblyai/v2/transcript/{transcript_id}"
 headers = {
-    "Authorization": "Bearer YOUR_KEYWORDSAI_API_KEY",
+    "Authorization": "Bearer YOUR_RESPAN_API_KEY",
     "X-Assemblyai-Api-Key": "YOUR_ASSEMBLYAI_API_KEY"
 }
 
@@ -44,14 +44,14 @@ print(response.json())
 ```
 
 ```bash cURL
-curl -X GET "https://api.keywordsai.co/api/assemblyai/v2/transcript/{transcript_id}" \
-  -H "Authorization: Bearer YOUR_KEYWORDSAI_API_KEY" \
+curl -X GET "https://api.respan.ai/api/assemblyai/v2/transcript/{transcript_id}" \
+  -H "Authorization: Bearer YOUR_RESPAN_API_KEY" \
   -H "X-Assemblyai-Api-Key: YOUR_ASSEMBLYAI_API_KEY"
 ```
 
 </CodeGroup>
 
 <Note>
-For more details on using AssemblyAI with Keywords AI, see the [AssemblyAI integration guide](/integration/providers/assemblyai).
+For more details on using AssemblyAI with Respan, see the [AssemblyAI integration guide](/integration/providers/assemblyai).
 </Note>
 

@@ -5,7 +5,7 @@ description: "Auto-instrument popular libraries like OpenAI and Anthropic"
 
 ## Overview
 
-The Keywords AI Tracing SDK can automatically instrument popular LLM libraries, capturing all API calls without manual tracing code.
+The Respan Tracing SDK can automatically instrument popular LLM libraries, capturing all API calls without manual tracing code.
 
 ## Supported Libraries
 
@@ -20,10 +20,10 @@ The Keywords AI Tracing SDK can automatically instrument popular LLM libraries, 
 
 ```typescript
 import OpenAI from 'openai';
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app',
     instrumentModules: {
         openAI: OpenAI,  // Pass the OpenAI class
@@ -57,10 +57,10 @@ await keywordsAi.withWorkflow(
 
 ```typescript
 import Anthropic from '@anthropic-ai/sdk';
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app',
     instrumentModules: {
         anthropic: Anthropic,  // Pass the Anthropic class
@@ -95,10 +95,10 @@ await keywordsAi.withWorkflow(
 ```typescript
 import OpenAI from 'openai';
 import Anthropic from '@anthropic-ai/sdk';
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'multi-provider-app',
     instrumentModules: {
         openAI: OpenAI,
@@ -166,8 +166,8 @@ Captured data:
 ### Disable Specific Instrumentation
 
 ```typescript
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app',
     instrumentModules: {
         openAI: OpenAI,
@@ -179,8 +179,8 @@ const keywordsAi = new KeywordsAITelemetry({
 ### No Instrumentation
 
 ```typescript
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app',
     // Don't pass instrumentModules for manual tracing only
 });
@@ -192,10 +192,10 @@ You can combine auto-instrumentation with manual tracing:
 
 ```typescript
 import OpenAI from 'openai';
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app',
     instrumentModules: { openAI: OpenAI }
 });
@@ -293,13 +293,13 @@ Ensure you:
 1. Pass the class to `instrumentModules` (e.g., `OpenAI`, not `openai`)
 2. Call `initialize()` before creating SDK instances
 3. Wrap calls in `withWorkflow`, `withTask`, `withAgent`, or `withTool`
-4. Use the latest version of the Keywords AI Tracing SDK
+4. Use the latest version of the Respan Tracing SDK
 
 ### Example Debug
 
 ```typescript
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'debug-app',
     instrumentModules: { openAI: OpenAI },
     logLevel: 'debug'  // Enable debug logging

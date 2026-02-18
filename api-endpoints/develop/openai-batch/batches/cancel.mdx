@@ -1,6 +1,6 @@
 ---
 title: Cancel batch
-api: POST https://api.keywordsai.co/api/v1/batches/{batch_id}/cancel/
+api: POST https://api.respan.ai/api/v1/batches/{batch_id}/cancel/
 ---
 
 Cancel a batch job that is currently in progress. Cancellation is not immediate - the batch status will transition from `cancelling` to `cancelled` once the operation completes.
@@ -10,12 +10,12 @@ Cancel a batch job that is currently in progress. Cancellation is not immediate 
 </Note>
 
 <Note>
-**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Keywords AI dashboard (Settings → Providers).
+**Customer credentials required**: This endpoint requires your own OpenAI API key configured in Respan dashboard (Settings → Providers).
 </Note>
 
-## Keywords AI parameters
+## Respan parameters
 
-You can pass Keywords AI tracking parameters via the `X-Data-Keywordsai-Params` header:
+You can pass Respan tracking parameters via the `X-Data-Keywordsai-Params` header:
 
 ```bash
 -H "X-Data-Keywordsai-Params: {\"customer_identifier\": \"user123\"}"
@@ -98,7 +98,7 @@ import requests
 import json
 
 batch_id = "batch_abc123"
-url = f"https://api.keywordsai.co/api/v1/batches/{batch_id}/cancel/"
+url = f"https://api.respan.ai/api/v1/batches/{batch_id}/cancel/"
 headers = {
     "Authorization": "Bearer YOUR_API_KEY",
     "X-Data-Keywordsai-Params": json.dumps({
@@ -112,7 +112,7 @@ print(response.json())
 
 ```typescript TypeScript
 const batchId = 'batch_abc123';
-const url = `https://api.keywordsai.co/api/v1/batches/${batchId}/cancel/`;
+const url = `https://api.respan.ai/api/v1/batches/${batchId}/cancel/`;
 const headers = {
     'Authorization': 'Bearer YOUR_API_KEY',
     'X-Data-Keywordsai-Params': JSON.stringify({
@@ -130,7 +130,7 @@ console.log(data);
 ```
 
 ```bash cURL
-curl -X POST https://api.keywordsai.co/api/v1/batches/batch_abc123/cancel/ \
+curl -X POST https://api.respan.ai/api/v1/batches/batch_abc123/cancel/ \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "X-Data-Keywordsai-Params: {\"customer_identifier\": \"user123\"}"
 ```

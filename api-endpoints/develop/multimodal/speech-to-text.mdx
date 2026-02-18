@@ -1,12 +1,12 @@
 ---
 title: Speech to text
-api: POST https://api.keywordsai.co/api/audio/transcription
+api: POST https://api.respan.ai/api/audio/transcription
 mode: wide
 ---
 
-You could use Keywords AI's unified LLM API to call Speech-to-text model to turn audio into text.
+You could use Respan's unified LLM API to call Speech-to-text model to turn audio into text.
 
-Keywords AI now supports `whisper-1` from OpenAI.
+Respan now supports `whisper-1` from OpenAI.
 
 
 ## Integration steps:
@@ -16,7 +16,7 @@ Keywords AI now supports `whisper-1` from OpenAI.
 Go to [OpenAI API plaform](https://platform.openai.com/api-keys) to get your OpenAI API key.
 </Step>
 <Step title="Add OpenAI's API key in Providers" >
-You should add your OpenAI's API key on [Keywords AI credentials page](https://platform.keywordsai.co/platform/api/providers).
+You should add your OpenAI's API key on [Respan credentials page](https://platform.keywordsai.co/platform/api/providers).
 <img height="200" width="500"  src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/settings/providers.jpg"/>
 </Step>
 
@@ -26,8 +26,8 @@ You should add your OpenAI's API key on [Keywords AI credentials page](https://p
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.keywordsai.co/api/",
-    api_key="YOUR_KEYWORDSAI_API_KEY",
+    base_url="https://api.respan.ai/api/",
+    api_key="YOUR_RESPAN_API_KEY",
 )
 
 audio_file= open("/path/to/file/audio.mp3", "rb")
@@ -35,7 +35,7 @@ audio_file= open("/path/to/file/audio.mp3", "rb")
 response = client.audio.transcriptions.create(
     model="whisper-1",
     file=audio_file,
-    extra_body={"customer_identifier": "customer_11"}  # All Keywords AI parameters are supported
+    extra_body={"customer_identifier": "customer_11"}  # All Respan parameters are supported
 )
 ``` 
 
@@ -44,14 +44,14 @@ import OpenAI from "openai";
 import fs from "fs";
 
 const openai = new OpenAI({
-  baseURL: "https://api.keywordsai.co/api/",
-  apiKey: "YOUR_KEYWORDSAI_API_KEY",
+  baseURL: "https://api.respan.ai/api/",
+  apiKey: "YOUR_RESPAN_API_KEY",
 });
 
 const transcription = await openai.audio.transcriptions.create({
   model: "whisper-1",
   file: fs.createReadStream("/path/to/file/audio.mp3"),
-  extra_body: { customer_identifier: "customer_11" } // All Keywords AI parameters are supported
+  extra_body: { customer_identifier: "customer_11" } // All Respan parameters are supported
 });
 
 ```
@@ -72,7 +72,7 @@ def demo_call(input,
         'customer_identifier': "customer_11"
     }
 
-    response = requests.post('https://api.keywordsai.co/api/audio/transcription', headers=headers, json=data)
+    response = requests.post('https://api.respan.ai/api/audio/transcription', headers=headers, json=data)
     return response
 
 audio_file= open("/path/to/file/audio.mp3", "rb")
@@ -80,7 +80,7 @@ print(demo_call(audio_file).json())
 ```
 ```TypeScript TypeScript
 // Define the function with TypeScript
-fetch('https://api.keywordsai.co/api/audio/transcription', {
+fetch('https://api.respan.ai/api/audio/transcription', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -123,8 +123,8 @@ The timestamp granularities to populate for this transcription. response_format 
 </ParamField>
 
 
-## Keywords AI parameters
-See how to make a standard Keywords AI API call in the [Quick Start](/get-started/quickstart/gateway) guide.
+## Respan parameters
+See how to make a standard Respan API call in the [Quick Start](/get-started/quickstart/gateway) guide.
 ### Generation parameters
 
 <ParamField path="customer_credentials" type="object">

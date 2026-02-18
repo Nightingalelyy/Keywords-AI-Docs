@@ -16,10 +16,10 @@ getTracer(): Tracer
 ## Basic Usage
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app'
 });
 
@@ -124,7 +124,7 @@ Use `getTracer()` when you need to:
 - Implement advanced context propagation
 - Add span links to external traces
 - Integrate with custom OpenTelemetry instrumentation
-- Use OpenTelemetry features not exposed by Keywords AI SDK
+- Use OpenTelemetry features not exposed by Respan SDK
 
 ## Return Value
 
@@ -132,7 +132,7 @@ Returns the OpenTelemetry `Tracer` instance.
 
 ## Best Practices
 
-- Prefer Keywords AI's high-level methods for standard tracing
+- Prefer Respan's high-level methods for standard tracing
 - Use `getTracer()` only for advanced OpenTelemetry features
 - Always call `span.end()` when manually creating spans
 - Handle errors properly when manually managing spans

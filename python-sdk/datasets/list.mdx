@@ -107,9 +107,9 @@ Returns a `DatasetList` object with the following structure:
 ### Basic Dataset Listing
 
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Get all datasets
 datasets = client.datasets.list()
@@ -297,7 +297,7 @@ for dataset in quality_support.data:
 import asyncio
 
 async def list_datasets_async():
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     
     # Basic async listing
     datasets = await client.datasets.alist(limit=20)
@@ -317,7 +317,7 @@ datasets = asyncio.run(list_datasets_async())
 
 ```python
 async def get_all_datasets_async():
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     all_datasets = []
     offset = 0
     limit = 50
@@ -344,7 +344,7 @@ print(f"Total datasets: {len(all_datasets)}")
 
 ```python
 async def get_datasets_by_category(categories):
-    client = KeywordsAI(api_key="your-api-key")
+    client = Respan(api_key="your-api-key")
     
     # Create tasks for each category
     tasks = []

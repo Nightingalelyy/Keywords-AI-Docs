@@ -1,19 +1,19 @@
 ---
 title: "List customers"
-api: "GET https://api.keywordsai.co/api/users/list/"
+api: "GET https://api.respan.ai/api/users/list/"
 ---
 
 The Users List endpoint allows you to retrieve customers with pagination and sorting.
 
 ## Authentication
 
-<Info>Use your Keywords AI API key in `Authorization: Bearer YOUR_API_KEY`.</Info>
+<Info>Use your Respan API key in `Authorization: Bearer YOUR_API_KEY`.</Info>
 
 ## Query params
 You can add these params to the **URL params**.
 For example:
 ```
-https://api.keywordsai.co/api/users/list/?page=1&page_size=50&sort_by=-first_seen&environment=prod
+https://api.respan.ai/api/users/list/?page=1&page_size=50&sort_by=-first_seen&environment=prod
 ```
 
 <ParamField query="page" type="number" default={1}>
@@ -41,7 +41,7 @@ https://api.keywordsai.co/api/users/list/?page=1&page_size=50&sort_by=-first_see
 import requests
 from urllib.parse import urlencode
 
-base_url = "https://api.keywordsai.co/api/users/list/"
+base_url = "https://api.respan.ai/api/users/list/"
 params = {
     "page": 1,
     "page_size": 50,
@@ -56,7 +56,7 @@ print(response.json())
 ```
 
 ```bash cURL
-curl "https://api.keywordsai.co/api/users/list/?page=1&page_size=50&sort_by=-first_seen&environment=prod" \
+curl "https://api.respan.ai/api/users/list/?page=1&page_size=50&sort_by=-first_seen&environment=prod" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 </RequestExample>
@@ -67,7 +67,7 @@ curl "https://api.keywordsai.co/api/users/list/?page=1&page_size=50&sort_by=-fir
 ```json
 {
   "count": 51,
-  "next": "https://api.keywordsai.co/api/users/list/?page=2",
+  "next": "https://api.respan.ai/api/users/list/?page=2",
   "previous": null,
   "results": [
     {

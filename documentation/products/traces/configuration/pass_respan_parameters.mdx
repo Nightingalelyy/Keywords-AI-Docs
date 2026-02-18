@@ -1,14 +1,14 @@
 ---
-title: "Pass Keywords AI parameters"
-description: "Enrich your traces with Keywords AI parameters to gain deeper insights into your LLM workflows and user interactions."
+title: "Pass Respan parameters"
+description: "Enrich your traces with Respan parameters to gain deeper insights into your LLM workflows and user interactions."
 ---
 ---
 
 ## Overview
 
-Keywords AI parameters allow you to add contextual information to your traces, enabling better analytics, user tracking, and workflow understanding.
+Respan parameters allow you to add contextual information to your traces, enabling better analytics, user tracking, and workflow understanding.
 
-### Available Keywords AI Parameters
+### Available Respan Parameters
 
 | Parameter | Type | Description | Example |
 | --------- | ---- | ----------- | ------- |
@@ -19,7 +19,7 @@ Keywords AI parameters allow you to add contextual information to your traces, e
 | `custom_identifier` | string | Custom operation ID | `"ticket_789"` |
 | `thread_identifier` | string | Conversation thread ID | `"thread_abc"` |
 
-For the complete list of available parameters, see the [Keywords AI API reference](https://docs.keywordsai.co/api-endpoints/observe/logs/request-logging-endpoint).
+For the complete list of available parameters, see the [Respan API reference](https://docs.keywordsai.co/api-endpoints/observe/logs/request-logging-endpoint).
 
 ---
 
@@ -27,7 +27,7 @@ For the complete list of available parameters, see the [Keywords AI API referenc
 
 | Integration | Support | Notes |
 | ----------- | ------- | ----- |
-| **Keywords AI Native** | ✅ | Full support for all Keywords AI params |
+| **Respan Native** | ✅ | Full support for all Respan params |
 | **OpenAI Agents SDK** | ✅ | Not supported yet |
 | **Vercel AI SDK** | ❌ | Not supported yet |
 
@@ -43,22 +43,22 @@ Make sure you have everything ready before you start.
 
 <Tabs>
 
-<Tab title="Keywords AI Native">
+<Tab title="Respan Native">
 
-#### Basic Keywords AI params usage
+#### Basic Respan params usage
 
 <CodeGroup>
 ```python Python
-from keywordsai_tracing.decorators import workflow, task
-from keywordsai_tracing.contexts.span import keywordsai_span_attributes
+from respan_tracing.decorators import workflow, task
+from respan_tracing.contexts.span import respan_span_attributes
 from openai import OpenAI
 
 client = OpenAI()
 
 @task(name="simple_task")
 def simple_task():
-    with keywordsai_span_attributes(
-        keywordsai_params={
+    with respan_span_attributes(
+        respan_params={
             "customer_params": {
                 "customer_identifier": "user_123",
             },
@@ -72,11 +72,11 @@ def simple_task():
         return response.choices[0].message.content
 ```
 ```typescript JavaScript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 import OpenAI from 'openai';
 
-const keywordsAI = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY || "",
+const keywordsAI = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY || "",
     appName: 'params-example'
 });
 
@@ -86,7 +86,7 @@ async function simpleTask() {
     return await keywordsAI.withTask(
         { name: 'simple_task' },
         async () => {
-            return await keywordsAI.withKeywordsAISpanAttributes(
+            return await keywordsAI.withRespanSpanAttributes(
                 async () => {
                     const response = await openai.chat.completions.create({
                         model: 'gpt-3.5-turbo',
@@ -108,7 +108,7 @@ async function simpleTask() {
 </CodeGroup>
 
 
-**This workflow creates a trace hierarchy with Keywords AI params:**
+**This workflow creates a trace hierarchy with Respan params:**
 - Parent workflow: `customer_support_workflow` with thread and session metadata
 - Individual tasks: `user_query_processing`, `response_formatting` with customer and operation metadata
 - Complete parameter tracking: customer info, custom identifiers, and contextual metadata
@@ -120,10 +120,10 @@ async function simpleTask() {
 
 ## How to see this in the platform
 
-Once you've implemented Keywords AI params in your traces, you can view and filter by them in the Keywords AI platform:
+Once you've implemented Respan params in your traces, you can view and filter by them in the Respan platform:
 
 ### Accessing enriched traces
-1. Navigate to the [Traces page](https://platform.keywordsai.co/platform/traces) in your Keywords AI dashboard
+1. Navigate to the [Traces page](https://platform.keywordsai.co/platform/traces) in your Respan dashboard
 2. You'll see traces with additional metadata and customer information
 
 ### Understanding the enhanced trace view
@@ -132,9 +132,9 @@ Once you've implemented Keywords AI params in your traces, you can view and filt
 - **Thread grouping**: View related conversations using thread identifiers
 - **Custom identifiers**: Track specific operations or tickets
 
-### Example trace with Keywords AI params
+### Example trace with Respan params
 <Frame>
-<img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/traces/tracing-example.png" alt="Traces with Keywords AI parameters showing customer and metadata information" />
+<img src="https://keywordsai-static.s3.us-east-1.amazonaws.com/docs/traces/tracing-example.png" alt="Traces with Respan parameters showing customer and metadata information" />
 </Frame>
 
 The enhanced trace view shows:

@@ -13,7 +13,7 @@ get_context_value(key: str) -> Any
 
 ```python
 from opentelemetry.semconv_ai import SpanAttributes
-from keywordsai_tracing import workflow, get_client
+from respan_tracing import workflow, get_client
 
 @workflow(name="context_demo")
 def context_demo():

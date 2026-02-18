@@ -1,6 +1,6 @@
 ---
 title: List models
-api: GET https://api.keywordsai.co/api/models/public
+api: GET https://api.respan.ai/api/models/public
 authMethod: "none"
 ---
 
@@ -36,7 +36,7 @@ A list of models.
 ## Model parameters
 
 <ParamField name="model_name" type="string">
-    The name used in `model` parameter for calling the Keywords AI [chat completion](/api-endpoints/develop/gateway/chat-completions) endpoint.
+    The name used in `model` parameter for calling the Respan [chat completion](/api-endpoints/develop/gateway/chat-completions) endpoint.
 </ParamField>
 <ParamField name="max_context_window" type="number">
     The maximum number of tokens the model can process in one API call.
@@ -48,7 +48,7 @@ A list of models.
     Cost in US dollars for 1 million output tokens.
 </ParamField>
 <ParamField name="rate_limit" type="number">
-    The rate limit for calling this model with Keywords AI.
+    The rate limit for calling this model with Respan.
 </ParamField>
 <ParamField name="provider" type="object">
     The provider of the model.

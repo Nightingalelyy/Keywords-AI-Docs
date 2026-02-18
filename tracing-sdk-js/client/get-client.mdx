@@ -1,6 +1,6 @@
 ---
 title: "getClient()"
-description: "Access the Keywords AI client for span and trace operations"
+description: "Access the Respan client for span and trace operations"
 ---
 
 ## Overview
@@ -10,16 +10,16 @@ description: "Access the Keywords AI client for span and trace operations"
 ## Signature
 
 ```typescript
-getClient(): KeywordsAIClient
+getClient(): RespanClient
 ```
 
 ## Basic Usage
 
 ```typescript
-import { KeywordsAITelemetry } from '@keywordsai/tracing';
+import { RespanTelemetry } from '@respan/tracing';
 
-const keywordsAi = new KeywordsAITelemetry({
-    apiKey: process.env.KEYWORDSAI_API_KEY,
+const keywordsAi = new RespanTelemetry({
+    apiKey: process.env.RESPAN_API_KEY,
     appName: 'my-app'
 });
 
@@ -57,7 +57,7 @@ await keywordsAi.withWorkflow(
         
         // Update span with custom attributes
         client.updateCurrentSpan({
-            keywordsai_params: {
+            respan_params: {
                 customer_identifier: 'user-123',
                 metadata: { 
                     environment: 'production',

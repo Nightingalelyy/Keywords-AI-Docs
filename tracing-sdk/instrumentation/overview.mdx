@@ -1,25 +1,25 @@
 ---
 title: "Instrumentation"
-description: "Configure auto-instrumentation via Instruments and KeywordsAITelemetry"
+description: "Configure auto-instrumentation via Instruments and RespanTelemetry"
 ---
 
 ## Overview
 
-Auto-instrumentation captures spans from supported libraries. Control it with `KeywordsAITelemetry` parameters.
+Auto-instrumentation captures spans from supported libraries. Control it with `RespanTelemetry` parameters.
 
 ## Configure
 
 ```python
-from keywordsai_tracing import KeywordsAITelemetry, Instruments
+from respan_tracing import RespanTelemetry, Instruments
 
 # Enable specific instruments
-KeywordsAITelemetry(instruments={Instruments.OPENAI, Instruments.ANTHROPIC})
+RespanTelemetry(instruments={Instruments.OPENAI, Instruments.ANTHROPIC})
 
 # Block instruments
-KeywordsAITelemetry(block_instruments={Instruments.REQUESTS, Instruments.URLLIB3})
+RespanTelemetry(block_instruments={Instruments.REQUESTS, Instruments.URLLIB3})
 
 # Disable all auto-instrumentation
-KeywordsAITelemetry(instruments=set())
+RespanTelemetry(instruments=set())
 ```
 
 ## Instruments
@@ -32,7 +32,7 @@ KeywordsAITelemetry(instruments=set())
 
 ## Environment
 
-- `KEYWORDSAI_API_KEY`
-- `KEYWORDSAI_BASE_URL` (default `https://api.keywordsai.co/api`)
-- `KEYWORDSAI_LOG_LEVEL` (`DEBUG`|`INFO`|`WARNING`|`ERROR`|`CRITICAL`)
-- `KEYWORDSAI_BATCHING_ENABLED` (`true`|`false`)
+- `RESPAN_API_KEY`
+- `RESPAN_BASE_URL` (default `https://api.respan.ai/api`)
+- `RESPAN_LOG_LEVEL` (`DEBUG`|`INFO`|`WARNING`|`ERROR`|`CRITICAL`)
+- `RESPAN_BATCHING_ENABLED` (`true`|`false`)

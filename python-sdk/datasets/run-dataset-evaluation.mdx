@@ -43,9 +43,9 @@ Returns a dictionary containing the evaluation job information and status.
 
 ### Basic Usage
 ```python
-from keywordsai import KeywordsAI
+from keywordsai import Respan
 
-client = KeywordsAI(api_key="your-api-key")
+client = Respan(api_key="your-api-key")
 
 # Run evaluation on dataset
 evaluation = client.datasets.run_dataset_evaluation(
@@ -72,10 +72,10 @@ print(f"Named evaluation '{evaluation['name']}' started")
 ### Asynchronous Usage
 ```python
 import asyncio
-from keywordsai import AsyncKeywordsAI
+from keywordsai import AsyncRespan
 
 async def run_evaluation_example():
-    client = AsyncKeywordsAI(api_key="your-api-key")
+    client = AsyncRespan(api_key="your-api-key")
     
     evaluation = await client.datasets.run_dataset_evaluation(
         dataset_id="dataset_123",
